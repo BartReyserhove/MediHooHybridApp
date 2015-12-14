@@ -1,0 +1,22 @@
+[
+  {
+    "id":1,
+    "provider":"Ziekenhuis temp",
+    "email":"ziekenhuis.temp@gmail.com"
+  },
+  {
+    "id":2,
+    "provider":"Ziekenhuis temp2",
+    "email":"ziekenhuis.temp2@gmail.com"
+  },
+  {
+    "id":3,
+    "provider":"tandars temp",
+    "email":"tandarst.temp@gmail.com"
+  },
+  {
+    "id":4,
+    "provider":"tandarst temp2",
+    "email":"tandarst.temp2@gmail.com"
+  }
+]
