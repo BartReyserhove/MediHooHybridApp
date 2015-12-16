@@ -5,21 +5,18 @@
   'use strict';
 
   angular.module('mediHooApp.controllers')
-    .controller('SearchResultListCtrl', ['$scope', 'HealthCareFactory',
-      function ($scope, HealthCareFactory) {
+    .controller('SearchResultListCtrl', ['$scope', '$ionicNavBarDelegate', 'HealthCareFactory',
+      function ($scope, $ionicNavBarDelegate, HealthCareFactory) {
+        $ionicNavBarDelegate.showBackButton(true);
+
         this._init = function () {
-          HealthCareFactory.search().then(function (res) {
-            if(!res.error) {
-              console.log(res);
-              $scope.results = res.data;
-            }
+          $scope.isReadOnly = true;
+          $scope.maxRating = 5;
+          HealthCareFactory.getCurrentResultSet().then(function (data) {
+            $scope.results = data;
           });
         };
 
         this._init();
-
-      }
-
-    ]);
-})
-();
+      }]);
+})();

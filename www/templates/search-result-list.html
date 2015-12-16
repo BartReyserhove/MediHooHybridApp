@@ -1,17 +1,16 @@
-<ion-view view-title="Result">
+<ion-view view-title="Results">
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="result in results" type="item-text-wrap" href="#/tab/search/result/{{result.id}}">
-        <!--<img ng-src="{{chat.face}}">-->
-        <h2>{{result.provider}}</h2>
-        <p>{{result.email}}</p>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="result in results"
+                type="item-text-wrap" ui-sref="tab.search-result-detail({resultId: result.Data.Id})">
+        <img ng-src="{{result.Data.ProfilePictureUrl}}">
+        <h2 ng-bind="result.Data.DisplayName"></h2>
+        <p><span ng-bind="result.Data.AddressLine1"></span>, <span ng-bind="result.Data.City"></span></p>
+        <p><uib-rating class="result-rating" ng-model="result.Data.Rating" max="maxRating" readonly="isReadOnly"
+                      state-on="'ion-ios-star'" state-off="'ion-ios-star-outline'"></uib-rating>
+        </p>
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>
-<!--<ion-view view-title="Result">
-  <ion-content>
-    <ion-item href="#/tab/search/result/1">detail</ion-item>
-  </ion-content>
-</ion-view>-->

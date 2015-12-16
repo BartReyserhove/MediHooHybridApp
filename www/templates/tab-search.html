@@ -1,5 +1,45 @@
 <ion-view view-title="Search">
   <ion-content>
-    <ion-item href="#/tab/search/result">results</ion-item>
+    <div class="list list-inset">
+      <!--<label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>-->
+      <!--<input type="text" placeholder="Find a country">-->
+      <input type="text" ng-model="selectedCountry" placeholder="Find a country"
+             uib-typeahead="country as country.Name for country in getCountries($viewValue)"
+             typeahead-loading="loadingLocations" typeahead-no-results="noResults"
+             style="width: 100%;
+                    padding: 0 12px;
+                    min-width: 52px;
+                    min-height: 47px;
+                    border-width: 1px;
+                    border-style: solid;
+                    border-radius: 4px;
+                    border-color: #ef473a;"
+             typeahead-popup-template-url="customPopupTemplate.html">
+      <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+
+      <div ng-show="noResults">
+        <i class="glyphicon glyphicon-remove"></i> No Results Found
+      </div>
+      <!--</label>-->
+    </div>
+    <button class="button button-block button-assertive confirm-button-fixed-bottom" style="margin-right: 10px"
+            ng-click="showResults(selectedCountry)">
+      Search
+    </button>
   </ion-content>
 </ion-view>
+<script type="text/ng-template" id="customPopupTemplate.html">
+  <div class="custom-popup-wrapper"
+       ng-style="{top: position().top+'px', left: position().left+'px'}"
+       style="display: block;"
+       ng-show="isOpen() && !moveInProgress"
+       aria-hidden="{{!isOpen()}}">
+    <ul class="dropdown-menu" role="listbox">
+      <li ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
+          ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
+        <div uib-typeahead-match index="$index" match="match" query="query" template-url="templateUrl"></div>
+      </li>
+    </ul>
+  </div>
+</script>

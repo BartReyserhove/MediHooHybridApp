@@ -1,0 +1,469 @@
+{
+  "TotalCount": 696,
+  "PageSize": 10,
+  "Documents": [
+    {
+      "Key": "AA5EB254746C9D198CABAA0C53AC5DA3",
+      "Score": 8.285714,
+      "Data": {
+        "Id": "ae5afada-b2ba-4e57-9b37-c64d47f8ead3",
+        "DisplayName": "REGIONAAL ZIEKENHUIS HEILIG HART LEUVEN",
+        "LegalName": "",
+        "AddressLine1": "Naamsestraat",
+        "City": "Leuven",
+        "ZipCode": null,
+        "Region": "Flanders",
+        "Country": "Belgium",
+        "CustomLocation": {
+          "type": "Point",
+          "coordinates": [
+            0,
+            0
+          ]
+        },
+        "Location": {
+          "type": "Point",
+          "coordinates": [
+            4.70166414949201,
+            50.8722792094284
+          ]
+        },
+        "Telephone": "+32 ((0)16) 209211",
+        "Website": "www.hhleuven.be/",
+        "EmailAddress": "info@hhleuven.be",
+        "Rating": 4.428571,
+        "ProfilePictureUrl": "https://mhprodweproviders.blob.core.windows.net/public/ae5afada-b2ba-4e57-9b37-c64d47f8ead3/8d75070c-ad6b-4961-b896-5059b06f5e70/Regionaalziekenhuisheilighart_Naamsestraat_1.jpg",
+        "HasClaimed": false,
+        "HasPictures": true,
+        "Url": "/hospitals/belgium/leuven/regionaal-ziekenhuis-heilig-hart-leuven",
+        "Classifications": [],
+        "Specializations": [],
+        "Professions": [],
+        "Types": [
+          "Hospitals",
+          "Organisation"
+        ],
+        "IsHospital": true,
+        "Recommended": true,
+        "HouseNumber": "105"
+      }
+    },
+    {
+      "Key": "B7A4DD6649F23956B108747E655025DF",
+      "Score": 3.5,
+      "Data": {
+        "Id": "bbf0e908-ab89-41ad-8464-a6112ff9334c",
+        "DisplayName": "CENTRE HOSPITALIER DE L'ARDENNE",
+        "LegalName": "",
+        "AddressLine1": "35 Avenue de Houffalize",
+        "City": "Libramont",
+        "ZipCode": null,
+        "Region": "",
+        "Country": "Belgium",
+        "CustomLocation": {
+          "type": "Point",
+          "coordinates": [
+            0,
+            0
+          ]
+        },
+        "Location": {
+          "type": "Point",
+          "coordinates": [
+            5.3810781,
+            49.9248081
+          ]
+        },
+        "Telephone": "+32 ((0)61) 238500",
+        "Website": null,
+        "EmailAddress": null,
+        "Rating": 4,
+        "ProfilePictureUrl": "https://mhprodweproviders.blob.core.windows.net/public/bbf0e908-ab89-41ad-8464-a6112ff9334c/3b42c912-afa7-4cf8-a8b0-4292f655f297/Centre_Hospitalier_de_l_Ardenne_Libramont_Belgium.jpeg",
+        "HasClaimed": false,
+        "HasPictures": true,
+        "Url": "/hospitals/belgium/libramont/centre-hospitalier-de-lardenne2",
+        "Classifications": [],
+        "Specializations": [],
+        "Professions": [],
+        "Types": [
+          "Hospitals",
+          "Organisation"
+        ],
+        "IsHospital": true,
+        "Recommended": false,
+        "HouseNumber": null
+      }
+    },
+    {
+      "Key": "F49B13A80575954933A9058E7DA9D937",
+      "Score": 3.2857144,
+      "Data": {
+        "Id": "6cecfc0c-04ee-4277-881b-09eaa23cddf9",
+        "DisplayName": "AZ GROENINGE - CAMPUS KENNEDYLAAN",
+        "LegalName": "",
+        "AddressLine1": "President Kennedylaan",
+        "City": "Kortrijk",
+        "ZipCode": null,
+        "Region": "",
+        "Country": "Belgium",
+        "CustomLocation": {
+          "type": "Point",
+          "coordinates": [
+            3.26518,
+            50.801015
+          ]
+        },
+        "Location": {
+          "type": "Point",
+          "coordinates": [
+            3.2747538,
+            50.8044933
+          ]
+        },
+        "Telephone": "+32 ((0)56) 636363",
+        "Website": "www.azgroeninge.be",
+        "EmailAddress": "info@azgroeninge.be",
+        "Rating": 4.428571,
+        "ProfilePictureUrl": "https://mhprodweproviders.blob.core.windows.net/public/6cecfc0c-04ee-4277-881b-09eaa23cddf9/ae3acda1-80bb-48f0-8d62-461db95004f1/Belgium AZ GROENINGE - CAMPUS KENNEDYLAAN_1.jpeg",
+        "HasClaimed": false,
+        "HasPictures": true,
+        "Url": "/hospitals/belgium/kortrijk/az-groeninge-campus-kennedylaan",
+        "Classifications": [],
+        "Specializations": [],
+        "Professions": [],
+        "Types": [
+          "Hospitals",
+          "Organisation"
+        ],
+        "IsHospital": true,
+        "Recommended": false,
+        "HouseNumber": "4"
+      }
+    },
+    {
+      "Key": "4FAC069B2A230E867A74F2B5E7D8304B",
+      "Score": 3.2857144,
+      "Data": {
+        "Id": "aa882a6c-861a-4fc2-83b1-26a11058705a",
+        "DisplayName": "ALGEMEEN ZIEKENHUIS SINT-BLASIUS (CAMPUS ZELE)",
+        "LegalName": "",
+        "AddressLine1": "Koevliet",
+        "City": "Zele",
+        "ZipCode": null,
+        "Region": "",
+        "Country": "Belgium",
+        "CustomLocation": {
+          "type": "Point",
+          "coordinates": [
+            0,
+            0
+          ]
+        },
+        "Location": {
+          "type": "Point",
+          "coordinates": [
+            4.0264748,
+            51.0666025
+          ]
+        },
+        "Telephone": "+32 ((0)52) 456400",
+        "Website": "www.azsintblasius.be",
+        "EmailAddress": null,
+        "Rating": 4.428571,
+        "ProfilePictureUrl": "https://mhprodweproviders.blob.core.windows.net/public/aa882a6c-861a-4fc2-83b1-26a11058705a/da9bb38d-b6c3-4e6e-a031-5e1e64e5affb/Belgium_ALGEMEEN ZIEKENHUIS SINT-BLASIUS Zele_1.jpg",
+        "HasClaimed": false,
+        "HasPictures": true,
+        "Url": "/hospitals/belgium/zele/algemeen-ziekenhuis-sint-blasius-campus-zele",
+        "Classifications": [],
+        "Specializations": [],
+        "Professions": [],
+        "Types": [
+          "Hospitals",
+          "Organisation"
+        ],
+        "IsHospital": true,
+        "Recommended": false,
+        "HouseNumber": "5"
+      }
+    },
+    {
+      "Key": "98891071EAE877D93BA2A570A2742589",
+      "Score": 3.214286,
+      "Data": {
+        "Id": "2e9aeece-2320-4888-ab6a-4b3ed0be6985",
+        "DisplayName": "ALGEMEEN ZIEKENHUIS SINT-BLASIUS",
+        "LegalName": "",
+        "AddressLine1": "Kroonveldlaan",
+        "City": "Dendermonde",
+        "ZipCode": null,
+        "Region": "Flanders",
+        "Country": "Belgium",
+        "CustomLocation": {
+          "type": "Point",
+          "coordinates": [
+            0,
+            0
+          ]
+        },
+        "Location": {
+          "type": "Point",
+          "coordinates": [
+            4.1160661,
+            51.0266926
+          ]
+        },
+        "Telephone": "+32 ((0)52) 252011",
+        "Website": "www.azsintblasius.be",
+        "EmailAddress": "info@azsintblasius.be",
+        "Rating": 4.571428,
+        "ProfilePictureUrl": "https://mhprodweproviders.blob.core.windows.net/public/2e9aeece-2320-4888-ab6a-4b3ed0be6985/14c86690-b40f-4c24-a1f1-d973fe05870c/Belgium_ALGEMEEN ZIEKENHUIS SINT BLASIUS Dendermonde_1.jpg",
+        "HasClaimed": false,
+        "HasPictures": true,
+        "Url": "/hospitals/belgium/dendermonde/algemeen-ziekenhuis-sint-blasius",
+        "Classifications": [
+          "General Acute Care Hospital"
+        ],
+        "Specializations": [],
+        "Professions": [],
+        "Types": [
+          "Hospitals",
+          "Organisation"
+        ],
+        "IsHospital": true,
+        "Recommended": false,
+        "HouseNumber": "50"
+      }
+    },
+    {
+      "Key": "F844B3E88B93CF00F8A0794F9B61FC81",
+      "Score": 3.214286,
+      "Data": {
+        "Id": "7832cec3-eb90-45dd-9c88-611e7b18a0b7",
+        "DisplayName": "R.Z. JAN YPERMAN",
+        "LegalName": "",
+        "AddressLine1": "Briekstraat",
+        "City": "Ieper",
+        "ZipCode": null,
+        "Region": "",
+        "Country": "Belgium",
+        "CustomLocation": {
+          "type": "Point",
+          "coordinates": [
+            2.898427,
+            50.865051
+          ]
+        },
+        "Location": {
+          "type": "Point",
+          "coordinates": [
+            2.89145617104676,
+            50.85184265
+          ]
+        },
+        "Telephone": "+32 ((0)57) 223111",
+        "Website": "http://www.yperman.net",
+        "EmailAddress": "info@yperman.net",
+        "Rating": 4.571428,
+        "ProfilePictureUrl": "https://mhprodweproviders.blob.core.windows.net/public/7832cec3-eb90-45dd-9c88-611e7b18a0b7/f013ab0e-9be1-4667-bc06-addec83f076b/Jan_Yperman_Ieper_Belgium.jpg",
+        "HasClaimed": false,
+        "HasPictures": true,
+        "Url": "/hospitals/belgium/ieper/rz-jan-yperman",
+        "Classifications": [],
+        "Specializations": [],
+        "Professions": [],
+        "Types": [
+          "Hospitals",
+          "Organisation"
+        ],
+        "IsHospital": true,
+        "Recommended": false,
+        "HouseNumber": "12"
+      }
+    },
+    {
+      "Key": "873D143790CD4F98886CE00F6DDCAB30",
+      "Score": 2,
+      "Data": {
+        "Id": "8d225da3-b275-4f01-8c53-69adbf03c889",
+        "DisplayName": "FALCK BENELUX AMBUCE",
+        "LegalName": "",
+        "AddressLine1": "Bijkhoevelaan ",
+        "City": "Wijnegem",
+        "ZipCode": null,
+        "Region": "",
+        "Country": "Belgium",
+        "CustomLocation": {
+          "type": "Point",
+          "coordinates": [
+            0,
+            0
+          ]
+        },
+        "Location": {
+          "type": "Point",
+          "coordinates": [
+            4.49258566400292,
+            51.2333062491931
+          ]
+        },
+        "Telephone": "+32 ((0)3) 3530505",
+        "Website": "http://www.falck.com/be/emergency/nl/Pages/frontpage.aspx",
+        "EmailAddress": "info@falck.be",
+        "Rating": 0,
+        "ProfilePictureUrl": "https://mhprodweproviders.blob.core.windows.net/public/8d225da3-b275-4f01-8c53-69adbf03c889/abe81090-785d-4a48-859e-5bbd6c179e86/Falck_Bijkhoevelaan_1.jpg",
+        "HasClaimed": false,
+        "HasPictures": true,
+        "Url": "/transportation-services/belgium/wijnegem/falck-benelux-ambuce",
+        "Classifications": [],
+        "Specializations": [],
+        "Professions": [],
+        "Types": [
+          "Transportation Services",
+          "Organisation"
+        ],
+        "IsHospital": false,
+        "Recommended": false,
+        "HouseNumber": "8"
+      }
+    },
+    {
+      "Key": "47D3BA4A4D518112DA4FB89E9150F137",
+      "Score": 2,
+      "Data": {
+        "Id": "2706ef69-3301-42b0-a274-8244182f501c",
+        "DisplayName": "INSTITUT JULES BORDET INSTITUUT",
+        "LegalName": "",
+        "AddressLine1": "Waterloolaan - Boulevard de Waterloo",
+        "City": "Brussel",
+        "ZipCode": null,
+        "Region": "",
+        "Country": "Belgium",
+        "CustomLocation": {
+          "type": "Point",
+          "coordinates": [
+            0,
+            0
+          ]
+        },
+        "Location": {
+          "type": "Point",
+          "coordinates": [
+            4.3516841,
+            50.8465406
+          ]
+        },
+        "Telephone": "+32 ((0)2) 5413111",
+        "Website": "www.bordet.be",
+        "EmailAddress": "website@bordet.be",
+        "Rating": 0,
+        "ProfilePictureUrl": "https://mhprodweproviders.blob.core.windows.net/public/2706ef69-3301-42b0-a274-8244182f501c/79d31cf5-d386-4fce-9af3-7c3485b047b6/JulesBordet_Waterloolaan_1.jpg",
+        "HasClaimed": false,
+        "HasPictures": true,
+        "Url": "/hospitals/belgium/brussel/institut-jules-bordet-instituut",
+        "Classifications": [],
+        "Specializations": [],
+        "Professions": [],
+        "Types": [
+          "Hospitals",
+          "Organisation"
+        ],
+        "IsHospital": true,
+        "Recommended": false,
+        "HouseNumber": "121"
+      }
+    },
+    {
+      "Key": "FFDE5F76BE4EB4CE1F98304C49CB1012",
+      "Score": 2,
+      "Data": {
+        "Id": "8921ad14-35a2-43f1-85a4-9638b8e2bbe9",
+        "DisplayName": "UVC / CHU BRUGMANN (SITE KONINGIN ASTRID)",
+        "LegalName": "",
+        "AddressLine1": "Bruynstraat - Rue Bruyn",
+        "City": "Brussel",
+        "ZipCode": null,
+        "Region": "",
+        "Country": "Belgium",
+        "CustomLocation": {
+          "type": "Point",
+          "coordinates": [
+            0,
+            0
+          ]
+        },
+        "Location": {
+          "type": "Point",
+          "coordinates": [
+            4.3516841,
+            50.8465406
+          ]
+        },
+        "Telephone": "+32 ((0)2) 4772111",
+        "Website": "www.chu-brugmann.be/nl/index.asp",
+        "EmailAddress": "info@uvc-brugmann.be",
+        "Rating": 0,
+        "ProfilePictureUrl": "https://mhprodweproviders.blob.core.windows.net/public/8921ad14-35a2-43f1-85a4-9638b8e2bbe9/c2c8233a-0704-4ce2-b531-4568c7e8878b/Brugmannastrid_Bruynstraat_1.jpg",
+        "HasClaimed": false,
+        "HasPictures": true,
+        "Url": "/hospitals/belgium/brussel/uvc-chu-brugmann-site-koningin-astrid",
+        "Classifications": [],
+        "Specializations": [],
+        "Professions": [],
+        "Types": [
+          "Hospitals",
+          "Organisation"
+        ],
+        "IsHospital": true,
+        "Recommended": false,
+        "HouseNumber": "1"
+      }
+    },
+    {
+      "Key": "F1DE12C476E35FA91503B6F534DA6900",
+      "Score": 2,
+      "Data": {
+        "Id": "9aebf207-1111-444c-ac56-20d8c1a12e2a",
+        "DisplayName": "VALIDA (SITE GOFFIN)",
+        "LegalName": "",
+        "AddressLine1": "Avenue Josse Goffin",
+        "City": "Brussels",
+        "ZipCode": null,
+        "Region": "Brussels Capital Region",
+        "Country": "Belgium",
+        "CustomLocation": {
+          "type": "Point",
+          "coordinates": [
+            0,
+            0
+          ]
+        },
+        "Location": {
+          "type": "Point",
+          "coordinates": [
+            4.30632934422328,
+            50.8672632
+          ]
+        },
+        "Telephone": "",
+        "Website": "http://www.valida.be/",
+        "EmailAddress": null,
+        "Rating": 0,
+        "ProfilePictureUrl": "https://mhprodweproviders.blob.core.windows.net/public/9aebf207-1111-444c-ac56-20d8c1a12e2a/f39f57af-4e7a-4af4-8cf4-4eef47690421/Valida_Goffin_1.jpg",
+        "HasClaimed": false,
+        "HasPictures": true,
+        "Url": "/hospitals/belgium/brussels/valida-site-goffin",
+        "Classifications": [],
+        "Specializations": [],
+        "Professions": [],
+        "Types": [
+          "Hospitals",
+          "Organisation"
+        ],
+        "IsHospital": true,
+        "Recommended": false,
+        "HouseNumber": "180"
+      }
+    }
+  ],
+  "AreAlternativeResults": false
+}

@@ -6,14 +6,17 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var inject = require('gulp-inject');
+var angularFilesort = require('gulp-angular-filesort');
 
 var paths = {
-  sass: ['./scss/**/*.scss']
+  sass: ['./scss/**/*.scss'],
+  components: ['./www/js/{,**/}*.js', './www/css/**/*.css']
 };
 
-gulp.task('default', ['sass']);
+gulp.task('default', ['sass', 'index']);
 
-gulp.task('sass', function(done) {
+gulp.task('sass', function (done) {
   gulp.src('./scss/ionic.app.scss')
     .pipe(sass())
     .on('error', sass.logError)
@@ -21,23 +24,37 @@ gulp.task('sass', function(done) {
     .pipe(minifyCss({
       keepSpecialComments: 0
     }))
-    .pipe(rename({ extname: '.min.css' }))
+    .pipe(rename({extname: '.min.css'}))
     .pipe(gulp.dest('./www/css/'))
     .on('end', done);
 });
 
-gulp.task('watch', function() {
-  gulp.watch(paths.sass, ['sass']);
+gulp.task('index', function () {
+  return gulp.src('./www/index.html')
+    .pipe(inject(
+      gulp.src('./www/js/{,**/}*.js', {relative: true}) // gulp-angular-filesort depends on file contents, so don't use {read: false} here
+        .pipe(angularFilesort()),
+      {
+        relative: true
+      }
+    ))
+    .pipe(inject(gulp.src('./www/css/**/*.css', {read: false}), {relative: true}))
+  .pipe(gulp.dest('./www'));
 });
 
-gulp.task('install', ['git-check'], function() {
+gulp.task('watch', function () {
+  gulp.watch(paths.sass, ['sass']);
+  gulp.watch(paths.components, ['index']);
+});
+
+gulp.task('install', ['git-check'], function () {
   return bower.commands.install()
-    .on('log', function(data) {
+    .on('log', function (data) {
       gutil.log('bower', gutil.colors.cyan(data.id), data.message);
     });
 });
 
-gulp.task('git-check', function(done) {
+gulp.task('git-check', function (done) {
   if (!sh.which('git')) {
     console.log(
       '  ' + gutil.colors.red('Git is not installed.'),

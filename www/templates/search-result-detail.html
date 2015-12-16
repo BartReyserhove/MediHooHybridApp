@@ -12,8 +12,50 @@
     </p>
   </ion-content>
 </ion-view>-->
-<ion-view view-title="Detail">
+<ion-view view-title="{{result.Data.DisplayName}}">
   <ion-content>
-    <ion-item>detail</ion-item>
+    <div class="list card">
+      <!--<div class="item item-avatar">
+        <img ng-src="{{result.Data.ProfilePictureUrl}}">
+
+        <h2 style="position: absolute; bottom: 30%;">
+          <span ng-bind="result.Data.AddressLine1"></span>, <span ng-bind="result.Data.City"></span>
+        </h2>
+      </div>-->
+
+      <p class="item item-icon-left">
+        <i class="icon ion-home"></i>
+        <span ng-bind="result.Data.AddressLine1"></span>, <span ng-bind="result.Data.City"></span>
+      </p>
+
+      <p class="item item-icon-left">
+        <i class="icon ion-ios-telephone"></i>
+        <span ng-bind="result.Data.Telephone">None</span>
+      </p>
+
+      <p class="item item-icon-left">
+        <i class="icon ion-ios-world"></i>
+        <a ng-href="//{{result.Data.Website}}" ng-bind="result.Data.Website"></a>
+      </p>
+
+      <p class="item item-icon-left">
+        <i class="icon ion-ios-email"></i>
+        <span ng-bind="result.Data.EmailAddress">None</span>
+      </p>
+
+      <div class="item item-icon-left">
+        <i class="icon ion-ios-briefcase"></i>
+        <span ng-if="result.Data.Types.length === 0">None</span>
+
+        <div ng-repeat="type in result.Data.Types">
+          <span ng-bind="type"></span>
+          <!--<span ng-if="$index < result.Data.Types.length - 1"> / </span>-->
+        </div>
+      </div>
+
+      <div style="width: 100%;">
+        <img ng-src="{{result.Data.ProfilePictureUrl}}">
+      </div>
+    </div>
   </ion-content>
 </ion-view>

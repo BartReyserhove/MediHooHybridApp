@@ -1,1 +1,14 @@
 /* Empty. Add your own CSS if you like */
+.dropdown-menu {
+  padding-left: 15px;
+  margin-top: 10px;
+}
+
+.confirm-button-fixed-bottom {
+  position: fixed;
+  bottom: 50px;
+}
+
+.result-rating span {
+  display: none;
+}
