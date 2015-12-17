@@ -40,7 +40,14 @@
 
       <p class="item item-icon-left">
         <i class="icon ion-ios-email"></i>
-        <span ng-bind="result.Data.EmailAddress">None</span>
+        <a ng-href="mailto://{{result.Data.EmailAddress}}" ng-bind="result.Data.EmailAddress">None</a>
+      </p>
+
+      <p class="item item-icon-left">
+        <i class="icon ion-ios-navigate"></i>
+        <a ng-href="maps://?q={{result.Data.Location.coordinates[1]}},{{result.Data.Location.coordinates[0]}}">
+          Open in navigation app
+        </a>
       </p>
 
       <div class="item item-icon-left">

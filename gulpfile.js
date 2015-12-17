@@ -38,7 +38,7 @@ gulp.task('index', function () {
         relative: true
       }
     ))
-    .pipe(inject(gulp.src('./www/css/**/*.css', {read: false}), {relative: true}))
+    .pipe(inject(gulp.src(['./www/css/**/*.min.css'], {read: false}), {relative: true}))
   .pipe(gulp.dest('./www'));
 });
 

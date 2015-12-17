@@ -12,3 +12,7 @@
 .result-rating span {
   display: none;
 }
+
+ion-content {
+  background-image: url('/img/stripe.png');
+}
