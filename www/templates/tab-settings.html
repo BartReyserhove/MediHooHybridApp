@@ -1,4 +1,57 @@
 <ion-view view-title="Settings">
-  <ion-content>
+  <ion-content scroll="false">
+    <div class="list card">
+
+      <div class="item item-divider">
+        Preferences
+      </div>
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Language
+        </div>
+        <select>
+          <option selected>English</option>
+          <option>Dutch</option>
+          <option>French</option>
+        </select>
+      </label>
+
+      <div class="item item-toggle">
+        <h2>
+          Use Location
+        </h2>
+        <label class="toggle toggle-assertive">
+          <input type="checkbox" checked>
+
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </div>
+
+    </div>
+    <div class="list card">
+      <div class="item item-divider">
+        Extra
+      </div>
+      <a class="item item-icon-left" href="#">
+        <i class="icon ion-ios-locked"></i>
+        Disclaimer
+      </a>
+      <a class="item item-icon-left" href="#">
+        <i class="icon ion-ios-body"></i>
+        Privacy policy
+      </a>
+      <a class="item item-icon-left" href="#">
+        <i class="icon ion-ios-heart"></i>
+        Rate this app
+      </a>
+      <a class="item item-icon-left" href="#">
+        <i class="icon ion-ios-chatbubble"></i>
+        Report a bug or make a suggestion
+      </a>
+
+    </div>
   </ion-content>
 </ion-view>

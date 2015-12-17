@@ -14,5 +14,24 @@
 }
 
 ion-content {
-  background-image: url('/img/stripe.png');
+  background-image: url('../img/stripe.png');
 }
+
+.item-icon-left-large {
+  padding-left: 64px;
+}
+
+.about-page-heading {
+  color: #56646e;
+  text-align: center;
+}
+
+.about-page-heading span {
+  color: #f48231;
+}
+
+.about-page-subheading {
+  color: #f48231;
+}
+
+

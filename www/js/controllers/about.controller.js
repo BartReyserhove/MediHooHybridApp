@@ -2,10 +2,9 @@
  * Created by oliviercappelle on 14/12/15.
  */
 (function () {
-    'use strict';
+  'use strict';
 
-    angular.module('mediHooApp.controllers')
-      .controller('AboutCtrl', ['$scope', function($scope) {
-
-      }]);
+  angular.module('mediHooApp.controllers')
+    .controller('AboutCtrl', ['$scope', '$ionicSlideBoxDelegate', function ($scope, $ionicSlideBoxDelegate) {
+    }]);
 })();
