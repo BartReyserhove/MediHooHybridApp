@@ -14,7 +14,7 @@
 }
 
 ion-content {
-  background-image: url('../img/stripe.png');
+  background-image: url('../img/stripe-50opac.png');
 }
 
 .item-icon-left-large {
@@ -32,6 +32,10 @@ ion-content {
 
 .about-page-subheading {
   color: #f48231;
+}
+
+.home-page-tile {
+  width: 100%;
 }
 
 
