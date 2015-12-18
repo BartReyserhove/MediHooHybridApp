@@ -11,7 +11,7 @@ angular.module('mediHooApp', ['ionic', 'ui.bootstrap', 'ngCordova', 'mediHooApp.
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-
+        window.open = cordova.InAppBrowser.open;
         // Don't remove this line unless you know what you are doing. It stops the viewport
         // from snapping when text inputs are focused. Ionic handles this internally for
         // a much nicer keyboard experience.
@@ -22,7 +22,7 @@ angular.module('mediHooApp', ['ionic', 'ui.bootstrap', 'ngCordova', 'mediHooApp.
         //$cordovaStatusbar.backgroundColorByHexString('#f48231');
         //$cordovaStatusbar.overlaysWebView(true);
         //$cordovaStatusbar.styleHex('#f48231');
-        window.StatusBar.styleHex('#f48231');
+        //window.StatusBar.styleHex('#f48231');
       }
     });
   })
@@ -32,7 +32,8 @@ angular.module('mediHooApp', ['ionic', 'ui.bootstrap', 'ngCordova', 'mediHooApp.
       .state('tab', {
         url: '/tab',
         abstract: true,
-        templateUrl: 'templates/tabs.html'
+        templateUrl: 'templates/tabs.html',
+        controller: 'TabCtrl'
       })
       .state('tab.home', {
         url: '/home',

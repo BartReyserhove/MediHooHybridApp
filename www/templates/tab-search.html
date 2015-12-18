@@ -1,12 +1,32 @@
 <ion-view view-title="Search">
   <ion-content>
     <div class="list list-inset">
+      <label class="item item-input item-select" style="width: 100%;
+  padding: 0 12px;
+  min-width: 52px;
+  min-height: 47px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  border-color: #f48231;">
+        <div class="input-label">
+          Type
+        </div>
+        <select>
+          <option selected>All</option>
+          <option>Hospital</option>
+          <option>Dental</option>
+          <option>Pharmacy</option>
+          <option>Nurse</option>
+        </select>
+      </label>
       <!--<label class="item item-input">
         <i class="icon ion-search placeholder-icon"></i>-->
       <!--<input type="text" placeholder="Find a country">-->
       <input type="text" ng-model="selectedCountry" placeholder="Find a country"
              uib-typeahead="country as country.Name for country in getCountries($viewValue)"
              typeahead-loading="loadingLocations" typeahead-no-results="noResults"
+             typeahead-popup-template-url="customPopupTemplate.html"
              style="width: 100%;
                     padding: 0 12px;
                     min-width: 52px;
@@ -14,8 +34,7 @@
                     border-width: 1px;
                     border-style: solid;
                     border-radius: 4px;
-                    border-color: #f48231;"
-             typeahead-popup-template-url="customPopupTemplate.html">
+                    border-color: #f48231;">
       <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
 
       <div ng-show="noResults">
@@ -23,10 +42,13 @@
       </div>
       <!--</label>-->
     </div>
-    <button class="button button-block button-assertive confirm-button-fixed-bottom" style="margin-right: 10px"
-            ng-click="showResults(selectedCountry)">
-      Search
-    </button>
+    <!--<button class="button button-block button-assertive confirm-button-fixed-bottom" style="margin-right: 10px"-->
+    <div class="list list-inset">
+      <button class="button button-block button-assertive"
+              ng-click="showResults(selectedCountry)">
+        Search
+      </button>
+    </div>
   </ion-content>
 </ion-view>
 <script type="text/ng-template" id="customPopupTemplate.html">

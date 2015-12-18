@@ -5,7 +5,9 @@
   'use strict';
 
   angular.module('mediHooApp.controllers')
-    .controller('SearchResultDetailCtrl', ['$scope', '$stateParams', 'HealthCareFactory', function ($scope, $stateParams, HealthCareFactory) {
+    .controller('SearchResultDetailCtrl', ['$scope', '$stateParams', '$ionicNavBarDelegate', 'HealthCareFactory',
+      function ($scope, $stateParams, $ionicNavBarDelegate, HealthCareFactory) {
+      $ionicNavBarDelegate.showBackButton(true);
 
       this._init = function () {
         var id = $stateParams.resultId;

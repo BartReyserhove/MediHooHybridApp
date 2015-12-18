@@ -35,11 +35,11 @@
       <div class="item item-divider">
         Extra
       </div>
-      <a class="item item-icon-left" href="#">
+      <span class="item item-icon-left" ng-click="openInAppBrowser('http://www.medihoo.com/Disclaimer')">
         <i class="icon ion-ios-locked"></i>
         Disclaimer
-      </a>
-      <a class="item item-icon-left" href="#">
+      </span>
+      <a class="item item-icon-left" ng-click="openInAppBrowser('http://www.medihoo.com/Privacy_policy')">
         <i class="icon ion-ios-body"></i>
         Privacy policy
       </a>
@@ -47,10 +47,10 @@
         <i class="icon ion-ios-heart"></i>
         Rate this app
       </a>
-      <a class="item item-icon-left" href="#">
+      <span class="item item-icon-left" ng-click="sendEmail('test@test.be')">
         <i class="icon ion-ios-chatbubble"></i>
         Report a bug or make a suggestion
-      </a>
+      </span>
 
     </div>
   </ion-content>
