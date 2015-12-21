@@ -5,7 +5,7 @@
     'use strict';
 
     angular.module('mediHooApp.controllers')
-      .controller('SearchCtrl', ['$scope', '$state', 'HealthCareFactory', function($scope, $state, HealthCareFactory) {
+      .controller('SearchCtrl', ['$scope', '$state', '$ionicLoading', 'HealthCareFactory', function($scope, $state, $ionicLoading, HealthCareFactory) {
         $scope.getCountries = function(val) {
           return HealthCareFactory.searchCountry(val)
             .then(function(data) {
@@ -14,9 +14,19 @@
         };
 
         $scope.showResults = function(val) {
-          console.log(val);
-          HealthCareFactory.searchByCountry(val).then(function() {
-            $state.go('tab.search-result-list');
+          $ionicLoading.show({
+            template: '<ion-spinner></ion-spinner>'
+          });
+          console.log(val.Name);
+          var searchOptions = {
+            country: {name: val.Name, id: val.Id},
+            skip: 0
+          };
+          HealthCareFactory.changeCurrentSearchOptions(searchOptions).then(function() {
+            HealthCareFactory.searchByCountry().then(function() {
+              $ionicLoading.hide();
+              $state.go('tab.search-result-list');
+            });
           });
         }
       }]);

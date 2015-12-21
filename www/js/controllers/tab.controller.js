@@ -5,8 +5,23 @@
   'use strict';
 
   angular.module('mediHooApp.controllers')
-    .controller('TabCtrl', ['$scope', '$ionicPlatform', '$cordovaEmailComposer',
-      function ($scope, $ionicPlatform, $cordovaEmailComposer) {
+    .controller('TabCtrl', ['$scope', '$ionicPlatform', '$cordovaEmailComposer', '$cordovaClipboard',
+      function ($scope, $ionicPlatform, $cordovaEmailComposer, $cordovaClipboard) {
+        $scope.copyToClipBoard = function (value) {
+          var callbacks = {
+            success: function () {
+              console.log('Copy success');
+            },
+            error: function (error) {
+              console.log('Copy error');
+            }
+          };
+
+          $ionicPlatform.ready(function () {
+            $cordovaClipboard.copy(value).then(callbacks.success, callbacks.error);
+          });
+        };
+
         $scope.openInAppBrowser = function (url) {
           // Open in app browser
           console.log('url: ' + url);

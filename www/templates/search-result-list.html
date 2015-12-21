@@ -1,7 +1,7 @@
 <ion-view view-title="Results">
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="result in results"
+      <ion-item class="item-remove-animate item-avatar item-icon-right" collection-repeat="result in results"
                 type="item-text-wrap" ui-sref="tab.search-result-detail({resultId: result.Data.Id})">
         <img ng-src="{{result.Data.ProfilePictureUrl}}">
         <h2 ng-bind="result.Data.DisplayName"></h2>
@@ -11,6 +11,10 @@
         </p>
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
+      <ion-item ng-if="results.length == 0">
+        <h2>None</h2>
+      </ion-item>
     </ion-list>
+    <ion-infinite-scroll on-infinite="showMoreResults()" distance="5%" ng-if="hasMoreResults()"></ion-infinite-scroll>
   </ion-content>
 </ion-view>

@@ -24,14 +24,23 @@
       </div>-->
 
       <p class="item item-icon-left">
-        <i class="icon ion-home"></i>
-        <span ng-bind="result.Data.AddressLine1"></span>, <span ng-bind="result.Data.City"></span>
+        <i class="icon ion-ios-information"></i>
+        <span ng-bind="result.Data.DisplayName"></span>
       </p>
 
       <p class="item item-icon-left">
+        <i class="icon ion-ios-home"></i>
+        <span ng-bind="result.Data.AddressLine1"></span>, <span ng-bind="result.Data.City"></span>
+      </p>
+
+      <!--<p class="item item-icon-left" ng-click="copyToClipBoard(result.Data.Telephone)">
         <i class="icon ion-ios-telephone"></i>
         <span ng-bind="result.Data.Telephone">None</span>
-      </p>
+      </p>-->
+      <a class="item item-icon-left" href="tel:{{result.Data.Telephone}}">
+        <i class="icon ion-ios-telephone"></i>
+        <span ng-bind="result.Data.Telephone">None</span>
+      </a>
 
       <p class="item item-icon-left" ng-click="openInAppBrowser(result.Data.Website)">
         <i class="icon ion-ios-world"></i>
@@ -60,7 +69,7 @@
       </div>
 
       <div style="width: 100%;">
-        <img ng-src="{{result.Data.ProfilePictureUrl}}">
+        <img style="width: 100%" ng-src="{{result.Data.ProfilePictureUrl}}">
       </div>
     </div>
   </ion-content>
