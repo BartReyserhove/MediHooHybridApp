@@ -49,4 +49,21 @@ div label .search-item, div input .search-item {
   border-color: #f48231;
 }
 
+.round-border-radius {
+  border-radius: 4px;
+}
+
+.margin-top-12 {
+  margin-top: 12px;
+}
+
+.round-border-radius-top {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.round-border-radius-bottom {
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
 

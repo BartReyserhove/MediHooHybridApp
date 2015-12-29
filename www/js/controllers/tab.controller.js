@@ -5,8 +5,8 @@
   'use strict';
 
   angular.module('mediHooApp.controllers')
-    .controller('TabCtrl', ['$scope', '$ionicPlatform', '$cordovaEmailComposer', '$cordovaClipboard',
-      function ($scope, $ionicPlatform, $cordovaEmailComposer, $cordovaClipboard) {
+    .controller('TabCtrl', ['$scope', '$ionicPlatform', '$cordovaEmailComposer', '$cordovaClipboard', '$ionicModal',
+      function ($scope, $ionicPlatform, $cordovaEmailComposer, $cordovaClipboard, $ionicModal) {
         $scope.copyToClipBoard = function (value) {
           var callbacks = {
             success: function () {
@@ -83,7 +83,6 @@
           }
         };
 
-
         $scope.sendEmail = function (mailTo) {
           $ionicPlatform.ready(function () {
             $cordovaEmailComposer.isAvailable().then(function () {
@@ -108,6 +107,29 @@
               console.log("not available");
             });
           });
+        };
+
+        $ionicModal.fromTemplateUrl('./templates/search-filters.html',
+          function (modal) {
+            $scope.modal = modal;
+
+            $scope.hideFilters = function () {
+              $scope.modal.hide();
+            };
+
+            $scope.searchWithFilters = function () {
+              console.log('close modal');
+              $scope.hideFilters();
+            };
+          },
+          {
+            scope: $scope,
+            animation: 'slide-in-up'
+          });
+
+        $scope.showFilters = function () {
+          console.log('show modal');
+          $scope.modal.show();
         };
 
         //TODO: link to settings ctrl

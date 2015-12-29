@@ -1,12 +1,22 @@
 <ion-view view-title="Results">
+  <ion-nav-buttons side="right">
+    <button
+      class="button button-icon icon ion-ios-search-strong"
+      ng-click="showFilters()">
+    </button>
+  </ion-nav-buttons>
   <ion-content>
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" collection-repeat="result in results"
                 type="item-text-wrap" ui-sref="tab.search-result-detail({resultId: result.Data.Id})">
         <img ng-src="{{result.Data.ProfilePictureUrl}}">
+
         <h2 ng-bind="result.Data.DisplayName"></h2>
+
         <p><span ng-bind="result.Data.AddressLine1"></span>, <span ng-bind="result.Data.City"></span></p>
-        <p><uib-rating class="result-rating" ng-model="result.Data.Rating" max="maxRating" readonly="isReadOnly"
+
+        <p>
+          <uib-rating class="result-rating" ng-model="result.Data.Rating" max="maxRating" readonly="isReadOnly"
                       state-on="'ion-ios-star'" state-off="'ion-ios-star-outline'"></uib-rating>
         </p>
         <i class="icon ion-chevron-right icon-accessory"></i>
@@ -15,6 +25,7 @@
         <h2>None</h2>
       </ion-item>
     </ion-list>
-    <ion-infinite-scroll on-infinite="showMoreResults()" distance="5%" ng-if="hasMoreResults()"></ion-infinite-scroll>
+    <ion-infinite-scroll on-infinite="showMoreResults()" distance="5%"
+                         ng-if="hasMoreResults()"></ion-infinite-scroll>
   </ion-content>
 </ion-view>

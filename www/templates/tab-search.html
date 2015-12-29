@@ -1,51 +1,109 @@
 <ion-view view-title="Search">
   <ion-content>
-    <div class="list list-inset">
+    <div class="list card">
+      <div class="item item-divider">
+        <span>What?</span>
+      </div>
+
       <label class="item item-input item-select" style="width: 100%;
   padding: 0 12px;
   min-width: 52px;
   min-height: 47px;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 4px;
-  border-color: #f48231;">
+  /*border-width: 1px;
+  border-style: solid;*/
+  /*border-radius: 4px;*/
+  /*border-top: solid 1px;
+  border-bottom: solid 1px;
+  border-color: #f48231;*/
+  /*margin-top: 1px;*/">
         <div class="input-label">
-          Type
+          <span>Classification</span>
         </div>
-        <select>
-          <option selected>All</option>
-          <option>Hospital</option>
-          <option>Dental</option>
-          <option>Pharmacy</option>
-          <option>Nurse</option>
+        <select ng-model="searchOptions.classification" ng-options="item as item.type for item in classifications">
+          <option value=''>All</option>
         </select>
       </label>
-      <!--<label class="item item-input">
-        <i class="icon ion-search placeholder-icon"></i>-->
-      <!--<input type="text" placeholder="Find a country">-->
-      <input type="text" ng-model="selectedCountry" placeholder="Find a country"
-             uib-typeahead="country as country.Name for country in getCountries($viewValue)"
-             typeahead-loading="loadingLocations" typeahead-no-results="noResults"
-             typeahead-popup-template-url="customPopupTemplate.html"
-             style="width: 100%;
-                    padding: 0 12px;
+
+      <div ng-show="searchOptions.classification != '' && searchOptions.classification != null">
+        <input type="text" ng-model="searchOptions.specialization" placeholder="Search a specialization"
+               uib-typeahead="specialization
+             as specializationLabel(specialization)
+             for specialization in getSpecializations($viewValue)"
+               typeahead-loading="loadingSpecializations" typeahead-no-results="noSpecializations"
+               typeahead-popup-template-url="customPopupTemplate.html"
+               style="width: 100%;
+                    padding: 0 16px;
                     min-width: 52px;
                     min-height: 47px;
-                    border-width: 1px;
-                    border-style: solid;
-                    border-radius: 4px;
-                    border-color: #f48231;">
-      <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+                    /*border-width: 1px;
+                    border-style: solid;*/
+                    /*border-radius: 4px;*/
+                    /*border-color: #f48231;*/
+                    margin-top: 1px;">
+        <i ng-show="loadingSpecializations" class="glyphicon glyphicon-refresh"></i>
 
-      <div ng-show="noResults">
-        <i class="glyphicon glyphicon-remove"></i> No Results Found
+        <div ng-show="noSpecializations">
+          <i class="glyphicon glyphicon-remove"></i> No Specializations Found
+        </div>
       </div>
-      <!--</label>-->
     </div>
+
+    <div class="list card">
+      <div class="item item-divider">
+        <span>Where?</span>
+      </div>
+      <ion-toggle ng-model="useGeoLocation.checked" ng-checked="useGeoLocation.checked"
+                  toggle-class="toggle-assertive" ng-change="geoLocationChanged()">
+        <span ng-bind="useGeoLocation.text"></span>
+      </ion-toggle>
+
+      <div ng-show="!useGeoLocation.checked">
+        <div class="item" style="padding: 0; margin-top: 1px;">
+          <input type="text" ng-model="searchOptions.country" placeholder="Find a country"
+                 uib-typeahead="country as country.Name for country in getCountries($viewValue)"
+                 typeahead-loading="loadingLocations" typeahead-no-results="noLocations"
+                 typeahead-popup-template-url="customPopupTemplate.html"
+                 style="width: 100%;
+                    padding: 0 16px;
+                    min-width: 52px;
+                    min-height: 47px;
+                    /*border-width: 1px;
+                    border-style: solid;*/
+                    /*border-radius: 4px;*/
+                    /*border-color: #f48231;*/">
+          <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+
+          <div ng-show="noLocations">
+            <i class="glyphicon glyphicon-remove"></i> No Locations Found
+          </div>
+        </div>
+
+        <div ng-show="searchOptions.country != null" class="item" style="padding: 0;">
+          <input type="text" ng-model="searchOptions.city" placeholder="Find a city"
+                 uib-typeahead="city as city.Name for city in getCities($viewValue)"
+                 typeahead-loading="loadingCities" typeahead-no-results="noCities"
+                 typeahead-popup-template-url="customPopupTemplate.html"
+                 style="width: 100%;
+                    padding: 0 16px;
+                    min-width: 52px;
+                    min-height: 47px;
+                    /*border-width: 1px;
+                    border-style: solid;*/
+                    /*border-radius: 4px;*/
+                    /*border-color: #f48231;*/">
+          <i ng-show="loadingCities" class="glyphicon glyphicon-refresh"></i>
+
+          <div ng-show="noCities">
+            <i class="glyphicon glyphicon-remove"></i> No Cities Found
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!--<button class="button button-block button-assertive confirm-button-fixed-bottom" style="margin-right: 10px"-->
     <div class="list list-inset">
       <button class="button button-block button-assertive"
-              ng-click="showResults(selectedCountry)">
+              ng-click="showResults()">
         Search
       </button>
     </div>
