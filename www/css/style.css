@@ -14,7 +14,7 @@
 }
 
 ion-content {
-  background-image: url('../img/stripe-50opac.png');
+  background-image: url('../img/stripe-30opac.png');
 }
 
 .item-icon-left-large {
@@ -65,5 +65,9 @@ div label .search-item, div input .search-item {
 .round-border-radius-bottom {
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
+}
+
+.hidden-button {
+  display: none;
 }
 

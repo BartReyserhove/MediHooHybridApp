@@ -37,17 +37,23 @@
         <i class="icon ion-ios-telephone"></i>
         <span ng-bind="result.Data.Telephone">None</span>
       </p>-->
-      <a class="item item-icon-left" href="tel:{{result.Data.Telephone}}">
+      <a class="item item-icon-left"
+         href="tel:{{result.Data.Telephone}}"
+        ng-show="result.Data.Telephone != ''">
         <i class="icon ion-ios-telephone"></i>
         <span ng-bind="result.Data.Telephone">None</span>
       </a>
 
-      <p class="item item-icon-left" ng-click="openInAppBrowser(result.Data.Website)">
+      <p class="item item-icon-left"
+         ng-click="openInAppBrowser(result.Data.Website)"
+         ng-show="result.Data.Website != null">
         <i class="icon ion-ios-world"></i>
         <span ng-bind="result.Data.Website"></span>
       </p>
 
-      <p class="item item-icon-left" ng-click="sendEmail(result.Data.EmailAddress)">
+      <p class="item item-icon-left"
+         ng-click="sendEmail(result.Data.EmailAddress)"
+         ng-show="result.Data.EmailAddress != null">
         <i class="icon ion-ios-email"></i>
          <span ng-bind="result.Data.EmailAddress">None</span>
       </p>
@@ -68,7 +74,8 @@
         </div>
       </div>
 
-      <div style="width: 100%;">
+      <div ng-show="result.Data.ProfilePictureUrl != null"
+        style="width: 100%;">
         <img style="width: 100%" ng-src="{{result.Data.ProfilePictureUrl}}">
       </div>
     </div>

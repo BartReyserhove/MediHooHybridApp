@@ -29,11 +29,11 @@
 
           if (newOptions.classification == null
             || newOptions.classification == ''
-            || newOptions.classification.code == undefined) {
+            /*|| newOptions.classification.code == undefined*/) {
             newOptions.classificationUrl = '';
           }
           else {
-            newOptions.classificationUrl = newOptions.classification.code;
+            newOptions.classificationUrl = newOptions.classification; //is the code of the classification
           }
 
           if (newOptions.specialization != null) {
@@ -51,7 +51,8 @@
           if (newOptions.location != null) {
             newOptions.locationUrl =
               '&location%5Blat%5D=' + newOptions.location.lat
-              + '&location%5Blng%5D=' + newOptions.location.long;
+              + '&location%5Blng%5D=' + newOptions.location.long
+              + '&distance=' + newOptions.distance;
           }
           else {
             newOptions.locationUrl = '';
@@ -292,10 +293,26 @@
           return deferred.promise;
         }
 
+        function getClassification(code) {
+          var deferred = $q.defer();
+
+          getClassifications().then(function (data) {
+            angular.forEach(data, function(item) {
+              if(item.code === code) {
+                deferred.resolve(item);
+              }
+            });
+            deferred.resolve();
+          });
+
+          return deferred.promise;
+        }
+
         function searchSpecializationByClassification(classificationCode, searchValue) {
           var deferred = $q.defer();
 
           var url = ConfigFactory.mediHooApi + '/taxonomy/specializations/' + classificationCode + '/' + searchValue;
+          console.log(url);
 
           var callbacks = {
             success: function (res) {
@@ -307,7 +324,6 @@
             }
           };
 
-          //$http.get('data/countries.json')
           $http.get(url)
             .then(callbacks.success, callbacks.error);
 
@@ -324,6 +340,7 @@
           changeCurrentSearchOptions: changeCurrentSearchOptions,
           hasMoreResults: hasMoreResults,
           getClassifications: getClassifications,
+          getClassification: getClassification,
           searchSpecializationByClassification: searchSpecializationByClassification
         }
       }]);

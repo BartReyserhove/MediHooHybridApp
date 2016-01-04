@@ -1,5 +1,5 @@
 <ion-view view-title="Home">
-  <ion-content>
+  <ion-content on-swipe-left="swipeTo('search')">
     <div class="row">
       <div class="col col-80 col-offset-10">
         <img style="width: 100%" src="./img/Medihoo_big_logo.png">
@@ -24,26 +24,26 @@
 
     <div class="row" style="margin-top: 25px;">
       <div class="col col-33 col-offset-10">
-        <a ui-sref="tab.search">
+        <div ng-click="navigateToSearch('HOSP')">
           <img class="home-page-tile" src="./img/types/Hospital-orange.png">
-        </a>
+        </div>
       </div>
       <div class="col col-33 col-offset-10">
-        <a ui-sref="tab.search">
+        <div ng-click="navigateToSearch('DENP')">
           <img class="home-page-tile" src="./img/types/Dental-orange.png">
-        </a>
+        </div>
       </div>
     </div>
     <div class="row" style="margin-top: 25px;">
       <div class="col col-33 col-offset-10">
-        <a ui-sref="tab.search">
+        <div ng-click="navigateToSearch('PHAS')">
           <img class="home-page-tile" src="./img/types/pharmacy-orange.png">
-        </a>
+        </div>
       </div>
       <div class="col col-33 col-offset-10">
-        <a ui-sref="tab.search">
+        <div ng-click="navigateToSearch('NSPR')">
           <img class="home-page-tile" src="./img/types/nurse-orange.png">
-        </a>
+        </div>
       </div>
     </div>
   </ion-content>

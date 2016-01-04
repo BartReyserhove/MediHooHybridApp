@@ -6,8 +6,8 @@
 
   angular.module('mediHooApp.controllers')
     .controller('SearchCtrl', ['$scope', '$state', '$ionicLoading', '$ionicContentBanner',
-      'HealthCareFactory', 'UtilityFactory',
-      function ($scope, $state, $ionicLoading, $ionicContentBanner, HealthCareFactory, UtilityFactory) {
+      'HealthCareFactory', 'CordovaUtilityFactory',
+      function ($scope, $state, $ionicLoading, $ionicContentBanner, HealthCareFactory, CordovaUtilityFactory) {
 
         this._init = function () {
           //TODO: check with settings
@@ -16,27 +16,9 @@
             checked: false
           };
 
-          $scope.searchOptions = {
-            classification: null,
-            specialization: null,
-            country: null,
-            city: null,
-            location: null
-          };
-          //$scope.selectedClassification = null;
-          //$scope.selectedSpecialization = null;
-
           HealthCareFactory.getClassifications().then(function (data) {
             $scope.classifications = data;
           });
-
-          //TODO: verwijder hier geolocatie
-          //console.log('GetPosition');
-          /*UtilityFactory.getUserCurrentLocation().then(function (position) {
-            console.log(position);
-            $scope.position = position;
-            //return data;
-          });*/
         };
 
         this._init();
@@ -55,7 +37,9 @@
         };
 
         $scope.getSpecializations = function (val) {
-          return HealthCareFactory.searchSpecializationByClassification($scope.searchOptions.classification.code, val)
+          console.log('searchOptions');
+          console.log($scope.searchOptions);
+          return HealthCareFactory.searchSpecializationByClassification($scope.searchOptions.classification, val)
             .then(function (data) {
               return data;
             });
@@ -78,7 +62,10 @@
         $scope.geoLocationChanged = function () {
           console.log('check if you got geolocation');
           if($scope.useGeoLocation.checked) {
-            UtilityFactory.getGeoLocation().then(function(location) {
+            $ionicLoading.show({
+              template: '<ion-spinner></ion-spinner>'
+            });
+            CordovaUtilityFactory.getGeoLocation().then(function(location) {
               if(location == null) {
                 console.log('enable location in settings');
 
@@ -92,6 +79,7 @@
               else {
                 $scope.searchOptions.location = location;
               }
+              $ionicLoading.hide();
             })
           }
         };
@@ -100,22 +88,16 @@
           console.log('show results for following value: ');
           console.log($scope.searchOptions);
 
-          if ($scope.searchOptions.country == null || $scope.searchOptions.country.Name == undefined) {
+          if ( ($scope.searchOptions.country == null || $scope.searchOptions.country.Name == undefined)
+            && !$scope.useGeoLocation.checked) {
             return;
           }
 
           $ionicLoading.show({
             template: '<ion-spinner></ion-spinner>'
           });
-          var searchOptions = {
-            country: $scope.searchOptions.country,
-            city: $scope.searchOptions.city,
-            classification: $scope.searchOptions.classification,
-            specialization: $scope.searchOptions.specialization,
-            location: $scope.searchOptions.location,
-            skip: 0
-          };
-          HealthCareFactory.changeCurrentSearchOptions(searchOptions).then(function () {
+
+          HealthCareFactory.changeCurrentSearchOptions($scope.searchOptions).then(function () {
             HealthCareFactory.searchByCountry().then(function () {
               $ionicLoading.hide();
               $state.go('tab.search-result-list');
