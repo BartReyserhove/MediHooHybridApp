@@ -7,8 +7,6 @@
   angular.module('mediHooApp.factories')
     .factory('CordovaUtilityFactory', ['$q', '$ionicPlatform', '$cordovaGeolocation', '$cordovaEmailComposer', '$cordovaClipboard',
       function ($q, $ionicPlatform, $cordovaGeolocation, $cordovaEmailComposer, $cordovaClipboard) {
-        //TODO: use location, safe to cookies
-        var useLocation = true;
         var currentLocation = {};
         var positionOptions = {timeout: 10000, enableHighAccuracy: true};
 

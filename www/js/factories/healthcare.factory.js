@@ -28,8 +28,7 @@
           }
 
           if (newOptions.classification == null
-            || newOptions.classification == ''
-            /*|| newOptions.classification.code == undefined*/) {
+            || newOptions.classification == '') {
             newOptions.classificationUrl = '';
           }
           else {
@@ -67,16 +66,6 @@
         }
 
         function getCurrentResultSet() {
-          //var deferred = $q.defer();
-
-          //TODO: Don't populate currentResultSet
-          /*if (currentResultSet.length == 0) {
-           searchResultForCountryName("").then(function () {
-           deferred.resolve(currentResultSet);
-           });
-           }*/
-          //deferred.resolve(currentResultSet);
-
           return currentResultSet;
         }
 
@@ -93,40 +82,10 @@
 
         function searchCountry(searchValue) {
           var deferred = $q.defer();
+          var url = ConfigFactory.mediHooApi + '/location/countries/?query=' + searchValue;
 
           var callbacks = {
             success: function (res) {
-              /*var data = $filter('filter')(res.data, {Name:searchValue});
-               console.log(data);
-               deferred.resolve(data);*/
-              console.log(res);
-              deferred.resolve(res.data);
-            },
-            error: function (err) {
-              deferred.reject('Can\'t find www.medihoo.com/api/location/countries/?query=' + searchValue);
-            }
-          };
-
-          //$http.get('data/countries.json')
-          $http.get(ConfigFactory.mediHooApi + '/location/countries/?query=' + searchValue)
-            .then(callbacks.success, callbacks.error);
-
-          return deferred.promise;
-        }
-
-        function searchCity(countryId, searchValue) {
-          var deferred = $q.defer();
-
-          var url = ConfigFactory.mediHooApi + '/location/cities/?query=' + searchValue +
-            '&country=' + countryId;
-
-          console.log(url);
-
-          var callbacks = {
-            success: function (res) {
-              /*var data = $filter('filter')(res.data, {Name:searchValue});
-               console.log(data);
-               deferred.resolve(data);*/
               console.log(res);
               deferred.resolve(res.data);
             },
@@ -135,17 +94,37 @@
             }
           };
 
-          //$http.get('data/countries.json')
           $http.get(url)
             .then(callbacks.success, callbacks.error);
 
           return deferred.promise;
         }
 
-        //TODO: seach is only based on countryname
-        function searchResultsForCountryName() {
+        function searchCity(countryId, searchValue) {
           var deferred = $q.defer();
+          var url = ConfigFactory.mediHooApi + '/location/cities/?query=' + searchValue +
+            '&country=' + countryId;
 
+          console.log(url);
+
+          var callbacks = {
+            success: function (res) {
+              console.log(res);
+              deferred.resolve(res.data);
+            },
+            error: function (err) {
+              deferred.reject('Can\'t find ' + url);
+            }
+          };
+
+          $http.get(url)
+            .then(callbacks.success, callbacks.error);
+
+          return deferred.promise;
+        }
+
+        function searchResultsWithGivenOptions() {
+          var deferred = $q.defer();
           var url = ConfigFactory.mediHooApi + '/provider/search' +
             '?country=' + currentSearchOptions.countryUrl
             + '&city=' + currentSearchOptions.cityUrl
@@ -180,9 +159,9 @@
           return deferred.promise;
         }
 
-        function searchNextResultsForCountryName() {
+        function searchNextResultsWithGivenOptions() {
           currentSearchOptions.skip += ConfigFactory.takeItems;
-          return searchResultsForCountryName();
+          return searchResultsWithGivenOptions();
         }
 
         function checkIfUndefinedAndReturnValue(elem) {
@@ -297,12 +276,8 @@
           var deferred = $q.defer();
 
           getClassifications().then(function (data) {
-            angular.forEach(data, function(item) {
-              if(item.code === code) {
-                deferred.resolve(item);
-              }
-            });
-            deferred.resolve();
+            var resultList = $filter('filter')(data, {code: code});
+            deferred.resolve(resultList[0]);
           });
 
           return deferred.promise;
@@ -310,7 +285,6 @@
 
         function searchSpecializationByClassification(classificationCode, searchValue) {
           var deferred = $q.defer();
-
           var url = ConfigFactory.mediHooApi + '/taxonomy/specializations/' + classificationCode + '/' + searchValue;
           console.log(url);
 
@@ -333,8 +307,8 @@
         return {
           searchCountry: searchCountry,
           searchCity: searchCity,
-          searchByCountry: searchResultsForCountryName,
-          searchNextByCountry: searchNextResultsForCountryName,
+          searchResultsWithGivenOptions: searchResultsWithGivenOptions,
+          searchNextResultsWithGivenOptions: searchNextResultsWithGivenOptions,
           getCurrentResultSet: getCurrentResultSet,
           getResultWithId: getResultWithId,
           changeCurrentSearchOptions: changeCurrentSearchOptions,

@@ -10,7 +10,6 @@
       function ($scope, $state, $ionicLoading, $ionicContentBanner, HealthCareFactory, CordovaUtilityFactory) {
 
         this._init = function () {
-          //TODO: check with settings
           $scope.useGeoLocation = {
             text: 'Use current location',
             checked: false
@@ -98,7 +97,7 @@
           });
 
           HealthCareFactory.changeCurrentSearchOptions($scope.searchOptions).then(function () {
-            HealthCareFactory.searchByCountry().then(function () {
+            HealthCareFactory.searchResultsWithGivenOptions().then(function () {
               $ionicLoading.hide();
               $state.go('tab.search-result-list');
             });

@@ -11,7 +11,7 @@
 
         $scope.showMoreResults = function () {
           console.log('next');
-          HealthCareFactory.searchNextByCountry().then(function () {
+          HealthCareFactory.searchNextResultsWithGivenOptions().then(function () {
             $scope.$broadcast('scroll.infiniteScrollComplete');
           });
         };
