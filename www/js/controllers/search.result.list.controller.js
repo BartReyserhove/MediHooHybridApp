@@ -9,17 +9,6 @@
       function ($scope, $ionicNavBarDelegate, $ionicSideMenuDelegate, HealthCareFactory) {
         $ionicNavBarDelegate.showBackButton(true);
 
-        $scope.showMoreResults = function () {
-          console.log('next');
-          HealthCareFactory.searchNextResultsWithGivenOptions().then(function () {
-            $scope.$broadcast('scroll.infiniteScrollComplete');
-          });
-        };
-
-        $scope.hasMoreResults = function () {
-          return HealthCareFactory.hasMoreResults();
-        };
-
         this._init = function () {
           $scope.isReadOnly = true;
           $scope.maxRating = 5;
@@ -28,5 +17,14 @@
 
         this._init();
 
+        $scope.showMoreResults = function () {
+          HealthCareFactory.searchNextResultsWithGivenOptions().then(function () {
+            $scope.$broadcast('scroll.infiniteScrollComplete');
+          });
+        };
+
+        $scope.hasMoreResults = function () {
+          return HealthCareFactory.hasMoreResults();
+        };
       }]);
 })();

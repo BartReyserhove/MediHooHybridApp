@@ -71,3 +71,7 @@ div label .search-item, div input .search-item {
   display: none;
 }
 
+.item-divider {
+  background-color: rgba(244, 130, 49, 0.34);
+}
+

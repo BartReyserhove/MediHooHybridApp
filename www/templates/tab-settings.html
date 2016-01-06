@@ -1,19 +1,19 @@
-<ion-view view-title="Settings">
+<ion-view view-title="{{'SETTINGS_TITLE' | translate}}">
   <ion-content scroll="false" on-swipe-right="swipeTo('about')">
     <div class="list card">
 
       <div class="item item-divider">
-        Preferences
+        <span translate="SETTINGS_PREFERENCES"></span>
       </div>
 
       <label class="item item-input item-select">
         <div class="input-label">
-          Language
+          <span translate="SETTINGS_LANGUAGE"></span>
         </div>
-        <select>
-          <option selected>English</option>
-          <option>Dutch</option>
-          <option>French</option>
+        <select ng-controller="TranslateCtrl" ng-change="changeLang(language)" ng-model="language">
+          <option value="en">English</option>
+          <option value="nl">Nederlands</option>
+          <option>Français</option>
         </select>
       </label>
 
@@ -31,6 +31,17 @@
       </div>-->
 
     </div>
+
+    <div class="list card">
+      <div class="item item-divider">
+        Information
+      </div>
+      <a class="item item-icon-left" ui-sref="tab.about">
+        <i class="icon ion-ios-information"></i>
+        About us
+      </a>
+    </div>
+
     <div class="list card">
       <div class="item item-divider">
         Extra
@@ -39,10 +50,10 @@
         <i class="icon ion-ios-locked"></i>
         Disclaimer
       </span>
-      <a class="item item-icon-left" ng-click="openInAppBrowser('http://www.medihoo.com/Privacy_policy')">
+      <span class="item item-icon-left" ng-click="openInAppBrowser('http://www.medihoo.com/Privacy_policy')">
         <i class="icon ion-ios-body"></i>
         Privacy policy
-      </a>
+      </span>
       <a class="item item-icon-left" href="#">
         <i class="icon ion-ios-heart"></i>
         Rate this app
@@ -51,7 +62,6 @@
         <i class="icon ion-ios-chatbubble"></i>
         Report a bug or make a suggestion
       </span>
-
     </div>
   </ion-content>
 </ion-view>

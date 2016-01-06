@@ -36,8 +36,6 @@
         };
 
         $scope.getSpecializations = function (val) {
-          console.log('searchOptions');
-          console.log($scope.searchOptions);
           return HealthCareFactory.searchSpecializationByClassification($scope.searchOptions.classification, val)
             .then(function (data) {
               return data;
@@ -59,14 +57,12 @@
         };
 
         $scope.geoLocationChanged = function () {
-          console.log('check if you got geolocation');
           if($scope.useGeoLocation.checked) {
             $ionicLoading.show({
               template: '<ion-spinner></ion-spinner>'
             });
             CordovaUtilityFactory.getGeoLocation().then(function(location) {
               if(location == null) {
-                console.log('enable location in settings');
 
                 $scope.useGeoLocation.checked = false;
                 $ionicContentBanner.show({
@@ -84,9 +80,6 @@
         };
 
         $scope.showResults = function () {
-          console.log('show results for following value: ');
-          console.log($scope.searchOptions);
-
           if ( ($scope.searchOptions.country == null || $scope.searchOptions.country.Name == undefined)
             && !$scope.useGeoLocation.checked) {
             return;
@@ -102,6 +95,7 @@
               $state.go('tab.search-result-list');
             });
           });
-        }
+        };
+
       }]);
 })();

@@ -45,11 +45,11 @@
         <span>Where?</span>
       </div>
       <ion-toggle ng-model="useGeoLocation.checked" ng-checked="useGeoLocation.checked"
-                  toggle-class="toggle-assertive" ng-change="geoLocationChanged()">
+                  toggle-class="toggle-assertive"> <!--TODO: uncomment this: ng-change="geoLocationChanged()">-->
         <span ng-bind="useGeoLocation.text"></span>
       </ion-toggle>
       <div ng-show="useGeoLocation.checked">
-        <ion-item class="item range range-assertive">
+        <ion-item class="item range range-assertive" style="margin-top: 1px;">
           <input type="range" name="volume" min="5" max="100" ng-model="searchOptions.distance">
           <span ng-bind="searchOptions.distance"></span><span> km</span>
         </ion-item>

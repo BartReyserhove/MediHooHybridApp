@@ -9,26 +9,32 @@
       '$ionicPlatform', '$cordovaNetwork', '$ionicContentBanner',
       function ($rootScope, $scope, $state, CordovaUtilityFactory,
                 $ionicPlatform, $cordovaNetwork, $ionicContentBanner) {
+
         //TODO: find better place to put this?
-        $scope.searchOptions = {
-          classification: null,
-          specialization: null,
-          country: null,
-          city: null,
-          location: null,
-          distance: 50,
-          skip: 0
+        this._init = function() {
+          $scope.searchOptions = {
+            classification: null,
+            specialization: null,
+            country: null,
+            city: null,
+            location: null,
+            distance: 50,
+            skip: 0
+          };
+
+          $scope.hasNetwork = false;
+
+          //TODO: link to settings ctrl
+          $scope.language = '';
         };
+
+        this._init();
 
         $ionicPlatform.ready(function () {
           $scope.hasNetwork = $cordovaNetwork.isOnline;
           console.log('hasNetwork:');
           console.log($scope.hasNetwork);
         });
-
-        $scope.swipeTo = function (tabName) {
-          $state.go('tab.' + tabName);
-        };
 
         $rootScope.$on('$cordovaNetwork:online', function (event, networkState) {
           $scope.hasNetwork = true;
@@ -44,6 +50,10 @@
             autoClose: 10000
           });
         });
+
+        $scope.swipeTo = function (tabName) {
+          $state.go('tab.' + tabName);
+        };
 
         $scope.copyToClipBoard = function (value) {
           CordovaUtilityFactory.copyToClipBoard(value);
@@ -61,7 +71,5 @@
           CordovaUtilityFactory.sendEmail(mailTo);
         };
 
-        //TODO: link to settings ctrl
-        $scope.language = '';
       }]);
 })();
