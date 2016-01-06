@@ -45,7 +45,7 @@
         <span>Where?</span>
       </div>
       <ion-toggle ng-model="useGeoLocation.checked" ng-checked="useGeoLocation.checked"
-                  toggle-class="toggle-assertive"> <!--TODO: uncomment this: ng-change="geoLocationChanged()">-->
+                  toggle-class="toggle-assertive" ng-change="geoLocationChanged()">
         <span ng-bind="useGeoLocation.text"></span>
       </ion-toggle>
       <div ng-show="useGeoLocation.checked">
