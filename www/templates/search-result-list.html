@@ -1,5 +1,5 @@
 <ion-view view-title="Results">
-  <ion-content>
+  <ion-content on-swipe-right="goBack()" on-swipe-left="goForward()" class="fade">
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" collection-repeat="result in results"
                 type="item-text-wrap" ui-sref="tab.search-result-detail({resultId: result.Data.Id})">
@@ -8,6 +8,14 @@
         <h2 ng-bind="result.Data.DisplayName"></h2>
 
         <p><span ng-bind="result.Data.AddressLine1"></span>, <span ng-bind="result.Data.City"></span></p>
+
+        <p ng-show="!isSpecifiedInSearchCriteria.classification && result.Data.Classifications.length > 0">
+          <span ng-repeat="classifcation in result.Data.Classifications" ng-bind="classifcation"></span>
+        </p>
+        <p ng-show="isSpecifiedInSearchCriteria.classification && !isSpecifiedInSearchCriteria.specialization
+        && result.Data.Specializations.length > 0">
+          <span ng-repeat="specialization in result.Data.Specializations" ng-bind="specialization"></span>
+        </p>
 
         <p>
           <uib-rating class="result-rating" ng-model="result.Data.Rating" max="maxRating" readonly="isReadOnly"

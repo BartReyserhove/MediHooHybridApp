@@ -6,9 +6,9 @@
 
   angular.module('mediHooApp.controllers')
     .controller('TabCtrl', ['$rootScope', '$scope', '$state', 'CordovaUtilityFactory',
-      '$ionicPlatform', '$cordovaNetwork', '$ionicContentBanner',
+      '$ionicPlatform', '$cordovaNetwork', '$ionicContentBanner', '$ionicTabsDelegate',
       function ($rootScope, $scope, $state, CordovaUtilityFactory,
-                $ionicPlatform, $cordovaNetwork, $ionicContentBanner) {
+                $ionicPlatform, $cordovaNetwork, $ionicContentBanner, $ionicTabsDelegate) {
 
         //TODO: find better place to put this?
         this._init = function() {
@@ -51,8 +51,22 @@
           });
         });
 
-        $scope.swipeTo = function (tabName) {
-          $state.go('tab.' + tabName);
+        $scope.swipeTo = function (tabIndex) {
+          $ionicTabsDelegate.select(tabIndex);
+        };
+
+        $scope.goForward = function () {
+          var selected = $ionicTabsDelegate.selectedIndex();
+          if (selected != -1) {
+            $ionicTabsDelegate.select(selected + 1);
+          }
+        };
+
+        $scope.goBack = function () {
+          var selected = $ionicTabsDelegate.selectedIndex();
+          if (selected != -1 && selected != 0) {
+            $ionicTabsDelegate.select(selected - 1);
+          }
         };
 
         $scope.copyToClipBoard = function (value) {

@@ -5,34 +5,34 @@
       ui-sref="tab.search">
     </a>
   </ion-nav-buttons>
-  <ion-content>
+  <ion-content on-swipe-right="goBack()" on-swipe-left="goForward()" class="fade">
     <div class="list card">
 
-      <p class="item item-icon-left">
+      <p class="item item-icon-left text-continue-next-line">
         <i class="icon ion-ios-information"></i>
-        <span ng-bind="result.Data.DisplayName"></span>
+        <span ng-bind="result.Data.DisplayName" ></span>
       </p>
 
-      <p class="item item-icon-left">
+      <p class="item item-icon-left text-continue-next-line">
         <i class="icon ion-ios-home"></i>
         <span ng-bind="result.Data.AddressLine1"></span>, <span ng-bind="result.Data.City"></span>
       </p>
 
-      <a class="item item-icon-left"
+      <a class="item item-icon-left text-continue-next-line"
          href="tel:{{result.Data.Telephone}}"
         ng-show="result.Data.Telephone != ''">
         <i class="icon ion-ios-telephone"></i>
         <span ng-bind="result.Data.Telephone">None</span>
       </a>
 
-      <p class="item item-icon-left"
+      <p class="item item-icon-left text-continue-next-line"
          ng-click="openInAppBrowser(result.Data.Website)"
          ng-show="result.Data.Website != null">
         <i class="icon ion-ios-world"></i>
         <span ng-bind="result.Data.Website"></span>
       </p>
 
-      <p class="item item-icon-left"
+      <p class="item item-icon-left text-continue-next-line"
          ng-click="sendEmail(result.Data.EmailAddress)"
          ng-show="result.Data.EmailAddress != null">
         <i class="icon ion-ios-email"></i>
@@ -50,6 +50,24 @@
 
         <div ng-repeat="type in result.Data.Types">
           <span ng-bind="type"></span>
+        </div>
+      </div>
+
+      <div class="item item-icon-left">
+        <i class="icon ion-ios-medical"></i>
+        <span ng-if="result.Data.Classifications.length === 0">None</span>
+
+        <div ng-repeat="classification in result.Data.Classifications">
+          <span ng-bind="classification"></span>
+        </div>
+      </div>
+
+      <div class="item item-icon-left">
+        <i class="icon ion-ios-albums"></i>
+        <span ng-if="result.Data.Specializations.length === 0">None</span>
+
+        <div ng-repeat="specialization in result.Data.Specializations">
+          <span ng-bind="specialization"></span>
         </div>
       </div>
 

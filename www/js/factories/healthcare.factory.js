@@ -9,6 +9,10 @@
       function ($q, $http, $filter, ConfigFactory) {
         var currentResultSet = [];
         var currentSearchOptions = null;
+        var isSpecifiedInSearch = {
+          classification: false,
+          specialization: false
+        };
 
         function changeCurrentSearchOptions(newOptions) {
           var deferred = $q.defer();
@@ -30,9 +34,11 @@
           if (newOptions.classification == null
             || newOptions.classification == '') {
             newOptions.classificationUrl = '';
+            isSpecifiedInSearch.classification = false;
           }
           else {
             newOptions.classificationUrl = newOptions.classification; //is the code of the classification
+            isSpecifiedInSearch.classification = true;
           }
 
           if (newOptions.specialization != null) {
@@ -42,9 +48,11 @@
             else {
               newOptions.specializationUrl = newOptions.specialization.SpecializationName.split(' ').join('+');
             }
+            isSpecifiedInSearch.specialization = true;
           }
           else {
             newOptions.specializationUrl = '';
+            isSpecifiedInSearch.specialization = false;
           }
 
           if (newOptions.location != null) {
@@ -304,6 +312,10 @@
           return deferred.promise;
         }
 
+        function isSpecifiedInSearchCriteria() {
+          return isSpecifiedInSearch;
+        }
+
         return {
           searchCountry: searchCountry,
           searchCity: searchCity,
@@ -315,7 +327,8 @@
           hasMoreResults: hasMoreResults,
           getClassifications: getClassifications,
           getClassification: getClassification,
-          searchSpecializationByClassification: searchSpecializationByClassification
+          searchSpecializationByClassification: searchSpecializationByClassification,
+          isSpecifiedInSearchCriteria: isSpecifiedInSearchCriteria
         }
       }]);
 })();
