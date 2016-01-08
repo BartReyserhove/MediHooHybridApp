@@ -14,6 +14,10 @@
           specialization: false
         };
 
+        function getCurrentSearchOptions() {
+          return currentSearchOptions;
+        }
+
         function changeCurrentSearchOptions(newOptions) {
           var deferred = $q.defer();
 
@@ -324,6 +328,7 @@
           getCurrentResultSet: getCurrentResultSet,
           getResultWithId: getResultWithId,
           changeCurrentSearchOptions: changeCurrentSearchOptions,
+          getCurrentSearchOptions: getCurrentSearchOptions,
           hasMoreResults: hasMoreResults,
           getClassifications: getClassifications,
           getClassification: getClassification,

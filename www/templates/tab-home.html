@@ -6,7 +6,7 @@
       </div>
     </div>
 
-    <div class="row" style="margin-top: 25px;">
+    <!--<div class="row" style="margin-top: 25px;">
       <div class="col col-33 col-offset-10">
         <div ng-click="navigateToSearch('HOSP')">
           <img class="home-page-tile" src="./img/types/Hospital-orange.png">
@@ -29,6 +29,21 @@
           <img class="home-page-tile" src="./img/types/nurse-orange.png">
         </div>
       </div>
-    </div>
+    </div>-->
+
+      <div class="list card">
+        <div class="item item-divider">
+          <span>History</span>
+        </div>
+        <p class="item" ng-repeat="elem in searchHistory" ng-click="navigateToResultList(elem)">
+          <span ng-bind="elem.country.Name"></span>
+          <span ng-bind="$index"></span>
+        </p>
+        <p class="item" ng-show="searchHistory.length == 0">
+          <span>None</span>
+        </p>
+      </div>
+
+
   </ion-content>
 </ion-view>

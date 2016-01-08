@@ -6,8 +6,9 @@
 
   angular.module('mediHooApp.controllers')
     .controller('SearchCtrl', ['$scope', '$state', '$ionicLoading', '$ionicContentBanner',
-      'HealthCareFactory', 'CordovaUtilityFactory',
-      function ($scope, $state, $ionicLoading, $ionicContentBanner, HealthCareFactory, CordovaUtilityFactory) {
+      'HealthCareFactory', 'CordovaUtilityFactory', 'SearchHistoryFactory',
+      function ($scope, $state, $ionicLoading, $ionicContentBanner,
+                HealthCareFactory, CordovaUtilityFactory, SearchHistoryFactory) {
 
         this._init = function () {
           $scope.useGeoLocation = {
@@ -91,6 +92,7 @@
 
           HealthCareFactory.changeCurrentSearchOptions($scope.searchOptions).then(function () {
             HealthCareFactory.searchResultsWithGivenOptions().then(function () {
+              SearchHistoryFactory.addSearchCriteriaToHistory(HealthCareFactory.getCurrentSearchOptions());
               $ionicLoading.hide();
               $state.go('tab.search-result-list');
             });
