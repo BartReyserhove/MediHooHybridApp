@@ -16,6 +16,8 @@
             checked: false
           };
 
+          $scope.cityIsSpecified = false;
+
           HealthCareFactory.getClassifications().then(function (data) {
             $scope.classifications = data;
           });
@@ -116,6 +118,14 @@
             });
           });
         };
+
+        //Check if city is a search input by user or an object, to display/hide slider
+        $scope.$watch('searchOptions.city', function(newValue) {
+          console.log('city value:');
+          console.log(newValue);
+          $scope.cityIsSpecified = newValue.Id != undefined;
+          console.log('city is specified: ' + $scope.cityIsSpecified);
+        });
 
       }]);
 })();

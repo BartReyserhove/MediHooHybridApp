@@ -30,6 +30,7 @@
 
           if (newOptions.city != null && newOptions.city != undefined) {
             newOptions.cityUrl = newOptions.city.Name.split(' ').join('+');
+            newOptions.locationUrl = '&distance=' + newOptions.distance;
           }
           else {
             newOptions.cityUrl = '';
@@ -65,7 +66,8 @@
               + '&location%5Blng%5D=' + newOptions.location.long
               + '&distance=' + newOptions.distance;
           }
-          else {
+          //because if city is defined, locationUrl contains the distance
+          else if (newOptions.city == null || newOptions.city == undefined) {
             newOptions.locationUrl = '';
           }
 
