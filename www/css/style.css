@@ -76,6 +76,9 @@ div label .search-item, div input .search-item {
 }
 
 .tabs > a.main-tab {
+  background-color: rgba(244, 130, 49, 0.50) !important;
+}
+.tabs > a.main-tab.tab-item-active {
   background-color: #f48231 !important;
 }
 
