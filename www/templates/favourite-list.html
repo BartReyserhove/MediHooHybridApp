@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<div class="list card" ng-controller="FavouritesCtrl">
+  <div class="item item-divider">
+    <span>Favourites</span>
+  </div>
+  <p class="item text-continue-next-line" ng-repeat="favourite in favourites track by $index"
+     ng-click="navigateToDetails(favourite.id)">
+    <span ng-bind="favourite.name"></span>
+  </p>
 
-</body>
-</html>
+  <p class="item" ng-show="favourites.length == 0">
+    <span>None</span>
+  </p>
+</div>

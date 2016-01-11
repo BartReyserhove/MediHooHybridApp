@@ -95,6 +95,10 @@ a.main-tab > i.icon {
   border-top-left-radius: 0 !important;
 }
 
+.item-color-assertive {
+  color: #f48231;
+}
+
 @-webkit-keyframes fade {
   0% {
     /*-webkit-transform: translate3d(-100%,0,0);*/

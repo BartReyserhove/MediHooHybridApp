@@ -13,12 +13,12 @@
     <div class="list card">
 
       <p class="item item-icon-left text-continue-next-line">
-        <i class="icon ion-ios-information"></i>
+        <i class="icon ion-ios-information-outline"></i>
         <span ng-bind="provider.displayName"></span>
       </p>
 
       <p class="item item-icon-left text-continue-next-line">
-        <i class="icon ion-ios-home"></i>
+        <i class="icon ion-ios-home-outline"></i>
         <span ng-bind="provider.street"></span> <span ng-bind="provider.houseNumber"></span>, <span
         ng-bind="provider.city"></span>
       </p>
@@ -26,38 +26,38 @@
       <a class="item item-icon-left text-continue-next-line"
          href="tel:{{provider.phoneNumber}}"
          ng-show="provider.phoneNumber != ''">
-        <i class="icon ion-ios-telephone"></i>
+        <i class="icon ion-ios-telephone-outline"></i>
         <span ng-bind="provider.phoneNumber">None</span>
       </a>
 
       <p class="item item-icon-left text-continue-next-line"
          ng-click="openInAppBrowser(provider.website)"
          ng-show="provider.website != null">
-        <i class="icon ion-ios-world"></i>
+        <i class="icon ion-ios-world-outline"></i>
         <span ng-bind="provider.website"></span>
       </p>
 
       <p class="item item-icon-left text-continue-next-line"
          ng-click="sendEmail(provider.emailAddress)"
          ng-show="provider.emailAddress != null">
-        <i class="icon ion-ios-email"></i>
+        <i class="icon ion-ios-email-outline "></i>
         <span ng-bind="provider.emailAddress">None</span>
       </p>
 
       <p class="item item-icon-left" ng-click="launchNavigator(provider)">
-        <i class="icon ion-ios-navigate"></i>
+        <i class="icon ion-ios-navigate-outline "></i>
         Open in navigation app
       </p>
 
       <div class="item item-icon-left text-continue-next-line">
-        <i class="icon ion-ios-briefcase"></i>
+        <i class="icon ion-ios-briefcase-outline"></i>
         <span ng-if="provider.isIndividual">Individual</span>
         <span ng-if="!provider.isIndividual">Organisation</span>
         <span ng-show="provider.type != null">- {{provider.type}}</span>
       </div>
 
       <div class="item item-icon-left text-continue-next-line" ng-if="provider.classifications.length > 0">
-        <i class="icon ion-ios-medical"></i>
+        <i class="icon ion-ios-medical-outline"></i>
 
         <div ng-repeat="classification in provider.classifications">
           <span ng-bind="classification.Name"></span>
@@ -65,7 +65,7 @@
       </div>
 
       <div class="item item-icon-left text-continue-next-line" ng-show="provider.specializations.length > 0">
-        <i class="icon ion-ios-albums"></i>
+        <i class="icon ion-ios-albums-outline"></i>
 
         <div ng-repeat="specialization in provider.specializations">
           <span ng-bind="specialization.Name"></span>

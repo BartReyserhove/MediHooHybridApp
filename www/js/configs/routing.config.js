@@ -23,11 +23,11 @@
               }
             }
           })
-          .state('tab.favourites', {
-            url: '/home/favourites',
+          .state('tab.secundary', {
+            url: '/home/secundary',
             views: {
               'tab-home': {
-                templateUrl: 'templates/tab-home-favourites.html',
+                templateUrl: 'templates/tab-home-secundary.html',
                 controller: 'FavouritesCtrl'
               }
             }

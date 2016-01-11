@@ -27,9 +27,9 @@
               console.log('localservice list:');
               console.log(searchHistory.list);
 
-              containsObject(searchHistory.list, searchCriteria).then(function(criteriaExists) {
+              containsObject(searchHistory.list, searchCriteria).then(function (criteriaExists) {
                 //if (!containsObject(searchHistory.list, searchCriteria)) {
-                if(!criteriaExists) {
+                if (!criteriaExists) {
                   console.log('doesn\'t contain object');
                   if (searchHistory.list.length == maxCache) {
                     searchHistory.list.pop();
@@ -80,7 +80,8 @@
 
           angular.forEach(list, function (el) {
             if (el.classificationUrl === obj.classificationUrl && el.specializationUrl === obj.specializationUrl
-              && el.countryUrl === obj.countryUrl && el.cityUrl === obj.cityUrl && el.locationUrl === obj.locationUrl) {
+              && el.countryUrl === obj.countryUrl && el.cityUrl === obj.cityUrl && el.locationUrl === obj.locationUrl
+              && el.distanceUrl === obj.distanceUrl) {
               deferred.resolve(true);
             }
           });
@@ -109,16 +110,16 @@
           }
           else {
             if (hasClassification) where += ' for ';
-            if (criteria.cityUrl != '') where += criteria.cityUrl + ', ';
-            where += criteria.countryUrl;
+            if (criteria.cityUrl != '') where += criteria.cityUrl.split('+').join(' ') + ', ';
+            where += criteria.countryUrl.split('+').join(' ');
           }
 
-          if(criteria.distanceUrl != '') {
+          if (criteria.distanceUrl != '') {
             var distance = criteria.distanceUrl.split('=')[1];
-            where += 'in a range of ' + distance + 'km'
+            where += ' in a range of ' + distance + 'km'
           }
 
-          if(hasClassification) {
+          if (hasClassification) {
             console.log('get classifcation');
             HealthCareFactory.getClassification(criteria.classificationUrl).then(function (classification) {
               console.log(classification);
@@ -133,9 +134,15 @@
           return deferred.promise;
         }
 
+        function clearHistory() {
+          searchHistoryList.splice(0, searchHistoryList.length);
+          localStorageService.remove(cookieName);
+        }
+
         return {
           addSearchCriteriaToHistory: addSearchCriteriaToHistory,
-          getSearchHistory: getSearchHistory
+          getSearchHistory: getSearchHistory,
+          clearHistory: clearHistory
         }
       }]);
 })();

@@ -32,26 +32,14 @@
     </div>-->
     <div class="list card">
       <div class="item item-divider">
-        <span>Favourites</span>
+        <span>History</span>
       </div>
-      <a class="item" ui-sref="tab.favourites">
+      <a class="item" ui-sref="tab.secundary">
         <span>Show all</span>
       </a>
     </div>
 
-    <div class="list card">
-      <div class="item item-divider">
-        <span>History</span>
-      </div>
-      <p class="item text-continue-next-line" ng-repeat="elem in searchHistory track by $index"
-         ng-click="navigateToResultList(elem)">
-        <span ng-bind="elem.textualRepresentation"></span>
-      </p>
-
-      <p class="item" ng-show="searchHistory.length == 0">
-        <span>None</span>
-      </p>
-    </div>
+    <div ng-include="'./templates/favourite-list.html'"></div>
 
 
   </ion-content>

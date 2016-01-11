@@ -66,9 +66,12 @@
               + '&location%5Blng%5D=' + newOptions.location.long;
             newOptions.distanceUrl = '&distance=' + newOptions.distance;
           }
-          //because if city is defined, locationUrl contains the distance
-          else if (newOptions.city == null || newOptions.city == undefined || newOptions.city == '') {
+          else {
             newOptions.locationUrl = '';
+          }
+
+          //because if city is defined, locationUrl contains the distance
+          if (newOptions.distanceUrl == undefined) {
             newOptions.distanceUrl = '';
           }
 
