@@ -21,14 +21,14 @@
         function changeCurrentSearchOptions(newOptions) {
           var deferred = $q.defer();
 
-          if (newOptions.country != null) {
+          if (newOptions.country != null && newOptions.country != undefined) {
             newOptions.countryUrl = newOptions.country.Name.split(' ').join('+');
           }
           else {
             newOptions.countryUrl = '';
           }
 
-          if (newOptions.city != null) {
+          if (newOptions.city != null && newOptions.city != undefined) {
             newOptions.cityUrl = newOptions.city.Name.split(' ').join('+');
           }
           else {
@@ -45,7 +45,7 @@
             isSpecifiedInSearch.classification = true;
           }
 
-          if (newOptions.specialization != null) {
+          if (newOptions.specialization != null && newOptions.specialization != undefined) {
             if (newOptions.specialization.SpecializationName == null) {
               newOptions.specializationUrl = newOptions.specialization.ParentSpecializationName.split(' ').join('+');
             }
@@ -81,13 +81,63 @@
           return currentResultSet;
         }
 
+        //TODO: change name to provider? to be more clear
         function getResultWithId(id) {
           var deferred = $q.defer();
 
-          var resultList = $filter('filter')(currentResultSet, {Data: {Id: id}});
-          console.log('resultList:');
-          console.log(resultList);
-          deferred.resolve(resultList[0]);
+          /*var resultList = $filter('filter')(currentResultSet, {Data: {Id: id}});
+           console.log('resultList:');
+           console.log(resultList);
+           deferred.resolve(resultList[0]);*/
+
+          var provider = {};
+
+          getProviderDetails(id).then(function (res) {
+            deferred.resolve(res);
+            //TODO: include getProviderRatings here in future maybe?
+          });
+
+          return deferred.promise;
+        }
+
+        function getProviderDetails(id) {
+          var deferred = $q.defer();
+          var url = ConfigFactory.mediHooApi + '/provider/details?provider=' + id;
+
+          var callbacks = {
+            success: function (res) {
+              console.log('details:');
+              console.log(res);
+              deferred.resolve({data: res.data, error: false});
+            },
+            error: function (err) {
+              deferred.resolve({error: true});
+            }
+          };
+
+          $http.get(url)
+            .then(callbacks.success, callbacks.error);
+
+          return deferred.promise;
+        }
+
+        function getProviderRatings(id) {
+          var deferred = $q.defer();
+          var url = ConfigFactory.mediHooApi + '/provider/ratings?provider=' + id;
+
+          var callbacks = {
+            success: function (res) {
+              console.log('ratings:');
+              console.log(res);
+              deferred.resolve({data: res.data, error: false});
+            },
+            error: function (err) {
+              deferred.resolve({error: true});
+            }
+          };
+
+          $http.get(url)
+            .then(callbacks.success, callbacks.error);
 
           return deferred.promise;
         }
@@ -99,10 +149,10 @@
           var callbacks = {
             success: function (res) {
               console.log(res);
-              deferred.resolve(res.data);
+              deferred.resolve({data: res.data, error: false});
             },
             error: function (err) {
-              deferred.reject('Can\'t find ' + url);
+              deferred.resolve({error: true});
             }
           };
 
@@ -122,10 +172,10 @@
           var callbacks = {
             success: function (res) {
               console.log(res);
-              deferred.resolve(res.data);
+              deferred.resolve({data: res.data, error: false});
             },
             error: function (err) {
-              deferred.reject('Can\'t find ' + url);
+              deferred.resolve({error: true});
             }
           };
 
@@ -152,11 +202,11 @@
               console.log(res);
               currentResultSet.push.apply(currentResultSet, res.data.Documents);
               currentSearchOptions.totalCount = res.data.TotalCount;
-              deferred.resolve();
+              deferred.resolve({error: false});
             },
             error: function (err) {
               console.log('unsuccessfull search');
-              deferred.reject('Can\'t find ' + url);
+              deferred.resolve({error: true});
             }
           };
 
@@ -303,10 +353,10 @@
           var callbacks = {
             success: function (res) {
               console.log(res);
-              deferred.resolve(res.data);
+              deferred.resolve({data: res.data, error: false});
             },
             error: function (err) {
-              deferred.reject('Can\'t find ' + url);
+              deferred.resolve({error: true});
             }
           };
 

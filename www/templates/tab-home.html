@@ -30,19 +30,28 @@
         </div>
       </div>
     </div>-->
-
-      <div class="list card">
-        <div class="item item-divider">
-          <span>History</span>
-        </div>
-        <p class="item" ng-repeat="elem in searchHistory" ng-click="navigateToResultList(elem)">
-          <span ng-bind="elem.country.Name"></span>
-          <span ng-bind="$index"></span>
-        </p>
-        <p class="item" ng-show="searchHistory.length == 0">
-          <span>None</span>
-        </p>
+    <div class="list card">
+      <div class="item item-divider">
+        <span>Favourites</span>
       </div>
+      <a class="item" ui-sref="tab.favourites">
+        <span>Show all</span>
+      </a>
+    </div>
+
+    <div class="list card">
+      <div class="item item-divider">
+        <span>History</span>
+      </div>
+      <p class="item text-continue-next-line" ng-repeat="elem in searchHistory track by $index"
+         ng-click="navigateToResultList(elem)">
+        <span ng-bind="elem.textualRepresentation"></span>
+      </p>
+
+      <p class="item" ng-show="searchHistory.length == 0">
+        <span>None</span>
+      </p>
+    </div>
 
 
   </ion-content>

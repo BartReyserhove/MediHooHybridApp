@@ -11,7 +11,7 @@
                 $ionicPlatform, $cordovaNetwork, $ionicContentBanner, $ionicTabsDelegate) {
 
         //TODO: find better place to put this?
-        this._init = function() {
+        this._init = function () {
           $scope.searchOptions = {
             classification: null,
             specialization: null,
@@ -22,6 +22,7 @@
             skip: 0
           };
 
+          //TODO: remove this maybe?
           $scope.hasNetwork = false;
 
           //TODO: link to settings ctrl
@@ -44,12 +45,17 @@
         $rootScope.$on('$cordovaNetwork:offline', function (event, networkState) {
           $scope.hasNetwork = false;
           console.log('hasNetwork = false');
+          $scope.showMessage('No network found', 'error');
+        });
+
+        $scope.showMessage = function (message, type) {
+          //type: error or info
           $ionicContentBanner.show({
-            text: ['No network found'],
-            type: 'error',
+            text: [message],
+            type: type,
             autoClose: 10000
           });
-        });
+        };
 
         $scope.swipeTo = function (tabIndex) {
           $ionicTabsDelegate.select(tabIndex);
@@ -77,8 +83,8 @@
           CordovaUtilityFactory.openInAppBrowser(url);
         };
 
-        $scope.launchNavigator = function (location) {
-          CordovaUtilityFactory.launchNavigator(location);
+        $scope.launchNavigator = function (provider) {
+          CordovaUtilityFactory.launchNavigator(provider);
         };
 
         $scope.sendEmail = function (mailTo) {

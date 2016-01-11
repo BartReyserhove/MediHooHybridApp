@@ -14,7 +14,7 @@
 
         this._init();
 
-        $scope.navigateToResultList = function(searchCriteria) {
+        $scope.navigateToResultList = function (searchCriteria) {
           $ionicLoading.show({
             template: '<ion-spinner></ion-spinner>'
           });

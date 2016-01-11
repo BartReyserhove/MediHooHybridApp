@@ -68,8 +68,8 @@
           });
         }
 
-        function launchNavigator(location) {
-          var destination = location.AddressLine1 + ',' + location.City + ',' + location.Country;
+        function launchNavigator(provider) {
+          var destination = provider.street + ',' + provider.city + ',' + provider.country;
           var start = null;
 
           var callbacks = {

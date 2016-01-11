@@ -25,21 +25,33 @@
 
         $scope.getCountries = function (val) {
           return HealthCareFactory.searchCountry(val)
-            .then(function (data) {
-              return data;
+            .then(function (res) {
+              if (res.error) {
+                $scope.showMessage('No network found', 'error');
+                return [];
+              }
+              else return res.data;
             });
         };
         $scope.getCities = function (val) {
           return HealthCareFactory.searchCity($scope.searchOptions.country.Id, val)
-            .then(function (data) {
-              return data;
+            .then(function (res) {
+              if (res.error) {
+                $scope.showMessage('No network found', 'error');
+                return [];
+              }
+              else return res.data;
             });
         };
 
         $scope.getSpecializations = function (val) {
           return HealthCareFactory.searchSpecializationByClassification($scope.searchOptions.classification, val)
-            .then(function (data) {
-              return data;
+            .then(function (res) {
+              if (res.error) {
+                $scope.showMessage('No network found', 'error');
+                return [];
+              }
+              else return res.data;
             });
         };
 
@@ -58,12 +70,12 @@
         };
 
         $scope.geoLocationChanged = function () {
-          if($scope.useGeoLocation.checked) {
+          if ($scope.useGeoLocation.checked) {
             $ionicLoading.show({
               template: '<ion-spinner></ion-spinner>'
             });
-            CordovaUtilityFactory.getGeoLocation().then(function(location) {
-              if(location == null) {
+            CordovaUtilityFactory.getGeoLocation().then(function (location) {
+              if (location == null) {
 
                 $scope.useGeoLocation.checked = false;
                 $ionicContentBanner.show({
@@ -81,7 +93,7 @@
         };
 
         $scope.showResults = function () {
-          if ( ($scope.searchOptions.country == null || $scope.searchOptions.country.Name == undefined)
+          if (($scope.searchOptions.country == null || $scope.searchOptions.country.Name == undefined)
             && !$scope.useGeoLocation.checked) {
             return;
           }
@@ -91,10 +103,16 @@
           });
 
           HealthCareFactory.changeCurrentSearchOptions($scope.searchOptions).then(function () {
-            HealthCareFactory.searchResultsWithGivenOptions().then(function () {
-              SearchHistoryFactory.addSearchCriteriaToHistory(HealthCareFactory.getCurrentSearchOptions());
-              $ionicLoading.hide();
-              $state.go('tab.search-result-list');
+            HealthCareFactory.searchResultsWithGivenOptions().then(function (res) {
+              if (res.error) {
+                $scope.showMessage('No network found', 'error');
+                $ionicLoading.hide();
+              }
+              else {
+                SearchHistoryFactory.addSearchCriteriaToHistory(HealthCareFactory.getCurrentSearchOptions());
+                $ionicLoading.hide();
+                $state.go('tab.search-result-list');
+              }
             });
           });
         };

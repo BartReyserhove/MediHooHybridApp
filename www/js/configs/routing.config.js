@@ -23,6 +23,15 @@
               }
             }
           })
+          .state('tab.favourites', {
+            url: '/home/favourites',
+            views: {
+              'tab-home': {
+                templateUrl: 'templates/tab-home-favourites.html',
+                controller: 'FavouritesCtrl'
+              }
+            }
+          })
           .state('tab.settings', {
             url: '/settings',
             views: {
