@@ -28,9 +28,9 @@
             newOptions.countryUrl = '';
           }
 
-          if (newOptions.city != null && newOptions.city != undefined) {
+          if (newOptions.city != null && newOptions.city != undefined && newOptions.city != '') {
             newOptions.cityUrl = newOptions.city.Name.split(' ').join('+');
-            newOptions.locationUrl = '&distance=' + newOptions.distance;
+            newOptions.distanceUrl = '&distance=' + newOptions.distance;
           }
           else {
             newOptions.cityUrl = '';
@@ -63,12 +63,13 @@
           if (newOptions.location != null) {
             newOptions.locationUrl =
               '&location%5Blat%5D=' + newOptions.location.lat
-              + '&location%5Blng%5D=' + newOptions.location.long
-              + '&distance=' + newOptions.distance;
+              + '&location%5Blng%5D=' + newOptions.location.long;
+            newOptions.distanceUrl = '&distance=' + newOptions.distance;
           }
           //because if city is defined, locationUrl contains the distance
-          else if (newOptions.city == null || newOptions.city == undefined) {
+          else if (newOptions.city == null || newOptions.city == undefined || newOptions.city == '') {
             newOptions.locationUrl = '';
+            newOptions.distanceUrl = '';
           }
 
           currentSearchOptions = newOptions;
@@ -195,6 +196,7 @@
             + '&classification=' + currentSearchOptions.classificationUrl
             + '&specializations=' + currentSearchOptions.specializationUrl
             + currentSearchOptions.locationUrl
+            + currentSearchOptions.distanceUrl
             + '&skip=' + checkIfUndefinedAndReturnValue(currentSearchOptions.skip)
             + '&take=' + ConfigFactory.takeItems;
 

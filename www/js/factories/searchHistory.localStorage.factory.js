@@ -113,6 +113,11 @@
             where += criteria.countryUrl;
           }
 
+          if(criteria.distanceUrl != '') {
+            var distance = criteria.distanceUrl.split('=')[1];
+            where += 'in a range of ' + distance + 'km'
+          }
+
           if(hasClassification) {
             console.log('get classifcation');
             HealthCareFactory.getClassification(criteria.classificationUrl).then(function (classification) {

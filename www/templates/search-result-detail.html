@@ -53,8 +53,7 @@
         <i class="icon ion-ios-briefcase"></i>
         <span ng-if="provider.isIndividual">Individual</span>
         <span ng-if="!provider.isIndividual">Organisation</span>
-        <span ng-show="provider.type != null">, {{provider.type}}</span>
-        </span>
+        <span ng-show="provider.type != null">- {{provider.type}}</span>
       </div>
 
       <div class="item item-icon-left text-continue-next-line" ng-if="provider.classifications.length > 0">
