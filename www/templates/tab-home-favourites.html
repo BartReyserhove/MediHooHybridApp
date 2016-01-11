@@ -4,12 +4,12 @@
       <div class="item item-divider">
         <span>Favourites</span>
       </div>
-      <!--<p class="item text-continue-next-line" ng-repeat="elem in searchHistory track by $index"
-         ng-click="navigateToResultList(elem)">
-        <span ng-bind="elem.textualRepresentation"></span>
-      </p>-->
+      <p class="item text-continue-next-line" ng-repeat="favourite in favourites track by $index"
+         ng-click="navigateToDetails(favourite.id)">
+        <span ng-bind="favourite.name"></span>
+      </p>
 
-      <p class="item">
+      <p class="item" ng-show="favourites.length == 0">
         <span>None</span>
       </p>
     </div>

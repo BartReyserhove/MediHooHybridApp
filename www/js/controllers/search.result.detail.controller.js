@@ -5,8 +5,9 @@
   'use strict';
 
   angular.module('mediHooApp.controllers')
-    .controller('SearchResultDetailCtrl', ['$scope', '$stateParams', '$ionicNavBarDelegate', 'HealthCareFactory',
-      function ($scope, $stateParams, $ionicNavBarDelegate, HealthCareFactory) {
+    .controller('SearchResultDetailCtrl', ['$scope', '$stateParams', '$ionicNavBarDelegate',
+      'HealthCareFactory', 'FavouritesFactory',
+      function ($scope, $stateParams, $ionicNavBarDelegate, HealthCareFactory, FavouritesFactory) {
 
         $ionicNavBarDelegate.showBackButton(true);
 
@@ -20,6 +21,7 @@
             else {
               //$scope.result = res.data;
               $scope.provider = {
+                id: res.data.ProviderAddressItem.Id,
                 country: res.data.ProviderAddressItem.Address.Country.Name,
                 city: res.data.ProviderAddressItem.Address.City.Name,
                 street: res.data.ProviderAddressItem.Address.AddressLine1,
@@ -36,7 +38,9 @@
                 classifications: res.data.ProviderClassificationGroup.Classifications
               };
 
-              $scope.isFavourite = false;
+              FavouritesFactory.isFavourite($scope.provider.id).then(function (isFavourite) {
+                $scope.isFavourite = isFavourite;
+              });
             }
           });
         }.bind(this);
@@ -44,6 +48,12 @@
         this._init();
 
         $scope.clickFavouriteBtn = function () {
+          if($scope.isFavourite) {
+            FavouritesFactory.remove($scope.provider.id);
+          }
+          else {
+            FavouritesFactory.add($scope.provider);
+          }
           $scope.isFavourite = !$scope.isFavourite;
         }
       }]);
