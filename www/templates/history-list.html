@@ -1,6 +1,6 @@
 <div class="list card" ng-controller="HistoryCtrl">
   <div class="item item-divider item-icon-right">
-    <span>History</span>
+    <span translate="HISTORY">History</span>
     <i class="icon ion-ios-trash-outline" ng-click="clearHistory()"></i>
   </div>
   <p class="item text-continue-next-line" ng-repeat="elem in searchHistory track by $index"
@@ -9,6 +9,6 @@
   </p>
 
   <p class="item" ng-show="searchHistory.length == 0">
-    <span>None</span>
+    <span translate="NONE">None</span>
   </p>
 </div>

@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d33a6043-fd6a-4c74-a77c-d7a27c04c322" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/data/capitalForCountriesId.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/data/countries.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/data/example.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/data/resultsForBelgium.json" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers/search.controller.js" afterPath="$PROJECT_DIR$/www/js/controllers/search.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers/translate.controller.js" afterPath="$PROJECT_DIR$/www/js/controllers/translate.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/languages/en.json" afterPath="$PROJECT_DIR$/www/languages/en.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/languages/nl.json" afterPath="$PROJECT_DIR$/www/languages/nl.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/favourite-list.html" afterPath="$PROJECT_DIR$/www/templates/favourite-list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/history-list.html" afterPath="$PROJECT_DIR$/www/templates/history-list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/tab-home-secundary.html" afterPath="$PROJECT_DIR$/www/templates/tab-home-secundary.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/tab-home.html" afterPath="$PROJECT_DIR$/www/templates/tab-home.html" />
     </list>
     <ignored path="MediHoo-Application.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,114 +33,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/app.js">
+      <file leaf-file-name="en.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/languages/en.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="68" selection-start-line="28" selection-start-column="68" selection-end-line="28" selection-end-column="68" />
+            <state vertical-scroll-proportion="0.17892644">
+              <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="translate.controller.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/www/js/controllers/translate.controller.js">
+      <file leaf-file-name="nl.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/languages/nl.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34155598">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="angular-translate.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/lib/angular-translate/angular-translate.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="346" column="6" selection-start-line="346" selection-start-column="6" selection-end-line="346" selection-end-column="6" />
-              <folding>
-                <marker date="1443728488000" expanded="true" signature="89128:89784" placeholder="..." />
-                <marker date="1443728488000" expanded="true" signature="89930:90137" placeholder="{...}" />
-                <marker date="1443728488000" expanded="true" signature="89978:90102" placeholder="{&quot;TRANSLATION_ID&quot;: 'Hello there!'...}" />
-                <marker date="1443728488000" expanded="true" signature="90218:90334" placeholder="{...}" />
-                <marker date="1443728488000" expanded="true" signature="90294:90325" placeholder="{&quot;value&quot;: 78...}" />
-                <marker date="1443728488000" expanded="true" signature="90420:91413" placeholder="{...}" />
-                <marker date="1443728488000" expanded="true" signature="90469:91403" placeholder="{...}" />
-                <marker date="1443728488000" expanded="true" signature="104090:104367" placeholder="..." />
-                <marker date="1443728488000" expanded="true" signature="104105:104214" placeholder="..." />
-                <marker date="1443728488000" expanded="true" signature="104260:104353" placeholder="..." />
-                <marker date="1443728488000" expanded="true" signature="104513:104804" placeholder="{...}" />
-                <marker date="1443728488000" expanded="true" signature="104561:104769" placeholder="{&quot;TRANSLATION_ID&quot;: 'Hello there!'...}" />
-                <marker date="1443728488000" expanded="true" signature="104628:104711" placeholder="{...}" />
-                <marker date="1443728488000" expanded="true" signature="104653:104699" placeholder="{&quot;TITLE&quot;: 'Title'...}" />
-                <marker date="1443728488000" expanded="true" signature="106505:106747" placeholder="..." />
-                <marker date="1443728488000" expanded="true" signature="106893:107129" placeholder="{...}" />
-                <marker date="1443728488000" expanded="true" signature="106942:107066" placeholder="{&quot;TRANSLATION_ID&quot;: 'Hello there!'...}" />
-                <marker date="1443728488000" expanded="true" signature="107210:107326" placeholder="{...}" />
-                <marker date="1443728488000" expanded="true" signature="107286:107317" placeholder="{&quot;value&quot;: 78...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/controllers/settings.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tab-settings.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/tab-settings.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.5">
-              <caret line="12" column="97" selection-start-line="12" selection-start-column="89" selection-end-line="12" selection-end-column="97" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ng-cordova.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/lib/ngCordova/dist/ng-cordova.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="3322" column="26" selection-start-line="3322" selection-start-column="6" selection-end-line="3322" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cordova.utility.factory.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/factories/cordova.utility.factory.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="106" column="27" selection-start-line="106" selection-start-column="12" selection-end-line="106" selection-end-column="27" />
-              <folding>
-                <element signature="e#0#50#0" expanded="false" />
-                <element signature="e#1323#1910#0" expanded="false" />
-                <element signature="e#1366#1748#0" expanded="false" />
-                <element signature="e#1784#1898#0" expanded="false" />
-                <element signature="e#3634#4343#0" expanded="false" />
-                <element signature="e#4384#4642#0" expanded="false" />
-                <element signature="e#4500#4548#0" expanded="false" />
-                <element signature="e#4684#5066#0" expanded="false" />
-                <element signature="e#4712#4911#0" expanded="false" />
-                <element signature="e#4747#4805#0" expanded="false" />
-                <element signature="e#4843#4899#0" expanded="false" />
-                <element signature="e#4957#5054#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/controllers/search.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="75" selection-start-line="8" selection-start-column="75" selection-end-line="8" selection-end-column="75" />
+            <state vertical-scroll-proportion="-2.5">
+              <caret line="4" column="20" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -170,8 +84,6 @@
         <option value="$PROJECT_DIR$/www/js/factories/utility.factory.js" />
         <option value="$PROJECT_DIR$/www/js/configs/module.config.js" />
         <option value="$PROJECT_DIR$/www/js/configs/translate.config.js" />
-        <option value="$PROJECT_DIR$/www/languages/en.json" />
-        <option value="$PROJECT_DIR$/www/languages/nl.json" />
         <option value="$PROJECT_DIR$/www/templates/tabs.html" />
         <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/www/js/controllers/search.result.list.controller.js" />
@@ -191,11 +103,7 @@
         <option value="$PROJECT_DIR$/www/templates/tab-settings.html" />
         <option value="$PROJECT_DIR$/www/js/controllers/home.controller.js" />
         <option value="$PROJECT_DIR$/www/js/factories/healthcare.factory.js" />
-        <option value="$PROJECT_DIR$/www/templates/history-list.html" />
-        <option value="$PROJECT_DIR$/www/templates/favourite-list.html" />
         <option value="$PROJECT_DIR$/www/js/configs/routing.config.js" />
-        <option value="$PROJECT_DIR$/www/templates/tab-home.html" />
-        <option value="$PROJECT_DIR$/www/templates/tab-home-secundary.html" />
         <option value="$PROJECT_DIR$/www/css/style.css" />
         <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/www/js/controllers/history.controller.js" />
@@ -206,6 +114,12 @@
         <option value="$PROJECT_DIR$/www/js/controllers/search.controller.js" />
         <option value="$PROJECT_DIR$/www/js/app.js" />
         <option value="$PROJECT_DIR$/www/js/controllers/translate.controller.js" />
+        <option value="$PROJECT_DIR$/www/templates/tab-home.html" />
+        <option value="$PROJECT_DIR$/www/templates/favourite-list.html" />
+        <option value="$PROJECT_DIR$/www/languages/en.json" />
+        <option value="$PROJECT_DIR$/www/templates/history-list.html" />
+        <option value="$PROJECT_DIR$/www/templates/tab-home-secundary.html" />
+        <option value="$PROJECT_DIR$/www/languages/nl.json" />
       </list>
     </option>
   </component>
@@ -316,90 +230,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="languages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MediHoo-Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MediHoo-Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MediHoo-Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MediHoo-Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="factories" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MediHoo-Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MediHoo-Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MediHoo-Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MediHoo-Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="configs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -643,20 +473,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/languages/en.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/languages/nl.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/lib/ionic-content-banner/dist/ionic.content.banner.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -830,13 +646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/favourite-list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="52" selection-start-line="0" selection-start-column="52" selection-end-line="0" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/configs/routing.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26136363">
@@ -844,24 +653,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/tab-home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.625">
-          <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/search-result-detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.625">
           <caret line="14" column="59" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/tab-home-secundary.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14880952">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -890,14 +685,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/history-list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35785288">
-          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23856859">
@@ -921,18 +708,6 @@
         <state vertical-scroll-proportion="0.82542694">
           <caret line="64" column="38" selection-start-line="64" selection-start-column="38" selection-end-line="65" selection-end-column="65" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/factories/searchHistory.localStorage.factory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14231499">
-          <caret line="94" column="10" selection-start-line="94" selection-start-column="10" selection-end-line="94" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#50#0" expanded="false" />
-            <element signature="e#2164#2828#0" expanded="false" />
-            <element signature="e#4956#5549#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1027,8 +802,68 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers/translate.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34155598">
+        <state vertical-scroll-proportion="0.0">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/factories/searchHistory.localStorage.factory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#50#0" expanded="false" />
+            <element signature="e#2164#2828#0" expanded="false" />
+            <element signature="e#4956#5549#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/favourite-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.25">
+          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/history-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.875">
+          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/tab-home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.0">
+          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/tab-home-secundary.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.125">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/languages/nl.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.5">
+          <caret line="4" column="20" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/languages/en.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17892644">
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
           <folding />
         </state>
       </provider>

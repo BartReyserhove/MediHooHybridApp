@@ -1,41 +1,18 @@
 <ion-view view-title="{{'HOME_TITLE' | translate}}">
   <ion-content on-swipe-left="goForward()" class="fade">
+
     <div class="row">
       <div class="col col-80 col-offset-10">
         <img style="width: 100%" src="./img/Medihoo_big_logo.png">
       </div>
     </div>
 
-    <!--<div class="row" style="margin-top: 25px;">
-      <div class="col col-33 col-offset-10">
-        <div ng-click="navigateToSearch('HOSP')">
-          <img class="home-page-tile" src="./img/types/Hospital-orange.png">
-        </div>
-      </div>
-      <div class="col col-33 col-offset-10">
-        <div ng-click="navigateToSearch('DENP')">
-          <img class="home-page-tile" src="./img/types/Dental-orange.png">
-        </div>
-      </div>
-    </div>
-    <div class="row" style="margin-top: 25px;">
-      <div class="col col-33 col-offset-10">
-        <div ng-click="navigateToSearch('PHAS')">
-          <img class="home-page-tile" src="./img/types/pharmacy-orange.png">
-        </div>
-      </div>
-      <div class="col col-33 col-offset-10">
-        <div ng-click="navigateToSearch('NSPR')">
-          <img class="home-page-tile" src="./img/types/nurse-orange.png">
-        </div>
-      </div>
-    </div>-->
     <div class="list card">
       <div class="item item-divider">
-        <span>History</span>
+        <span translate="HISTORY">History</span>
       </div>
       <a class="item" ui-sref="tab.secundary">
-        <span>Show all</span>
+        <span translate="SHOW_ALL">Show all</span>
       </a>
     </div>
 

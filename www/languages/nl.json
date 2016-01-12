@@ -2,5 +2,9 @@
   "HOME_TITLE":"Start",
   "SETTINGS_TITLE":"Instellingen",
   "SETTINGS_PREFERENCES":"Voorkeuren",
-  "SETTINGS_LANGUAGE":"Taal"
+  "SETTINGS_LANGUAGE":"Taal",
+  "HISTORY":"Historiek",
+  "SHOW_ALL":"Toon alles",
+  "FAVOURITES":"Favorieten",
+  "NONE":"Geen"
 }
