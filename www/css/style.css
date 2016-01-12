@@ -21,12 +21,21 @@ ion-content {
   padding-left: 64px;
 }
 
-.about-page-heading {
+h1.about-page-heading {
   color: #56646e;
   text-align: center;
+  font-size: 29px;
+  margin: 10px 10px 0 10px;
 }
 
-.about-page-heading span {
+.ion-slide-icon-left-large > .box > .card > .item {
+  font-size: 12px;
+}
+/*.about-page-heading span {
+  color: #f48231;
+}*/
+
+.orange-text {
   color: #f48231;
 }
 
@@ -100,6 +109,14 @@ a.main-tab > i.icon {
 
 .item-color-assertive {
   color: #f48231;
+}
+
+ion-slide.ion-slide-icon-left-large > div.box > div.card > p {
+ padding-left: 85px;
+}
+
+ion-slide.ion-slide-icon-left-large > div.box > div.card > p > img {
+  left: 0;
 }
 
 @-webkit-keyframes fade {
