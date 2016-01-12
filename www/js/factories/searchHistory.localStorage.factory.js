@@ -5,8 +5,8 @@
   'use strict';
 
   angular.module('mediHooApp.factories')
-    .factory('SearchHistoryFactory', ['$q', 'localStorageService', 'HealthCareFactory',
-      function ($q, localStorageService, HealthCareFactory) {
+    .factory('SearchHistoryFactory', ['$q', 'localStorageService', 'HealthCareFactory', 'CordovaUtilityFactory',
+      function ($q, localStorageService, HealthCareFactory, CordovaUtilityFactory) {
         var cookieName = 'searchHistory';
         var maxCache = 10;
         var searchHistoryList = [];
@@ -93,42 +93,54 @@
         function getSearchCriteriaTextRepresentation(criteria) {
           var deferred = $q.defer();
 
+          createTextRepresentationWhat(criteria).then(function (what) {
+            createTextRepresentationWhere(criteria).then(function (where) {
+              deferred.resolve(what + where);
+            });
+          });
+
+          return deferred.promise;
+        }
+
+        function createTextRepresentationWhere(criteria) {
+          var deferred = $q.defer();
+          var range = '';
+          var place = '';
+
+          if (criteria.distanceUrl != '') {
+            var distance = criteria.distanceUrl.split('=')[1];
+            range = ' in a range of ' + distance + 'km'
+          }
+
+          if (criteria.locationUrl != '') {
+            CordovaUtilityFactory.reverseGeoCode(criteria.location.lat, criteria.location.long).then(function (address) {
+              deferred.resolve(address + range);
+            });
+          }
+          else {
+            if (criteria.cityUrl != '') place += criteria.cityUrl.split('+').join(' ') + ', ';
+            place += criteria.countryUrl.split('+').join(' ');
+            deferred.resolve(place + range);
+          }
+
+          return deferred.promise;
+        }
+
+        function createTextRepresentationWhat(criteria) {
+          var deferred = $q.defer();
           var what = '';
-          var where = '';
-          var hasClassification = false;
 
           if (criteria.specializationUrl != '') {
             what += criteria.specializationUrl.split('+').join(' ') + ' in ';
           }
           if (criteria.classificationUrl != '') {
-            hasClassification = true;
-          }
-
-          if (criteria.locationUrl != '') {
-            if (hasClassification) where += ' based on ';
-            where += 'current location';
-          }
-          else {
-            if (hasClassification) where += ' for ';
-            if (criteria.cityUrl != '') where += criteria.cityUrl.split('+').join(' ') + ', ';
-            where += criteria.countryUrl.split('+').join(' ');
-          }
-
-          if (criteria.distanceUrl != '') {
-            var distance = criteria.distanceUrl.split('=')[1];
-            where += ' in a range of ' + distance + 'km'
-          }
-
-          if (hasClassification) {
-            console.log('get classifcation');
             HealthCareFactory.getClassification(criteria.classificationUrl).then(function (classification) {
-              console.log(classification);
-              what += classification.type;
-              deferred.resolve(what + where);
+              what += classification.type + ' for ';
+              deferred.resolve(what);
             });
           }
           else {
-            deferred.resolve(where);
+            deferred.resolve(what);
           }
 
           return deferred.promise;
@@ -139,10 +151,22 @@
           localStorageService.remove(cookieName);
         }
 
+        function remove(index) {
+          var searchHistory = localStorageService.get(cookieName);
+          if (searchHistory != undefined && searchHistory.list != undefined && searchHistory.list.length > 0
+            && index < searchHistory.list.length && index > -1) {
+
+            searchHistory.list.splice(index, 1);
+            favouriteList.splice(index, 1);
+            localStorageService.set(cookieName, searchHistory);
+          }
+        }
+
         return {
           addSearchCriteriaToHistory: addSearchCriteriaToHistory,
           getSearchHistory: getSearchHistory,
-          clearHistory: clearHistory
+          clearHistory: clearHistory,
+          remove: remove
         }
       }]);
 })();

@@ -10,6 +10,28 @@
         var currentLocation = {};
         var positionOptions = {timeout: 10000, enableHighAccuracy: true};
 
+        function reverseGeoCode(latitude, longitude) {
+          var deferred = $q.defer();
+
+          var geocoder = new google.maps.Geocoder();
+          var latlng = new google.maps.LatLng(latitude, longitude);
+          geocoder.geocode({'latLng': latlng}, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+
+              if (results[1]) {
+
+                deferred.resolve(results[1].formatted_address);
+              } else {
+                deferred.resolve('Location not found');
+              }
+            } else {
+              deferred.resolve('Geocoder failed due to: ' + status);
+            }
+          });
+
+          return deferred.promise;
+        }
+
         function getGeoLocation() {
           var deferred = $q.defer();
 
@@ -40,32 +62,6 @@
           });
 
           return deferred.promise;
-        }
-
-        function sendEmail(mailTo) {
-          $ionicPlatform.ready(function () {
-            $cordovaEmailComposer.isAvailable().then(function () {
-              // is available
-              console.log("available");
-
-              var email = {
-                to: mailTo,
-                cc: null,
-                bcc: null,
-                attachments: null,
-                subject: null,
-                body: null,
-                isHtml: true
-              };
-
-              $cordovaEmailComposer.open(email).then(null, function () {
-                // user cancelled email
-              });
-            }, function () {
-              // not available
-              console.log("not available");
-            });
-          });
         }
 
         function launchNavigator(provider) {
@@ -118,6 +114,32 @@
           }
         }
 
+        function sendEmail(mailTo) {
+          $ionicPlatform.ready(function () {
+            $cordovaEmailComposer.isAvailable().then(function () {
+              // is available
+              console.log("available");
+
+              var email = {
+                to: mailTo,
+                cc: null,
+                bcc: null,
+                attachments: null,
+                subject: null,
+                body: null,
+                isHtml: true
+              };
+
+              $cordovaEmailComposer.open(email).then(null, function () {
+                // user cancelled email
+              });
+            }, function () {
+              // not available
+              console.log("not available");
+            });
+          });
+        }
+
         function openInAppBrowser(url) {
           // Open in app browser
           console.log('url: ' + url);
@@ -144,6 +166,7 @@
         }
 
         return {
+          reverseGeoCode: reverseGeoCode,
           getGeoLocation: getGeoLocation,
           sendEmail: sendEmail,
           launchNavigator: launchNavigator,
