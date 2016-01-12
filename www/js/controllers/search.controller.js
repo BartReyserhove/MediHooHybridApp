@@ -95,7 +95,6 @@
         };
 
         $scope.showResults = function () {
-
           if (($scope.searchOptions.country == null || $scope.searchOptions.country.Name == undefined)
             && !$scope.useGeoLocation.checked) {
             return;
