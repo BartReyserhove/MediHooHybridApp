@@ -1,5 +1,6 @@
 <ion-view view-title="{{'SETTINGS_TITLE' | translate}}">
   <ion-content on-swipe-right="goBack()" class="fade">
+
     <div class="list card">
 
       <div class="item item-divider">
@@ -17,51 +18,46 @@
         </select>
       </label>
 
-      <!--<div class="item item-toggle">
-        <h2>
-          Use Location
-        </h2>
-        <label class="toggle toggle-assertive">
-          <input type="checkbox" checked>
-
-          <div class="track">
-            <div class="handle"></div>
-          </div>
-        </label>
-      </div>-->
-
     </div>
 
     <div class="list card">
+
       <div class="item item-divider">
-        Information
+        <span translate="INFORMATION">Information</span>
       </div>
       <a class="item item-icon-left" ui-sref="tab.about">
         <i class="icon ion-ios-information-outline"></i>
-        About us
+        <span translate="ABOUT_US">About us</span>
       </a>
+
     </div>
 
     <div class="list card">
+
       <div class="item item-divider">
-        Extra
+        <span translate="EXTRA">Extra</span>
       </div>
-      <span class="item item-icon-left" ng-click="openInAppBrowser('http://www.medihoo.com/Disclaimer')">
+      <div class="item item-icon-left text-continue-next-line"
+           ng-click="openInAppBrowser('http://www.medihoo.com/Disclaimer')">
         <i class="icon ion-ios-locked-outline"></i>
-        Disclaimer
-      </span>
-      <span class="item item-icon-left" ng-click="openInAppBrowser('http://www.medihoo.com/Privacy_policy')">
+        <span translate="DISCLAIMER">Disclaimer</span>
+      </div>
+      <div class="item item-icon-left text-continue-next-line"
+           ng-click="openInAppBrowser('http://www.medihoo.com/Privacy_policy')">
         <i class="icon ion-ios-body-outline"></i>
-        Privacy policy
-      </span>
-      <a class="item item-icon-left" href="#">
+        <span translate="PRIVACY_POLICY">Privacy policy</span>
+      </div>
+      <div class="item item-icon-left text-continue-next-line">
         <i class="icon ion-ios-heart-outline"></i>
-        Rate this app
-      </a>
-      <span class="item item-icon-left" ng-click="sendEmail('test@test.be')">
+        <span translate="RATE_APP">Rate this app</span>
+      </div>
+      <div class="item item-icon-left text-continue-next-line"
+           ng-click="sendEmail('test@test.be')">
         <i class="icon ion-ios-chatbubble-outline"></i>
-        Report a bug or make a suggestion
-      </span>
+        <span translate="BUG_OR_SUGGESTION">Report a bug or make a suggestion</span>
+      </div>
+
     </div>
+
   </ion-content>
 </ion-view>

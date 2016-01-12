@@ -6,5 +6,12 @@
   "HISTORY":"History",
   "SHOW_ALL":"Show all",
   "FAVOURITES":"Favourites",
-  "NONE":"None"
+  "NONE":"None",
+  "INFORMATION":"Information",
+  "ABOUT_US":"About us",
+  "EXTRA":"Extra",
+  "DISCLAIMER":"Disclaimer",
+  "PRIVACY_POLICY":"Privacy policy",
+  "RATE_APP":"Rate this app",
+  "BUG_OR_SUGGESTION":"Report a bug or make a suggestion"
 }
