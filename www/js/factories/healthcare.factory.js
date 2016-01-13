@@ -94,16 +94,12 @@
         function getResultWithId(id) {
           var deferred = $q.defer();
 
-          /*var resultList = $filter('filter')(currentResultSet, {Data: {Id: id}});
-           console.log('resultList:');
-           console.log(resultList);
-           deferred.resolve(resultList[0]);*/
-
-          var provider = {};
-
-          getProviderDetails(id).then(function (res) {
-            deferred.resolve(res);
-            //TODO: include getProviderRatings here in future maybe?
+          getProviderDetails(id).then(function (detailsResponse) {
+            getProviderRatings(id).then(function (ratingsResponse) {
+              if(ratingsResponse.error) detailsResponse.error = ratingsResponse.error;
+              detailsResponse.data.ratings = ratingsResponse.data;
+              deferred.resolve(detailsResponse);
+            });
           });
 
           return deferred.promise;

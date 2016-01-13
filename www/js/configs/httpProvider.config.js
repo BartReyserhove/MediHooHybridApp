@@ -7,6 +7,6 @@
     angular.module('mediHooApp.configs')
       .config(['$httpProvider',
         function($httpProvider) {
-            $httpProvider.interceptors.push('HttpInterceptorFactory');
+            //$httpProvider.interceptors.push('HttpInterceptorFactory'); //TODO: remove this and the factory
         }]);
 })();

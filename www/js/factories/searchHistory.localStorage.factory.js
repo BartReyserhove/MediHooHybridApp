@@ -95,7 +95,14 @@
 
           createTextRepresentationWhat(criteria).then(function (what) {
             createTextRepresentationWhere(criteria).then(function (where) {
-              deferred.resolve(what + where);
+              deferred.resolve(
+                {
+                  specialization: what.specialization,
+                  classification: what.classification,
+                  address: where.address,
+                  distance: where.distance
+                }
+              );
             });
           });
 
@@ -104,23 +111,26 @@
 
         function createTextRepresentationWhere(criteria) {
           var deferred = $q.defer();
-          var range = '';
-          var place = '';
+          var where = {
+            address: '',
+            distance: ''
+          };
 
           if (criteria.distanceUrl != '') {
             var distance = criteria.distanceUrl.split('=')[1];
-            range = ' in a range of ' + distance + 'km'
+            where.distance = distance + ' km';
           }
 
           if (criteria.locationUrl != '') {
             CordovaUtilityFactory.reverseGeoCode(criteria.location.lat, criteria.location.long).then(function (address) {
-              deferred.resolve(address + range);
+              where.address = address;
+              deferred.resolve(where);
             });
           }
           else {
-            if (criteria.cityUrl != '') place += criteria.cityUrl.split('+').join(' ') + ', ';
-            place += criteria.countryUrl.split('+').join(' ');
-            deferred.resolve(place + range);
+            if (criteria.cityUrl != '') where.address = criteria.cityUrl.split('+').join(' ') + ', ';
+            where.address += criteria.countryUrl.split('+').join(' ');
+            deferred.resolve(where);
           }
 
           return deferred.promise;
@@ -128,14 +138,17 @@
 
         function createTextRepresentationWhat(criteria) {
           var deferred = $q.defer();
-          var what = '';
+          var what = {
+            specialization: '',
+            classification: ''
+          };
 
           if (criteria.specializationUrl != '') {
-            what += criteria.specializationUrl.split('+').join(' ') + ' in ';
+            what.specialization = criteria.specializationUrl.split('+').join(' ');
           }
           if (criteria.classificationUrl != '') {
             HealthCareFactory.getClassification(criteria.classificationUrl).then(function (classification) {
-              what += classification.type + ' for ';
+              what.classification = classification.type;
               deferred.resolve(what);
             });
           }

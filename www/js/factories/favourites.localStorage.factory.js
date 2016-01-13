@@ -34,23 +34,19 @@
         }
 
         function add(provider) {
-          var providerToAdd = {
-            id: provider.id,
-            name: provider.displayName
-          };
 
           var favourites = localStorageService.get(cookieName);
           if (favourites != undefined && favourites.list != undefined && favourites.list.length > 0) {
             console.log('add to favourite');
-            favourites.list.push(providerToAdd);
+            favourites.list.push(provider);
             localStorageService.set(cookieName, favourites);
 
-            favouriteList.push(providerToAdd);
+            favouriteList.push(provider);
           }
           else {
             console.log('create favo cookie');
-            localStorageService.set(cookieName, {list: [providerToAdd]});
-            favouriteList.push(providerToAdd);
+            localStorageService.set(cookieName, {list: [provider]});
+            favouriteList.push(provider);
           }
         }
 

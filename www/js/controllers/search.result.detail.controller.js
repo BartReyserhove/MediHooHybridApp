@@ -39,7 +39,8 @@
                 isRecommended: res.data.IsRecommended,
                 type: res.data.ProviderClassificationGroup.Type,
                 specializations: res.data.ProviderClassificationGroup.Specializations,
-                classifications: res.data.ProviderClassificationGroup.Classifications
+                classifications: res.data.ProviderClassificationGroup.Classifications,
+                rating: res.data.ratings[0].ScoreValue //this is for the overall rating
               };
 
               //PhoneNumber sometimes contains a string at the end

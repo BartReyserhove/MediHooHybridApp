@@ -10,8 +10,6 @@
         $ionicNavBarDelegate.showBackButton(true);
 
         this._init = function () {
-          $scope.isReadOnly = true;
-          $scope.maxRating = 5;
           $scope.isSpecifiedInSearchCriteria = HealthCareFactory.isSpecifiedInSearchCriteria();
           $scope.results = HealthCareFactory.getCurrentResultSet();
         };

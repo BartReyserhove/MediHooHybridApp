@@ -1,11 +1,43 @@
+<!--<div class="list card" ng-controller="FavouritesCtrl">
+  <div class="item item-divider">
+    <span translate="FAVOURITES">Favourites</span>
+  </div>
+  <p class="item text-continue-next-line" ng-repeat="favourite in favourites track by $index | orderBy: 'name'"
+     ng-click="navigateToDetails(favourite.id)">
+    <span ng-bind="favourite.displayName"></span>
+  </p>
+
+  <p class="item" ng-show="favourites.length == 0">
+    <span translate="NONE">None</span>
+  </p>
+</div>-->
+
 <div class="list card" ng-controller="FavouritesCtrl">
   <div class="item item-divider">
     <span translate="FAVOURITES">Favourites</span>
   </div>
-  <p class="item text-continue-next-line" ng-repeat="favourite in favourites track by $index"
-     ng-click="navigateToDetails(favourite.id)">
-    <span ng-bind="favourite.name"></span>
-  </p>
+  <div class="item item-avatar item-icon-right" ng-repeat="favourite in favourites track by $index | orderBy: 'name'"
+       ng-click="navigateToDetails(favourite.id)">
+    <img ng-src="{{favourite.profilePicture}}">
+
+    <h2 ng-bind="favourite.displayName"></h2>
+
+    <p><span ng-bind="favourite.street"></span> <span ng-bind="favourite.houseNumber"></span>, <span
+      ng-bind="favourite.city"></span></p>
+
+    <!--<p ng-show="favourite.classifications.length > 0">
+      <span ng-repeat="classifcation in favourite.classifications" ng-bind="classifcation.Name"></span>
+    </p>
+    <p ng-show="favourite.specializations.length > 0">
+      <span ng-repeat="specialization in favourite.specializations" ng-bind="specialization.Name"></span>
+    </p>-->
+
+    <p>
+      <uib-rating class="result-rating" ng-model="favourite.rating" max="maxRating" readonly="isReadOnly"
+                  state-on="'ion-ios-star'" state-off="'ion-ios-star-outline'"></uib-rating>
+    </p>
+    <i class="icon ion-chevron-right icon-accessory"></i>
+  </div>
 
   <p class="item" ng-show="favourites.length == 0">
     <span translate="NONE">None</span>

@@ -12,6 +12,10 @@
 
         //TODO: find better place to put this?
         this._init = function () {
+          //these 2 are used for ratings
+          $scope.isReadOnly = true;
+          $scope.maxRating = 5;
+
           $scope.searchOptions = {
             classification: null,
             specialization: null,

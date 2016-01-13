@@ -3,9 +3,13 @@
     <span translate="HISTORY">History</span>
     <i class="icon ion-ios-trash-outline" ng-click="clearHistory()"></i>
   </div>
-  <p class="item text-continue-next-line" ng-repeat="elem in searchHistory track by $index"
+  <!-- searchHistory.slice().reverse() to reverse order of history -->
+  <p class="item text-continue-next-line" ng-repeat="elem in searchHistory.slice().reverse() track by $index"
      ng-click="navigateToResultList(elem)">
-    <span ng-bind="elem.textualRepresentation"></span>
+    <span class="span-new-line" ng-bind="elem.textualRepresentation.specialization"></span>
+    <span class="span-new-line" ng-bind="elem.textualRepresentation.classification"></span>
+    <span class="span-new-line" ng-bind="elem.textualRepresentation.address"></span>
+    <span class="span-new-line" ng-bind="elem.textualRepresentation.distance"></span>
   </p>
 
   <p class="item" ng-show="searchHistory.length == 0">
