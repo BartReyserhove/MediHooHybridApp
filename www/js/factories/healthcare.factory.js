@@ -21,7 +21,7 @@
         function changeCurrentSearchOptions(newOptions) {
           var deferred = $q.defer();
 
-          if (newOptions.country != null && newOptions.country != undefined) {
+          if (newOptions.country != null && newOptions.country != undefined && newOptions.country != '') {
             newOptions.countryUrl = newOptions.country.Name.split(' ').join('+');
           }
           else {
@@ -37,7 +37,8 @@
           }
 
           if (newOptions.classification == null
-            || newOptions.classification == '') {
+            || newOptions.classification == ''
+            || newOptions.classification == undefined) {
             newOptions.classificationUrl = '';
             isSpecifiedInSearch.classification = false;
           }
@@ -46,7 +47,9 @@
             isSpecifiedInSearch.classification = true;
           }
 
-          if (newOptions.specialization != null && newOptions.specialization != undefined) {
+          if (newOptions.specialization != null
+            && newOptions.specialization != undefined
+            && newOptions.specialization != '') {
             if (newOptions.specialization.SpecializationName == null) {
               newOptions.specializationUrl = newOptions.specialization.ParentSpecializationName.split(' ').join('+');
             }

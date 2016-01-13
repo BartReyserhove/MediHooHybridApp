@@ -1,8 +1,8 @@
-<ion-view view-title="Search">
+<ion-view view-title="{{'SEARCH_TITLE' | translate}}">
   <ion-content on-swipe-right="goBack()" on-swipe-left="goForward()" class="fade">
     <div class="list card">
       <div class="item item-divider">
-        <span>What?</span>
+        <span translate="WHAT">What</span>?
       </div>
 
       <label class="item item-input item-select" style="width: 100%;
@@ -10,10 +10,10 @@
   min-width: 52px;
   min-height: 47px;">
         <div class="input-label">
-          <span>Classification</span>
+          <span translate="CLASSIFICATION">Classification</span>
         </div>
         <select ng-model="searchOptions.classification">
-          <option value=''>All</option>
+          <option value='' translate="ALL">All</option>
           <option ng-repeat="item in classifications" value="{{item.code}}"
                   ng-selected="searchOptions.classification == item.code" ng-bind="item.type">
           </option>
@@ -21,7 +21,8 @@
       </label>
 
       <div ng-show="searchOptions.classification != '' && searchOptions.classification != null">
-        <input type="text" ng-model="searchOptions.specialization" placeholder="Search a specialization"
+        <input type="text" ng-model="searchOptions.specialization"
+               placeholder="{{'SPECIALIZATION_PLACEHOLDER' | translate}}"
                uib-typeahead="specialization
              as specializationLabel(specialization)
              for specialization in getSpecializations($viewValue)"
@@ -35,22 +36,23 @@
         <i ng-show="loadingSpecializations" class="glyphicon glyphicon-refresh"></i>
 
         <div ng-show="noSpecializations">
-          <i class="glyphicon glyphicon-remove"></i> No Specializations Found
+          <i class="glyphicon glyphicon-remove"></i> <span translate="NO_SPECIALIZATIONS">No Specializations Found</span>
         </div>
       </div>
     </div>
 
     <div class="list card">
       <div class="item item-divider">
-        <span>Where?</span>
+        <span translate="WHERE">Where</span>?
       </div>
       <ion-toggle ng-model="useGeoLocation.checked" ng-checked="useGeoLocation.checked"
                   toggle-class="toggle-assertive" ng-change="geoLocationChanged()">
-        <span ng-bind="useGeoLocation.text"></span>
+        <span translate="USE_CURRENT_LOCATION">Use current location</span>
       </ion-toggle>
       <div ng-show="!useGeoLocation.checked">
         <div class="item" style="padding: 0; margin-top: 1px;">
-          <input type="text" ng-model="searchOptions.country" placeholder="Find a country"
+          <input type="text" ng-model="searchOptions.country"
+                 placeholder="{{'COUNTRY_PLACEHOLDER' | translate}}"
                  uib-typeahead="country as country.Name for country in getCountries($viewValue)"
                  typeahead-loading="loadingLocations" typeahead-no-results="noLocations"
                  typeahead-popup-template-url="customPopupTemplate.html"
@@ -61,12 +63,13 @@
           <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
 
           <div ng-show="noLocations">
-            <i class="glyphicon glyphicon-remove"></i> No Locations Found
+            <i class="glyphicon glyphicon-remove"></i> <span translate="NO_COUNTRIES">No Countries Found</span>
           </div>
         </div>
 
         <div ng-show="searchOptions.country != null" class="item" style="padding: 0;">
-          <input type="text" ng-model="searchOptions.city" placeholder="Find a city"
+          <input type="text" ng-model="searchOptions.city"
+                 placeholder="{{'CITY_PLACEHOLDER' | translate}}"
                  uib-typeahead="city as city.Name for city in getCities($viewValue)"
                  typeahead-loading="loadingCities" typeahead-no-results="noCities"
                  typeahead-popup-template-url="customPopupTemplate.html"
@@ -77,7 +80,7 @@
           <i ng-show="loadingCities" class="glyphicon glyphicon-refresh"></i>
 
           <div ng-show="noCities">
-            <i class="glyphicon glyphicon-remove"></i> No Cities Found
+            <i class="glyphicon glyphicon-remove"></i> <span translate="NO_CITIES">No Cities Found</span>
           </div>
         </div>
       </div>
@@ -91,7 +94,7 @@
 
     <div class="list list-inset">
       <button class="button button-block button-assertive"
-              ng-click="showResults()">
+              ng-click="showResults()" translate="SEARCH_BTN">
         Search
       </button>
     </div>

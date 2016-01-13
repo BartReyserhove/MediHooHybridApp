@@ -12,7 +12,6 @@
 
         this._init = function () {
           $scope.useGeoLocation = {
-            text: 'Use current location',
             checked: false
           };
 
