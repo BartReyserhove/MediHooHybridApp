@@ -99,6 +99,8 @@
             return;
           }
 
+          $scope.searchOptions.skip = 0;
+
           $ionicLoading.show({
             template: '<ion-spinner></ion-spinner>'
           });

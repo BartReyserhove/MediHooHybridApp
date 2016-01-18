@@ -6,8 +6,9 @@
 
   angular.module('mediHooApp.controllers')
     .controller('SearchResultDetailCtrl', ['$scope', '$stateParams', '$ionicNavBarDelegate', '$ionicLoading',
-      'HealthCareFactory', 'FavouritesFactory',
-      function ($scope, $stateParams, $ionicNavBarDelegate, $ionicLoading, HealthCareFactory, FavouritesFactory) {
+      'HealthCareFactory', 'FavouritesFactory', 'ConfigFactory', 'CordovaUtilityFactory',
+      function ($scope, $stateParams, $ionicNavBarDelegate, $ionicLoading, HealthCareFactory,
+                FavouritesFactory, ConfigFactory, CordovaUtilityFactory) {
 
         $ionicNavBarDelegate.showBackButton(true);
 
@@ -52,7 +53,7 @@
                   var indexIsANumber = false;
                   var regexIsNumber = /^\d+$/;
                   do {
-                    if(regexIsNumber.test($scope.provider.phoneNumber.charAt(--indexOf))) {
+                    if (regexIsNumber.test($scope.provider.phoneNumber.charAt(--indexOf))) {
                       indexIsANumber = true;
                     }
                   } while (!indexIsANumber);
@@ -78,6 +79,18 @@
             FavouritesFactory.add($scope.provider);
           }
           $scope.isFavourite = !$scope.isFavourite;
-        }
+        };
+
+        $scope.sendEmailForProvider = function () {
+          var body = 'There is a mistake for ' + $scope.provider.displayName
+            + ', ' + $scope.provider.street + ' ' + $scope.provider.houseNumber + ', ' + $scope.provider.city
+            + ' ' + $scope.provider.country + ': ';
+          CordovaUtilityFactory.sendEmail(
+            ConfigFactory.mediHooEmail,
+            'Report a mistake for a provider',
+            body
+          );
+        };
+
       }]);
 })();

@@ -80,86 +80,12 @@
            style="width: 100%;">
         <img style="width: 100%" ng-src="{{provider.profilePicture}}">
       </div>
+
+      <div class="item item-icon-left text-continue-next-line"
+           ng-click="sendEmailForProvider()">
+        <i class="icon ion-ios-chatbubble-outline"></i>
+        <span translate="REPORT_MISTAKE">Report a mistake for this provider</span>
+      </div>
     </div>
   </ion-content>
 </ion-view>
-<!--<ion-view view-title="{{result.Data.DisplayName}}">
-  <ion-nav-buttons side="right">
-    <a
-      class="button button-icon icon ion-ios-search-strong"
-      ui-sref="tab.search">
-    </a>
-    <button class="button button-icon icon"
-            ng-class="{'ion-ios-heart': isFavourite, 'ion-ios-heart-outline': !isFavourite}"
-            ng-click="clickFavouriteBtn()">
-    </button>
-  </ion-nav-buttons>
-  <ion-content on-swipe-right="goBack()" on-swipe-left="goForward()" class="fade">
-    <div class="list card">
-
-      <p class="item item-icon-left text-continue-next-line">
-        <i class="icon ion-ios-information"></i>
-        <span ng-bind="result.Data.DisplayName"></span>
-      </p>
-
-      <p class="item item-icon-left text-continue-next-line">
-        <i class="icon ion-ios-home"></i>
-        <span ng-bind="result.Data.AddressLine1"></span>, <span ng-bind="result.Data.City"></span>
-      </p>
-
-      <a class="item item-icon-left text-continue-next-line"
-         href="tel:{{result.Data.Telephone}}"
-         ng-show="result.Data.Telephone != ''">
-        <i class="icon ion-ios-telephone"></i>
-        <span ng-bind="result.Data.Telephone">None</span>
-      </a>
-
-      <p class="item item-icon-left text-continue-next-line"
-         ng-click="openInAppBrowser(result.Data.Website)"
-         ng-show="result.Data.Website != null">
-        <i class="icon ion-ios-world"></i>
-        <span ng-bind="result.Data.Website"></span>
-      </p>
-
-      <p class="item item-icon-left text-continue-next-line"
-         ng-click="sendEmail(result.Data.EmailAddress)"
-         ng-show="result.Data.EmailAddress != null">
-        <i class="icon ion-ios-email"></i>
-        <span ng-bind="result.Data.EmailAddress">None</span>
-      </p>
-
-      <p class="item item-icon-left" ng-click="launchNavigator(result.Data)">
-        <i class="icon ion-ios-navigate"></i>
-        Open in navigation app
-      </p>
-
-      <div class="item item-icon-left">
-        <i class="icon ion-ios-briefcase"></i>
-        <span ng-if="result.Data.Types.length === 0">None</span>
-
-        <div ng-repeat="type in result.Data.Types">
-          <span ng-bind="type"></span>
-        </div>
-      </div>
-
-      <div class="item item-icon-left" ng-if="result.Data.Classifications.length > 0">
-        <i class="icon ion-ios-medical"></i>
-        <div ng-repeat="classification in result.Data.Classifications">
-          <span ng-bind="classification"></span>
-        </div>
-      </div>
-
-      <div class="item item-icon-left" ng-show="result.Data.Specializations.length > 0">
-        <i class="icon ion-ios-albums"></i>
-        <div ng-repeat="specialization in result.Data.Specializations">
-          <span ng-bind="specialization"></span>
-        </div>
-      </div>
-
-      <div ng-show="result.Data.ProfilePictureUrl != null"
-           style="width: 100%;">
-        <img style="width: 100%" ng-src="{{result.Data.ProfilePictureUrl}}">
-      </div>
-    </div>
-  </ion-content>
-</ion-view>-->

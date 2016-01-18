@@ -54,7 +54,8 @@
             url: '/landingpage/partners',
             views: {
               'tab-settings': {
-                templateUrl: 'templates/tab-landingpage-partners.html'
+                templateUrl: 'templates/tab-landingpage-partners.html',
+                controller:'SettingsCtrl'
               }
             }
           })
@@ -62,7 +63,8 @@
             url: '/landingpage/healthproviders',
             views: {
               'tab-settings': {
-                templateUrl: 'templates/tab-landingpage-healthproviders.html'
+                templateUrl: 'templates/tab-landingpage-healthproviders.html',
+                controller:'SettingsCtrl'
               }
             }
           })
@@ -70,7 +72,8 @@
             url: '/landingpage/patients',
             views: {
               'tab-settings': {
-                templateUrl: 'templates/tab-landingpage-patients.html'
+                templateUrl: 'templates/tab-landingpage-patients.html',
+                controller:'SettingsCtrl'
               }
             }
           })

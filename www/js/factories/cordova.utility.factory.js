@@ -114,7 +114,7 @@
           }
         }
 
-        function sendEmail(mailTo) {
+        function sendEmail(mailTo, subject, body) {
           $ionicPlatform.ready(function () {
             $cordovaEmailComposer.isAvailable().then(function () {
               // is available
@@ -125,8 +125,8 @@
                 cc: null,
                 bcc: null,
                 attachments: null,
-                subject: null,
-                body: null,
+                subject: subject,
+                body: body,
                 isHtml: true
               };
 

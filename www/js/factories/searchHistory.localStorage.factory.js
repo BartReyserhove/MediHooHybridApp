@@ -15,6 +15,7 @@
           //localStorageService.remove(cookieName);
 
           var searchCriteria = angular.copy(currentSearchCriteria);
+          searchCriteria.skip = 0;
           var searchHistory = localStorageService.get(cookieName);
           getSearchCriteriaTextRepresentation(searchCriteria).then(function (textRepresentation) {
             searchCriteria.textualRepresentation = textRepresentation;
