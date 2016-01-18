@@ -50,13 +50,27 @@
               }
             }
           })
-          .state('tab.landingpage', {
-            /*cache: false,*/ //TODO: maybe turn this on
-            url: '/landingpage/:type',
+          .state('tab.partners', {
+            url: '/landingpage/partners',
             views: {
               'tab-settings': {
-                templateUrl: 'templates/tab-landingpage.html',
-                controller: 'LandingPageCtrl'
+                templateUrl: 'templates/tab-landingpage-partners.html'
+              }
+            }
+          })
+          .state('tab.healthproviders', {
+            url: '/landingpage/healthproviders',
+            views: {
+              'tab-settings': {
+                templateUrl: 'templates/tab-landingpage-healthproviders.html'
+              }
+            }
+          })
+          .state('tab.patients', {
+            url: '/landingpage/patients',
+            views: {
+              'tab-settings': {
+                templateUrl: 'templates/tab-landingpage-patients.html'
               }
             }
           })

@@ -146,3 +146,43 @@ ion-slide.ion-slide-icon-left-large > div.box > div.card > p > img {
   -webkit-animation-duration: 1000ms;
   animation-duration: 1000ms;*/
 }
+
+.landingpage-orange-bg {
+  /*background-color: #f48231 !important;*/
+  background-color: rgba(244, 130, 49, 0.34);
+  /*color: white !important;*/
+}
+
+.landingpage-orange-on-white-bg {
+  color: #f48231 !important;
+  background-color: white !important;
+}
+
+.landingpage-bolder-text {
+  font-weight: bolder !important;
+}
+
+.landingpage-white-bg {
+  background-color: white !important;
+}
+
+#information-page p, #information-page span {
+  font-size: 12px;
+  white-space: initial;
+}
+
+.white-text {
+  color: white;
+}
+
+.dark-bg {
+  background-color: #262626;
+}
+
+.orange-bg {
+  background-color: #f48231;
+}
+
+.italic-text {
+  font-style: italic;
+}
