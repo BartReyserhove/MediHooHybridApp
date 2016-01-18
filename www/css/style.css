@@ -110,8 +110,8 @@ a.main-tab > i.icon {
   border-top-left-radius: 0 !important;
 }
 
-.item-color-assertive {
-  color: #f48231;
+.item-color-assertive, .btn-color-assertive {
+  color: #f48231 !important;
 }
 
 .span-new-line {

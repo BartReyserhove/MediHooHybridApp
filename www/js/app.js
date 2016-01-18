@@ -1,6 +1,6 @@
 angular.module('mediHooApp',
   [
-    'ionic',
+    'ionic','ionic.service.core', 'ionic.service.analytics',
     'ui.bootstrap',
     'ngCordova',
     'jett.ionic.content.banner',
@@ -12,8 +12,25 @@ angular.module('mediHooApp',
     'mediHooApp.factories'
   ])
 
-  .run(['$ionicPlatform', '$cordovaGlobalization', '$translate',
-    function ($ionicPlatform, $cordovaGlobalization, $translate) {
+  .run(['$ionicPlatform', '$cordovaGlobalization', '$translate', 'HealthCareFactory', '$ionicAnalytics',
+    function ($ionicPlatform, $cordovaGlobalization, $translate, HealthCareFactory, $ionicAnalytics) {
+      $ionicAnalytics.register();
+
+      // kick off the platform web client
+      Ionic.io();
+
+// this will give you a fresh user or the previously saved 'current user'
+      var user = Ionic.User.current();
+
+// if the user doesn't have an id, you'll need to give it one.
+      if (!user.id) {
+        user.id = Ionic.User.anonymousId();
+        // user.id = 'your-custom-user-id';
+      }
+
+//persist the user
+      user.save();
+
       $ionicPlatform.ready(function () {
         if (window.cordova && window.cordova.plugins.Keyboard) {
           // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -31,6 +48,7 @@ angular.module('mediHooApp',
             $translate.preferredLanguage('en');
             $translate.fallbackLanguage('en');
             $translate.use(langKey);
+            HealthCareFactory.changeApiLanguage($translate.use());
           });
         }
         if (window.StatusBar) {

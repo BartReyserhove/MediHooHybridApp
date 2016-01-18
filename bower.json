@@ -2,7 +2,8 @@
   "name": "MediHoo-Application",
   "private": "true",
   "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.2.0"
+    "ionic": "driftyco/ionic-bower#1.2.0",
+    "ionic-platform-web-client": "~0.2.1"
   },
   "dependencies": {
     "angular-bootstrap": "~0.14.3",

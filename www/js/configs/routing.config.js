@@ -50,6 +50,16 @@
               }
             }
           })
+          .state('tab.landingpage', {
+            /*cache: false,*/ //TODO: maybe turn this on
+            url: '/landingpage/:type',
+            views: {
+              'tab-settings': {
+                templateUrl: 'templates/tab-landingpage.html',
+                controller: 'LandingPageCtrl'
+              }
+            }
+          })
           .state('tab.search', {
             url: '/search',
             views: {

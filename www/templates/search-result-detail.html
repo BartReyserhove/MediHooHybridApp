@@ -1,10 +1,14 @@
-<ion-view view-title="{{'DETAILS_TITLE' | translate}}">
+<!--<ion-view view-title="{{'DETAILS_TITLE' | translate}}">-->
+<ion-view>
+  <ion-nav-title translate="DETAILS_TITLE" class="item-color-assertive">
+    Details
+  </ion-nav-title>
   <ion-nav-buttons side="right">
     <a
-      class="button button-icon icon ion-ios-search-strong"
+      class="button button-icon icon ion-ios-search-strong btn-color-assertive"
       ui-sref="tab.search">
     </a>
-    <button class="button button-icon icon"
+    <button class="button button-icon icon btn-color-assertive"
             ng-class="{'ion-ios-heart': isFavourite, 'ion-ios-heart-outline': !isFavourite}"
             ng-click="clickFavouriteBtn()">
     </button>

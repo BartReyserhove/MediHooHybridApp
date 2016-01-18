@@ -1,4 +1,7 @@
-<ion-view view-title="{{'SETTINGS_TITLE' | translate}}">
+<ion-view>
+  <ion-nav-title translate="SETTINGS_TITLE" class="item-color-assertive">
+    Settings
+  </ion-nav-title>
   <ion-content on-swipe-right="goBack()" class="fade">
 
     <div class="list card">
@@ -14,7 +17,9 @@
         <select ng-controller="TranslateCtrl" ng-change="changeLang(language)" ng-model="language">
           <option value="en">English</option>
           <option value="nl">Nederlands</option>
-          <option>Français</option>
+          <option value="fr">Français</option>
+          <option value="es">Español</option>
+          <option value="de">Deutsch</option>
         </select>
       </label>
 
@@ -28,6 +33,9 @@
       <a class="item item-icon-left" ui-sref="tab.about">
         <i class="icon ion-ios-information-outline"></i>
         <span translate="ABOUT_US">About us</span>
+      </a>
+      <a class="item item-icon-left" ui-sref="tab.about">
+
       </a>
 
     </div>
@@ -52,7 +60,7 @@
         <span translate="RATE_APP">Rate this app</span>
       </div>
       <div class="item item-icon-left text-continue-next-line"
-           ng-click="sendEmail('test@test.be')">
+           ng-click="sendEmailToMediHoo()">
         <i class="icon ion-ios-chatbubble-outline"></i>
         <span translate="BUG_OR_SUGGESTION">Report a bug or make a suggestion</span>
       </div>

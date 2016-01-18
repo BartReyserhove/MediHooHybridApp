@@ -21,14 +21,16 @@
         function changeCurrentSearchOptions(newOptions) {
           var deferred = $q.defer();
 
-          if (newOptions.country != null && newOptions.country != undefined && newOptions.country != '') {
+          if (newOptions.country != null && newOptions.country != undefined && newOptions.country != ''
+            && newOptions.country.Name != undefined) {
             newOptions.countryUrl = newOptions.country.Name.split(' ').join('+');
           }
           else {
             newOptions.countryUrl = '';
           }
 
-          if (newOptions.city != null && newOptions.city != undefined && newOptions.city != '') {
+          if (newOptions.city != null && newOptions.city != undefined && newOptions.city != ''
+          && newOptions.city.Name != undefined) {
             newOptions.cityUrl = newOptions.city.Name.split(' ').join('+');
             newOptions.distanceUrl = '&distance=' + newOptions.distance;
           }
@@ -47,9 +49,8 @@
             isSpecifiedInSearch.classification = true;
           }
 
-          if (newOptions.specialization != null
-            && newOptions.specialization != undefined
-            && newOptions.specialization != '') {
+          if (newOptions.specialization != null && newOptions.specialization != undefined
+            && newOptions.specialization != '' && newOptions.specialization.ParentSpecializationName != undefined) {
             if (newOptions.specialization.SpecializationName == null) {
               newOptions.specializationUrl = newOptions.specialization.ParentSpecializationName.split(' ').join('+');
             }
@@ -376,6 +377,22 @@
           return isSpecifiedInSearch;
         }
 
+        function changeApiLanguage(key) {
+          var deferred = $q.defer();
+          var value = '';
+
+          ConfigFactory.languages.forEach(function(el) {
+            if(el.key === key) value = el.value;
+          });
+          var url = ConfigFactory.mediHooUrl + '/en-US/Accounts/changeLanguage/' + value;
+
+          $http.get(url).then(function(res) {
+            deferred.resolve();
+          });
+
+          return deferred.promise;
+        }
+
         return {
           searchCountry: searchCountry,
           searchCity: searchCity,
@@ -389,7 +406,8 @@
           getClassifications: getClassifications,
           getClassification: getClassification,
           searchSpecializationByClassification: searchSpecializationByClassification,
-          isSpecifiedInSearchCriteria: isSpecifiedInSearchCriteria
+          isSpecifiedInSearchCriteria: isSpecifiedInSearchCriteria,
+          changeApiLanguage: changeApiLanguage
         }
       }]);
 })();

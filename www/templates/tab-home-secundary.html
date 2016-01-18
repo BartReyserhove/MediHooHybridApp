@@ -1,4 +1,7 @@
-<ion-view view-title="{{'HISTORY' | translate}}">
+<ion-view>
+  <ion-nav-title translate="HISTORY" class="item-color-assertive">
+    History
+  </ion-nav-title>
   <ion-content on-swipe-left="goForward()" class="fade">
     <div ng-include="'./templates/history-list.html'"></div>
   </ion-content>

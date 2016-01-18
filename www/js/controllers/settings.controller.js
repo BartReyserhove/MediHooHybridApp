@@ -5,7 +5,11 @@
     'use strict';
 
     angular.module('mediHooApp.controllers')
-      .controller('SettingsCtrl', ['$scope', function($scope) {
+      .controller('SettingsCtrl', ['$scope', 'ConfigFactory', function($scope, ConfigFactory) {
+
+        $scope.sendEmailToMediHoo = function() {
+          $scope.sendEmail(ConfigFactory.mediHooEmail);
+        };
 
       }]);
 })();
