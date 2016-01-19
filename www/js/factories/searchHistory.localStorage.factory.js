@@ -12,7 +12,6 @@
         var searchHistoryList = [];
 
         function addSearchCriteriaToHistory(currentSearchCriteria) {
-          //localStorageService.remove(cookieName);
 
           var searchCriteria = angular.copy(currentSearchCriteria);
           searchCriteria.skip = 0;

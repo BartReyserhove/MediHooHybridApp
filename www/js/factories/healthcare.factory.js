@@ -207,6 +207,16 @@
             success: function (res) {
               console.log('successfull search');
               console.log(res);
+              res.data.Documents.forEach(function(obj) {
+                if(obj.Data.ProfilePictureUrl == null) {
+                  if(obj.Data.Types[1] == 'Organisation') {
+                    obj.Data.ProfilePictureUrl = './img/organisation.png';
+                  }
+                  else {
+                    obj.Data.ProfilePictureUrl = './img/individual.png';
+                  }
+                }
+              });
               currentResultSet.push.apply(currentResultSet, res.data.Documents);
               currentSearchOptions.totalCount = res.data.TotalCount;
               deferred.resolve({error: false});
