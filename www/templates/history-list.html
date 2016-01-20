@@ -1,18 +1,36 @@
-<div class="list card" ng-controller="HistoryCtrl">
-  <div class="item item-divider item-icon-right">
-    <span translate="HISTORY">History</span>
-    <i class="icon ion-ios-trash-outline" ng-click="clearHistory()"></i>
+<div id="history" ng-controller="HistoryCtrl">
+  <div class="card">
+    <div class="item item-divider item-icon-right">
+      <span translate="HISTORY">History</span>
+      <i class="icon ion-ios-trash-outline" ng-click="clearHistory()"></i>
+    </div>
   </div>
-  <!-- searchHistory.slice().reverse() to reverse order of history -->
-  <p class="item text-continue-next-line" ng-repeat="elem in searchHistory.slice().reverse() track by $index"
-     ng-click="navigateToResultList(elem)">
-    <span class="span-new-line" ng-bind="elem.textualRepresentation.specialization"></span>
-    <span class="span-new-line" ng-bind="elem.textualRepresentation.classification"></span>
-    <span class="span-new-line" ng-bind="elem.textualRepresentation.address"></span>
-    <span class="span-new-line" ng-bind="elem.textualRepresentation.distance"></span>
-  </p>
 
-  <p class="item" ng-show="searchHistory.length == 0">
-    <span translate="NONE">None</span>
-  </p>
+  <!-- searchHistory.slice().reverse() to reverse order of history -->
+  <div class="card text-continue-next-line" ng-repeat="elem in searchHistory.slice().reverse() track by $index"
+       ng-click="navigateToResultList(elem)">
+    <div class="item item-icon-left" ng-show="elem.textualRepresentation.specialization">
+      <i class="icon ion-ios-albums-outline"></i>
+      <span ng-bind="elem.textualRepresentation.specialization"></span>
+    </div>
+    <div class="item item-icon-left" ng-show="elem.textualRepresentation.classification">
+      <i class="icon ion-ios-medical-outline"></i>
+      <span ng-bind="elem.textualRepresentation.classification"></span>
+    </div>
+    <div class="item item-icon-left" ng-show="elem.textualRepresentation.address">
+      <i class="icon ion-ios-location-outline"></i>
+      <span ng-bind="elem.textualRepresentation.address"></span>
+    </div>
+    <div class="item item-icon-left" ng-show="elem.textualRepresentation.distance">
+      <i class="icon ion-ios-more-outline"></i>
+      <span ng-bind="elem.textualRepresentation.distance"></span>
+    </div>
+  </div>
+
+  <div class="card" ng-show="searchHistory.length == 0">
+    <div class="item item-icon-left">
+      <i class="icon ion-ios-close-empty"></i>
+      <span translate="NONE">None</span>
+    </div>
+  </div>
 </div>

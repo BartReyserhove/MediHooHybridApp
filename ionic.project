@@ -1,6 +1,6 @@
 {
-  "name": "MediHoo-Application",
-  "app_id": "30b5b69d",
+  "name": "MediHoo",
+  "app_id": "a69d940d",
   "gulpStartupTasks": [
     "sass",
     "index"

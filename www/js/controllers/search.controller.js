@@ -122,16 +122,27 @@
 
         //Check if city is a search input by user or an object, to display/hide slider
         $scope.$watch('searchOptions.city', function (newValue) {
-          console.log('city value:');
-          console.log(newValue);
           if (newValue == undefined || newValue == null || newValue == '') {
             $scope.cityIsSpecified = false;
           }
           else {
             $scope.cityIsSpecified = newValue.Id != undefined;
           }
-          console.log('city is specified: ' + $scope.cityIsSpecified);
         });
+
+        $scope.$watch('searchOptions.country', function (newValue) {
+          if ($scope.searchOptions.country.Id == undefined) {
+            $scope.searchOptions.city = '';
+          }
+        });
+
+        $scope.$watch('searchOptions.classification', function (newValue) {
+          $scope.searchOptions.specialization = '';
+        });
+
+        $scope.valueHasChanged = function () {
+          console.log('value changed');
+        };
 
       }]);
 })();

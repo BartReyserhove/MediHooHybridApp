@@ -5,9 +5,9 @@
   'use strict';
 
   angular.module('mediHooApp.controllers')
-    .controller('TabCtrl', ['$rootScope', '$scope', '$state', 'CordovaUtilityFactory',
+    .controller('TabCtrl', ['$rootScope', '$scope', '$state', '$translate', 'CordovaUtilityFactory', 'ConfigFactory',
       '$ionicPlatform', '$cordovaNetwork', '$ionicContentBanner', '$ionicTabsDelegate',
-      function ($rootScope, $scope, $state, CordovaUtilityFactory,
+      function ($rootScope, $scope, $state, $translate, CordovaUtilityFactory, ConfigFactory,
                 $ionicPlatform, $cordovaNetwork, $ionicContentBanner, $ionicTabsDelegate) {
 
         //TODO: find better place to put this?
@@ -85,6 +85,15 @@
 
         $scope.openInAppBrowser = function (url) {
           CordovaUtilityFactory.openInAppBrowser(url);
+        };
+
+        $scope.openInAppBrowserForMediHoo = function (page) {
+          var key = $translate.use();
+          var value = '';
+          ConfigFactory.languages.forEach(function(el) {
+            if(el.key === key) value = el.value;
+          });
+          CordovaUtilityFactory.openInAppBrowser(ConfigFactory.mediHooUrl + '/' + value + page);
         };
 
         $scope.launchNavigator = function (provider) {
