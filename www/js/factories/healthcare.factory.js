@@ -192,7 +192,7 @@
         }
 
         function searchResultsWithGivenOptions() {
-          var deferred = $q.defer();
+          //var deferred = $q.defer();
           var url = ConfigFactory.mediHooApi + '/provider/search' +
             '?country=' + currentSearchOptions.countryUrl
             + '&city=' + currentSearchOptions.cityUrl
@@ -207,23 +207,43 @@
             success: function (res) {
               console.log('successfull search');
               console.log(res);
-              res.data.Documents.forEach(function (obj) {
-                if (obj.Data.ProfilePictureUrl == null) {
-                  if (obj.Data.Types[1] == 'Organisation') {
-                    obj.Data.ProfilePictureUrl = './img/organisation.png';
-                  }
-                  else {
-                    obj.Data.ProfilePictureUrl = './img/individual.png';
-                  }
+              if (res.data.TotalCount == 0) {
+                console.log('totalcount is 0');
+                if (currentSearchOptions.specializationUrl != '') {
+                  currentSearchOptions.specializationUrl = '';
                 }
-              });
+                else if (currentSearchOptions.classificationUrl != '') {
+                  currentSearchOptions.classificationUrl = '';
+                }
+                else if (currentSearchOptions.distanceUrl != '') {
+                  currentSearchOptions.distanceUrl = '';
+                }
+                else if (currentSearchOptions.cityUrl != '') {
+                  currentSearchOptions.cityUrl = '';
+                }
+
+                return searchResultsWithGivenOptions();
+              }
+              else {
+                res.data.Documents.forEach(function (obj) {
+                  if (obj.Data.ProfilePictureUrl == null) {
+                    if (obj.Data.Types[1] == 'Organisation') {
+                      obj.Data.ProfilePictureUrl = './img/organisation.png';
+                    }
+                    else {
+                      obj.Data.ProfilePictureUrl = './img/individual.png';
+                    }
+                  }
+                });
+              }
+
               currentResultSet.push.apply(currentResultSet, res.data.Documents);
               currentSearchOptions.totalCount = res.data.TotalCount;
-              deferred.resolve({error: false});
+              //deferred.resolve({error: false});
             },
             error: function (err) {
               console.log('unsuccessfull search');
-              deferred.resolve({error: true});
+              //deferred.resolve({error: true});
             }
           };
 
@@ -232,10 +252,10 @@
 
           console.log('url: ' + url);
 
-          $http.get(url)
+          return $http.get(url)
             .then(callbacks.success, callbacks.error);
 
-          return deferred.promise;
+          //return deferred.promise;
         }
 
         function searchNextResultsWithGivenOptions() {

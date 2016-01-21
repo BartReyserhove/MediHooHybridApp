@@ -150,9 +150,5 @@
           }
         });
 
-        $scope.valueHasChanged = function () {
-          console.log('value changed');
-        };
-
       }]);
 })();

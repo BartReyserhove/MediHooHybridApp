@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d33a6043-fd6a-4c74-a77c-d7a27c04c322" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="$PROJECT_DIR$/www/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers/search.controller.js" afterPath="$PROJECT_DIR$/www/js/controllers/search.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/tab-home.html" afterPath="$PROJECT_DIR$/www/templates/tab-home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/factories/healthcare.factory.js" afterPath="$PROJECT_DIR$/www/js/factories/healthcare.factory.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/tab-search.html" afterPath="$PROJECT_DIR$/www/templates/tab-search.html" />
     </list>
     <ignored path="MediHoo-Application.iws" />
@@ -28,24 +25,89 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tab-home.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/templates/tab-home.html">
+      <file leaf-file-name="search.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/controllers/search.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.541667">
-              <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="150" column="11" selection-start-line="150" selection-start-column="11" selection-end-line="150" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tab-search.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/www/templates/tab-search.html">
+      <file leaf-file-name="healthcare.factory.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/js/factories/healthcare.factory.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8370536">
-              <caret line="70" column="20" selection-start-line="70" selection-start-column="20" selection-end-line="70" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.52330506">
+              <caret line="194" column="38" selection-start-line="194" selection-start-column="38" selection-end-line="194" selection-end-column="38" />
               <folding>
-                <element signature="n#style#0;n#input#0;n#ion-input#0;n#div#1;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="e#0#50#0" expanded="false" />
+                <element signature="e#365#441#0" expanded="false" />
+                <element signature="e#487#537#0" expanded="false" />
+                <element signature="e#792#887#0" expanded="false" />
+                <element signature="e#903#956#0" expanded="false" />
+                <element signature="e#1103#1265#0" expanded="false" />
+                <element signature="e#1281#1331#0" expanded="false" />
+                <element signature="e#2068#2201#0" expanded="false" />
+                <element signature="e#2219#2346#0" expanded="false" />
+                <element signature="e#3289#3335#0" expanded="false" />
+                <element signature="e#3432#3887#0" expanded="false" />
+                <element signature="e#3537#3839#0" expanded="false" />
+                <element signature="e#3606#3825#0" expanded="false" />
+                <element signature="e#3929#4504#0" expanded="false" />
+                <element signature="e#4078#4376#0" expanded="false" />
+                <element signature="e#4116#4266#0" expanded="false" />
+                <element signature="e#4302#4364#0" expanded="false" />
+                <element signature="e#4546#5121#0" expanded="false" />
+                <element signature="e#4695#4993#0" expanded="false" />
+                <element signature="e#4733#4883#0" expanded="false" />
+                <element signature="e#4919#4981#0" expanded="false" />
+                <element signature="e#5167#5712#0" expanded="false" />
+                <element signature="e#5325#5584#0" expanded="false" />
+                <element signature="e#5363#5474#0" expanded="false" />
+                <element signature="e#5510#5572#0" expanded="false" />
+                <element signature="e#5766#6375#0" expanded="false" />
+                <element signature="e#5988#6247#0" expanded="false" />
+                <element signature="e#6026#6137#0" expanded="false" />
+                <element signature="e#6173#6235#0" expanded="false" />
+                <element signature="e#9278#9337#0" expanded="false" />
+                <element signature="e#9373#9462#0" expanded="false" />
+                <element signature="e#9502#13441#0" expanded="false" />
+                <element signature="e#9574#13348#0" expanded="false" />
+                <element signature="e#9575#9795#0" expanded="false" />
+                <element signature="e#9797#10039#0" expanded="false" />
+                <element signature="e#10041#10297#0" expanded="false" />
+                <element signature="e#10299#10562#0" expanded="false" />
+                <element signature="e#10564#10785#0" expanded="false" />
+                <element signature="e#10787#11011#0" expanded="false" />
+                <element signature="e#11013#11225#0" expanded="false" />
+                <element signature="e#11227#11460#0" expanded="false" />
+                <element signature="e#11462#11686#0" expanded="false" />
+                <element signature="e#11688#11921#0" expanded="false" />
+                <element signature="e#11923#12148#0" expanded="false" />
+                <element signature="e#12150#12384#0" expanded="false" />
+                <element signature="e#12386#12612#0" expanded="false" />
+                <element signature="e#12614#12963#0" expanded="false" />
+                <element signature="e#12965#13347#0" expanded="false" />
+                <element signature="e#13484#13750#0" expanded="false" />
+                <element signature="e#13576#13702#0" expanded="false" />
+                <element signature="e#13839#14438#0" expanded="false" />
+                <element signature="e#14051#14310#0" expanded="false" />
+                <element signature="e#14089#14200#0" expanded="false" />
+                <element signature="e#14236#14298#0" expanded="false" />
+                <element signature="e#14487#14536#0" expanded="false" />
+                <element signature="e#15012#15812#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search.result.detail.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/js/controllers/search.result.detail.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="74" column="35" selection-start-line="74" selection-start-column="35" selection-end-line="74" selection-end-column="35" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -106,18 +168,18 @@
         <option value="$PROJECT_DIR$/www/templates/tab-landingpage-healthproviders.html" />
         <option value="$PROJECT_DIR$/www/templates/tab-landingpage-partners.html" />
         <option value="$PROJECT_DIR$/www/templates/tab-landingpage-patients.html" />
-        <option value="$PROJECT_DIR$/www/js/factories/healthcare.factory.js" />
         <option value="$PROJECT_DIR$/www/templates/history-list.html" />
         <option value="$PROJECT_DIR$/ionic.project" />
         <option value="$PROJECT_DIR$/.io-config.json" />
         <option value="$PROJECT_DIR$/www/languages/en.json" />
-        <option value="$PROJECT_DIR$/www/js/controllers/search.controller.js" />
         <option value="$PROJECT_DIR$/www/js/app.js" />
         <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/www/css/style.css" />
         <option value="$PROJECT_DIR$/platforms/android/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/www/templates/tab-home.html" />
         <option value="$PROJECT_DIR$/www/templates/tab-search.html" />
+        <option value="$PROJECT_DIR$/www/js/factories/healthcare.factory.js" />
+        <option value="$PROJECT_DIR$/www/js/controllers/search.controller.js" />
       </list>
     </option>
   </component>
@@ -442,13 +504,13 @@
     <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2572234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2572234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871014" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30555555" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30555555" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39917696" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -583,13 +645,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/controllers/search.result.detail.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="74" column="35" selection-start-line="74" selection-start-column="35" selection-end-line="74" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/factories/cordova.utility.factory.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -672,6 +727,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="163" column="49" selection-start-line="163" selection-start-column="49" selection-end-line="163" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#50#0" expanded="false" />
+            <element signature="e#5235#5911#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -780,13 +839,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/factories/healthcare.factory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="389" column="17" selection-start-line="389" selection-start-column="17" selection-end-line="389" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/factories/config.factory.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -844,14 +896,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33262712">
           <caret line="7549" column="8" selection-start-line="7549" selection-start-column="8" selection-end-line="7549" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/controllers/search.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="147" column="46" selection-start-line="147" selection-start-column="46" selection-end-line="147" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -913,10 +957,91 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/tab-search.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8370536">
-          <caret line="70" column="20" selection-start-line="70" selection-start-column="20" selection-end-line="70" selection-end-column="20" />
+        <state vertical-scroll-proportion="-0.50223213">
+          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#input#0;n#ion-input#0;n#div#1;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/controllers/search.result.detail.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="74" column="35" selection-start-line="74" selection-start-column="35" selection-end-line="74" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/controllers/search.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="150" column="11" selection-start-line="150" selection-start-column="11" selection-end-line="150" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/factories/healthcare.factory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52330506">
+          <caret line="194" column="38" selection-start-line="194" selection-start-column="38" selection-end-line="194" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#50#0" expanded="false" />
+            <element signature="e#365#441#0" expanded="false" />
+            <element signature="e#487#537#0" expanded="false" />
+            <element signature="e#792#887#0" expanded="false" />
+            <element signature="e#903#956#0" expanded="false" />
+            <element signature="e#1103#1265#0" expanded="false" />
+            <element signature="e#1281#1331#0" expanded="false" />
+            <element signature="e#2068#2201#0" expanded="false" />
+            <element signature="e#2219#2346#0" expanded="false" />
+            <element signature="e#3289#3335#0" expanded="false" />
+            <element signature="e#3432#3887#0" expanded="false" />
+            <element signature="e#3537#3839#0" expanded="false" />
+            <element signature="e#3606#3825#0" expanded="false" />
+            <element signature="e#3929#4504#0" expanded="false" />
+            <element signature="e#4078#4376#0" expanded="false" />
+            <element signature="e#4116#4266#0" expanded="false" />
+            <element signature="e#4302#4364#0" expanded="false" />
+            <element signature="e#4546#5121#0" expanded="false" />
+            <element signature="e#4695#4993#0" expanded="false" />
+            <element signature="e#4733#4883#0" expanded="false" />
+            <element signature="e#4919#4981#0" expanded="false" />
+            <element signature="e#5167#5712#0" expanded="false" />
+            <element signature="e#5325#5584#0" expanded="false" />
+            <element signature="e#5363#5474#0" expanded="false" />
+            <element signature="e#5510#5572#0" expanded="false" />
+            <element signature="e#5766#6375#0" expanded="false" />
+            <element signature="e#5988#6247#0" expanded="false" />
+            <element signature="e#6026#6137#0" expanded="false" />
+            <element signature="e#6173#6235#0" expanded="false" />
+            <element signature="e#9278#9337#0" expanded="false" />
+            <element signature="e#9373#9462#0" expanded="false" />
+            <element signature="e#9502#13441#0" expanded="false" />
+            <element signature="e#9574#13348#0" expanded="false" />
+            <element signature="e#9575#9795#0" expanded="false" />
+            <element signature="e#9797#10039#0" expanded="false" />
+            <element signature="e#10041#10297#0" expanded="false" />
+            <element signature="e#10299#10562#0" expanded="false" />
+            <element signature="e#10564#10785#0" expanded="false" />
+            <element signature="e#10787#11011#0" expanded="false" />
+            <element signature="e#11013#11225#0" expanded="false" />
+            <element signature="e#11227#11460#0" expanded="false" />
+            <element signature="e#11462#11686#0" expanded="false" />
+            <element signature="e#11688#11921#0" expanded="false" />
+            <element signature="e#11923#12148#0" expanded="false" />
+            <element signature="e#12150#12384#0" expanded="false" />
+            <element signature="e#12386#12612#0" expanded="false" />
+            <element signature="e#12614#12963#0" expanded="false" />
+            <element signature="e#12965#13347#0" expanded="false" />
+            <element signature="e#13484#13750#0" expanded="false" />
+            <element signature="e#13576#13702#0" expanded="false" />
+            <element signature="e#13839#14438#0" expanded="false" />
+            <element signature="e#14051#14310#0" expanded="false" />
+            <element signature="e#14089#14200#0" expanded="false" />
+            <element signature="e#14236#14298#0" expanded="false" />
+            <element signature="e#14487#14536#0" expanded="false" />
+            <element signature="e#15012#15812#0" expanded="false" />
           </folding>
         </state>
       </provider>
