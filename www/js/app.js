@@ -1,6 +1,6 @@
 angular.module('mediHooApp',
   [
-    'ionic','ionic.service.core', 'ionic.service.analytics',
+    'ionic', 'ionic.service.core', 'ionic.service.analytics',
     'ui.bootstrap',
     'ngCordova',
     'jett.ionic.content.banner',

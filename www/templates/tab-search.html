@@ -53,7 +53,7 @@
         <span translate="USE_CURRENT_LOCATION">Use current location</span>
       </ion-toggle>
       <div ng-show="!useGeoLocation.checked">
-        <div class="item" style="padding: 0; margin-top: 1px;">
+        <ion-input class="item" style="padding: 0; margin-top: 1px;">
           <input type="text" ng-model="searchOptions.country"
                  placeholder="{{'COUNTRY_PLACEHOLDER' | translate}}"
                  uib-typeahead="country as country.Name for country in getCountries($viewValue)"
@@ -68,7 +68,7 @@
           <div ng-show="noLocations">
             <i class="glyphicon glyphicon-remove"></i> <span translate="NO_COUNTRIES">No Countries Found</span>
           </div>
-        </div>
+        </ion-input>
 
         <div ng-show="searchOptions.country != null" class="item" style="padding: 0;">
           <input type="text" ng-model="searchOptions.city"

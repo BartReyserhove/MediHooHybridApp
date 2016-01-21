@@ -190,3 +190,14 @@ ion-slide.ion-slide-icon-left-large > div.box > div.card > p > img {
 .italic-text {
   font-style: italic;
 }
+
+ul.dropdown-menu li {
+  padding: 5px 0;
+  border-bottom: 1px solid;
+  border-bottom-color: rgba(244, 130, 49, 0.34);
+}
+
+ul.dropdown-menu li:last-child {
+  padding: 5px 0;
+  border-bottom: none;
+}

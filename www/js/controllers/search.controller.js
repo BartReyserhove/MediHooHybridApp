@@ -6,9 +6,9 @@
 
   angular.module('mediHooApp.controllers')
     .controller('SearchCtrl', ['$scope', '$state', '$ionicLoading', '$ionicContentBanner',
-      'HealthCareFactory', 'CordovaUtilityFactory', 'SearchHistoryFactory',
+      'HealthCareFactory', 'CordovaUtilityFactory', 'SearchHistoryFactory', '$cordovaKeyboard',
       function ($scope, $state, $ionicLoading, $ionicContentBanner,
-                HealthCareFactory, CordovaUtilityFactory, SearchHistoryFactory) {
+                HealthCareFactory, CordovaUtilityFactory, SearchHistoryFactory, $cordovaKeyboard) {
 
         this._init = function () {
           $scope.useGeoLocation = {
@@ -122,22 +122,32 @@
 
         //Check if city is a search input by user or an object, to display/hide slider
         $scope.$watch('searchOptions.city', function (newValue) {
-          if (newValue == undefined || newValue == null || newValue == '') {
+          if(newValue.Id == undefined) {
             $scope.cityIsSpecified = false;
           }
           else {
-            $scope.cityIsSpecified = newValue.Id != undefined;
+            $scope.cityIsSpecified = true;
+            $cordovaKeyboard.close();
           }
         });
 
         $scope.$watch('searchOptions.country', function (newValue) {
-          if ($scope.searchOptions.country.Id == undefined) {
+          if (newValue.Id == undefined) {
             $scope.searchOptions.city = '';
+          }
+          else {
+            $cordovaKeyboard.close();
           }
         });
 
         $scope.$watch('searchOptions.classification', function (newValue) {
           $scope.searchOptions.specialization = '';
+        });
+
+        $scope.$watch('searchOptions.specialization', function (newValue) {
+          if(newValue.ParentSpecializationName != undefined) {
+            $cordovaKeyboard.close();
+          }
         });
 
         $scope.valueHasChanged = function () {
