@@ -192,7 +192,7 @@
         }
 
         function searchResultsWithGivenOptions() {
-          //var deferred = $q.defer();
+          //var deferred = $q.defer(); //TODO: add a boolean you pass through to be able to detect they are alternative results
           var url = ConfigFactory.mediHooApi + '/provider/search' +
             '?country=' + currentSearchOptions.countryUrl
             + '&city=' + currentSearchOptions.cityUrl
@@ -240,10 +240,12 @@
               currentResultSet.push.apply(currentResultSet, res.data.Documents);
               currentSearchOptions.totalCount = res.data.TotalCount;
               //deferred.resolve({error: false});
+              return {error: false};
             },
             error: function (err) {
               console.log('unsuccessfull search');
               //deferred.resolve({error: true});
+              return {error: true};
             }
           };
 

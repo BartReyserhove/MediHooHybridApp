@@ -41,7 +41,7 @@
               }
             }
           })
-          .state('tab.about', {
+          /*.state('tab.about', {
             url: '/about',
             views: {
               'tab-settings': {
@@ -49,7 +49,7 @@
                 controller: 'AboutCtrl'
               }
             }
-          })
+          })*/
           .state('tab.partners', {
             url: '/landingpage/partners',
             views: {
