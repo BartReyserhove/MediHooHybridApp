@@ -9,6 +9,12 @@
     </a>
   </ion-nav-buttons>
   <ion-content on-swipe-right="goBack()" on-swipe-left="goForward()" class="fade">
+    <div class="item item-avatar is-alternative" ng-show="resultsAreAlternatives">
+      <img class="icon" src="./img/smiley.png" />
+      <span translate="ARE_ALTERNATIVES">
+        Results are alternatives
+      </span>:
+    </div>
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" collection-repeat="result in results"
                 type="item-text-wrap" ui-sref="tab.search-result-detail({resultId: result.Data.Id})">

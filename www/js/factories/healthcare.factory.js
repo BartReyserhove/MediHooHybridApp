@@ -8,6 +8,7 @@
     .factory('HealthCareFactory', ['$q', '$http', '$filter', 'ConfigFactory',
       function ($q, $http, $filter, ConfigFactory) {
         var currentResultSet = [];
+        var resultsAreAlternatives = false;
         var currentSearchOptions = null;
         var isSpecifiedInSearch = {
           classification: false,
@@ -20,6 +21,9 @@
 
         function changeCurrentSearchOptions(newOptions) {
           var deferred = $q.defer();
+
+          //reset resultsAreAlternatives
+          resultsAreAlternatives = false;
 
           if (newOptions.country != null && newOptions.country != undefined && newOptions.country != ''
             && newOptions.country.Name != undefined) {
@@ -222,6 +226,8 @@
                   currentSearchOptions.cityUrl = '';
                 }
 
+                resultsAreAlternatives = true;
+
                 return searchResultsWithGivenOptions();
               }
               else {
@@ -239,7 +245,7 @@
 
               currentResultSet.push.apply(currentResultSet, res.data.Documents);
               currentSearchOptions.totalCount = res.data.TotalCount;
-              //deferred.resolve({error: false});
+
               return {error: false};
             },
             error: function (err) {
@@ -425,6 +431,10 @@
           return deferred.promise;
         }
 
+        function isResultsAreAlternatives() {
+          return resultsAreAlternatives;
+        }
+
         return {
           searchCountry: searchCountry,
           searchCity: searchCity,
@@ -439,7 +449,8 @@
           getClassification: getClassification,
           searchSpecializationByClassification: searchSpecializationByClassification,
           isSpecifiedInSearchCriteria: isSpecifiedInSearchCriteria,
-          changeApiLanguage: changeApiLanguage
+          changeApiLanguage: changeApiLanguage,
+          isResultsAreAlternatives: isResultsAreAlternatives
         }
       }]);
 })();

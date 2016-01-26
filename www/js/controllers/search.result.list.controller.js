@@ -12,6 +12,7 @@
         this._init = function () {
           $scope.isSpecifiedInSearchCriteria = HealthCareFactory.isSpecifiedInSearchCriteria();
           $scope.results = HealthCareFactory.getCurrentResultSet();
+          $scope.resultsAreAlternatives = HealthCareFactory.isResultsAreAlternatives();
         };
 
         this._init();
