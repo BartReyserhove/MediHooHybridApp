@@ -201,3 +201,7 @@ ul.dropdown-menu li:last-child {
   padding: 5px 0;
   border-bottom: none;
 }
+
+.result-rating i {
+  color: #f48231;
+}
