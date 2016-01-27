@@ -27,36 +27,40 @@
         ng-bind="provider.city"></span>
       </p>
 
-      <a class="item item-icon-left text-continue-next-line"
+      <a class="item item-icon-left item-icon-right text-continue-next-line"
          href="tel:{{provider.phoneNumber}}"
          ng-show="provider.phoneNumber != ''">
         <i class="icon ion-ios-telephone-outline"></i>
         <span ng-bind="provider.phoneNumber">None</span>
+        <i class="icon ion-chevron-right icon-accessory"></i>
       </a>
 
-      <p class="item item-icon-left text-continue-next-line"
+      <p class="item item-icon-left item-icon-right text-continue-next-line"
          ng-click="openInAppBrowser(provider.website)"
          ng-show="provider.website != null">
         <i class="icon ion-ios-world-outline"></i>
         <span ng-bind="provider.website"></span>
+        <i class="icon ion-chevron-right icon-accessory"></i>
       </p>
 
-      <p class="item item-icon-left text-continue-next-line"
+      <p class="item item-icon-left item-icon-right text-continue-next-line"
          ng-click="sendEmail(provider.emailAddress)"
          ng-show="provider.emailAddress != null">
         <i class="icon ion-ios-email-outline "></i>
         <span ng-bind="provider.emailAddress">None</span>
+        <i class="icon ion-chevron-right icon-accessory"></i>
       </p>
 
-      <p class="item item-icon-left" ng-click="launchNavigator(provider)">
+      <p class="item item-icon-left item-icon-right" ng-click="launchNavigator(provider)">
         <i class="icon ion-ios-navigate-outline "></i>
         <span translate="OPEN_IN_NAVIGATION">Open in navigation app</span>
+        <i class="icon ion-chevron-right icon-accessory"></i>
       </p>
 
       <div class="item item-icon-left text-continue-next-line">
         <i class="icon ion-ios-briefcase-outline"></i>
-        <span ng-if="provider.isIndividual">Individual</span>
-        <span ng-if="!provider.isIndividual">Organisation</span>
+        <span ng-if="provider.isIndividual">Individual</span> <!-- TODO: add to translations -->
+        <span ng-if="!provider.isIndividual">Organisation</span> <!-- TODO: add to translations -->
         <span ng-show="provider.type != null">- {{provider.type}}</span>
       </div>
 
@@ -81,10 +85,11 @@
         <img style="width: 100%" ng-src="{{provider.profilePicture}}">
       </div>
 
-      <div class="item item-icon-left text-continue-next-line"
+      <div class="item item-icon-left item-icon-right text-continue-next-line"
            ng-click="sendEmailForProvider()">
         <i class="icon ion-ios-chatbubble-outline"></i>
         <span translate="REPORT_MISTAKE">Report a mistake for this provider</span>
+        <i class="icon ion-chevron-right icon-accessory"></i>
       </div>
     </div>
   </ion-content>

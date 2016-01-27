@@ -4,7 +4,7 @@
   </div>
   <div class="item item-avatar item-icon-right" ng-repeat="favourite in favourites track by $index | orderBy: 'name'"
        ng-click="navigateToDetails(favourite.id)">
-    <img ng-src="{{favourite.profilePicture}}">
+    <img ng-src="{{favourite.imageTile}}">
 
     <h2 ng-bind="favourite.displayName"></h2>
 

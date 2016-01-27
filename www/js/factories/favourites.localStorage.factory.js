@@ -36,6 +36,18 @@
         function add(provider) {
 
           var favourites = localStorageService.get(cookieName);
+          if (provider.profilePicture == null) {
+            if (provider.isIndividual) {
+              provider.imageTile = './img/individual.png';
+            }
+            else {
+              provider.imageTile = './img/organisation.png';
+            }
+          }
+          else {
+            provider.imageTile = provider.profilePicture;
+          }
+
           if (favourites != undefined && favourites.list != undefined && favourites.list.length > 0) {
             console.log('add to favourite');
             favourites.list.push(provider);
