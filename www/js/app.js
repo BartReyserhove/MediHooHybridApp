@@ -33,15 +33,7 @@ angular.module('mediHooApp',
 
       $ionicPlatform.ready(function () {
 
-        //screen.lockOrientation(['portrait', 'landscape']);
-        //screen.orientation.unlock();
-        //screen.msLockOrientation.unlock();
-        //screen.mozLockOrientation.unlock();
-        //screen.orientation.addEventListener("change", function(e) {
-          //alert(screen.orientation.type + " " + screen.orientation.angle);
-          //screen.orientation.lock(screen.orientation.type);
-          //screen.lockOrientation(screen.orientation.type);
-        //}, false);
+        screen.unlockOrientation();
 
         if (window.cordova && window.cordova.plugins.Keyboard) {
           // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
