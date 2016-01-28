@@ -10,11 +10,12 @@
   <div class="card text-continue-next-line" ng-repeat="elem in searchHistory.slice().reverse() track by $index"
        ng-click="navigateToResultList(elem)">
     <div class="item item-icon-left" ng-show="elem.textualRepresentation.specialization">
-      <i class="icon ion-ios-albums-outline"></i>
+      <!--<i class="icon ion-ios-albums-outline"></i>-->
+      <img class="icon item-image" src="./img/books.png"/>
       <span ng-bind="elem.textualRepresentation.specialization"></span>
     </div>
     <div class="item item-icon-left" ng-show="elem.textualRepresentation.classification">
-      <i class="icon ion-ios-medical-outline"></i>
+      <img class="icon item-image" src="./img/office.png"/>
       <span ng-bind="elem.textualRepresentation.classification"></span>
     </div>
     <div class="item item-icon-left" ng-show="elem.textualRepresentation.address">
