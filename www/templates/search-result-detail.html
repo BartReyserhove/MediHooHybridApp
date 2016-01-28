@@ -66,7 +66,7 @@
 
       <div class="item item-icon-left text-continue-next-line" ng-if="provider.classifications.length > 0">
         <!--<i class="icon ion-ios-medical-outline"></i>-->
-        <img class="icon item-image" src="./img/office.png"/>
+        <img class="icon item-image" src="./img/office.svg"/>
 
         <div ng-repeat="classification in provider.classifications">
           <span ng-bind="classification.Name"></span>
@@ -74,8 +74,8 @@
       </div>
 
       <div class="item item-icon-left text-continue-next-line" ng-show="provider.specializations.length > 0">
-        <i class="icon ion-ios-albums-outline"></i>
-        <!--<img class="icon item-image" src="./img/books.png"/> TODO: fix image size, uitgerokken nu -->
+        <!--<i class="icon ion-ios-albums-outline"></i>-->
+        <img class="icon item-image" src="./img/books.svg"/> <!-- TODO: fix image size, uitgerokken nu -->
 
         <div ng-repeat="specialization in provider.specializations">
           <span ng-bind="specialization.Name"></span>

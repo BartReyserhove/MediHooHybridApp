@@ -91,6 +91,9 @@
               $ionicLoading.hide();
             })
           }
+          else {
+            $scope.searchOptions.location = null;
+          }
         };
 
         $scope.showResults = function () {
