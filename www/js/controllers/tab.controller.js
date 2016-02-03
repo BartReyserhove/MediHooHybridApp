@@ -37,18 +37,14 @@
 
         $ionicPlatform.ready(function () {
           $scope.hasNetwork = $cordovaNetwork.isOnline;
-          console.log('hasNetwork:');
-          console.log($scope.hasNetwork);
         });
 
         $rootScope.$on('$cordovaNetwork:online', function (event, networkState) {
           $scope.hasNetwork = true;
-          console.log('hasNetwork = true');
         });
 
         $rootScope.$on('$cordovaNetwork:offline', function (event, networkState) {
           $scope.hasNetwork = false;
-          console.log('hasNetwork = false');
           $scope.showMessage('No network found', 'error');
         });
 

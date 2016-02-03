@@ -16,12 +16,7 @@
           if (favouriteList.length == 0) {
             var favourites = localStorageService.get(cookieName);
 
-            if (favourites == undefined || favourites.list == undefined) {
-              console.log('favos is undef');
-            }
-            else {
-              console.log('favourites: ');
-              console.log(favourites.list);
+            if (favourites != undefined && favourites.list != undefined) {
               angular.forEach(favourites.list, function (elem) {
                 favouriteList.push(elem);
               });
@@ -49,14 +44,12 @@
           }
 
           if (favourites != undefined && favourites.list != undefined && favourites.list.length > 0) {
-            console.log('add to favourite');
             favourites.list.push(provider);
             localStorageService.set(cookieName, favourites);
 
             favouriteList.push(provider);
           }
           else {
-            console.log('create favo cookie');
             localStorageService.set(cookieName, {list: [provider]});
             favouriteList.push(provider);
           }
@@ -65,12 +58,8 @@
         function remove(id) {
           var favourites = localStorageService.get(cookieName);
           if (favourites != undefined && favourites.list != undefined && favourites.list.length > 0) {
-            console.log('remove a favo');
             angular.forEach(favourites.list, function (elem, iterator) {
-              console.log('index: ' + iterator);
-              console.log(elem);
               if (elem.id === id) {
-                console.log('remove this one');
                 favourites.list.splice(iterator, 1);
                 favouriteList.splice(iterator, 1);
                 localStorageService.set(cookieName, favourites);

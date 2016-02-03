@@ -20,17 +20,9 @@
             searchCriteria.textualRepresentation = textRepresentation;
 
             if (searchHistory != undefined && searchHistory.list != undefined && searchHistory.list.length > 0) {
-              console.log('it exists');
-
-              console.log('searchCriteria: ');
-              console.log(searchCriteria);
-              console.log('localservice list:');
-              console.log(searchHistory.list);
-
               containsObject(searchHistory.list, searchCriteria).then(function (criteriaExists) {
                 //if (!containsObject(searchHistory.list, searchCriteria)) {
                 if (!criteriaExists) {
-                  console.log('doesn\'t contain object');
                   if (searchHistory.list.length == maxCache) {
                     searchHistory.list.pop();
                     searchHistoryList.pop();
@@ -38,12 +30,11 @@
                   searchHistory.list.push(searchCriteria);
                   localStorageService.set(cookieName, searchHistory);
 
-                  searchHistoryList.push(searchCriteria);
+                  if(searchHistoryList.length > 0) searchHistoryList.push(searchCriteria);
                 }
               });
             }
             else {
-              console.log('searchhistory is undefined');
               localStorageService.set(cookieName, {list: [searchCriteria]});
               searchHistoryList.push(searchCriteria);
             }
@@ -54,12 +45,7 @@
           if (searchHistoryList.length == 0) {
             var searchHistory = localStorageService.get(cookieName);
 
-            if (searchHistory == undefined || searchHistory.list == undefined) {
-              console.log('searchhist is undef');
-            }
-            else {
-              console.log('history: ');
-              console.log(searchHistory.list);
+            if (searchHistory != undefined && searchHistory.list != undefined) {
               angular.forEach(searchHistory.list, function (elem) {
                 //elem.textualRepresentation = getSearchCriteriaTextRepresentation(elem);
                 searchHistoryList.push(elem);

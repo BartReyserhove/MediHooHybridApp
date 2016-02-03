@@ -9,7 +9,8 @@
           return {
             mediHooEmail: "info@Medihoo.com",
             mediHooUrl: 'http://www.medihoo.com',
-            mediHooApi: 'http://www.medihoo.com/api',
+            mediHooApi: 'https://www.medihoo.com/api',
+            mediHooApiConsumer: "&apiconsumer=fa17935f-05c5-4570-9e28-dc878792f501",
             takeItems: 10,
             languages: [
               {key:'en', value:'en-US'},

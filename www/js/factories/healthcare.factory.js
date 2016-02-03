@@ -14,6 +14,7 @@
           classification: false,
           specialization: false
         };
+        var classifications = [];
 
         function getCurrentSearchOptions() {
           return currentSearchOptions;
@@ -112,12 +113,10 @@
 
         function getProviderDetails(id) {
           var deferred = $q.defer();
-          var url = ConfigFactory.mediHooApi + '/provider/details?provider=' + id;
-
+          var url = ConfigFactory.mediHooApi + '/provider/details?provider=' + id + ConfigFactory.mediHooApiConsumer;
+          console.log(url);
           var callbacks = {
             success: function (res) {
-              console.log('details:');
-              console.log(res);
               deferred.resolve({data: res.data, error: false});
             },
             error: function (err) {
@@ -133,12 +132,10 @@
 
         function getProviderRatings(id) {
           var deferred = $q.defer();
-          var url = ConfigFactory.mediHooApi + '/provider/ratings?provider=' + id;
-
+          var url = ConfigFactory.mediHooApi + '/provider/ratings?provider=' + id + ConfigFactory.mediHooApiConsumer;
+          console.log(url);
           var callbacks = {
             success: function (res) {
-              console.log('ratings:');
-              console.log(res);
               deferred.resolve({data: res.data, error: false});
             },
             error: function (err) {
@@ -154,11 +151,10 @@
 
         function searchCountry(searchValue) {
           var deferred = $q.defer();
-          var url = ConfigFactory.mediHooApi + '/location/countries/?query=' + searchValue;
-
+          var url = ConfigFactory.mediHooApi + '/location/countries/?query=' + searchValue + ConfigFactory.mediHooApiConsumer;
+          console.log(url);
           var callbacks = {
             success: function (res) {
-              console.log(res);
               deferred.resolve({data: res.data, error: false});
             },
             error: function (err) {
@@ -175,13 +171,10 @@
         function searchCity(countryId, searchValue) {
           var deferred = $q.defer();
           var url = ConfigFactory.mediHooApi + '/location/cities/?query=' + searchValue +
-            '&country=' + countryId;
-
+            '&country=' + countryId + ConfigFactory.mediHooApiConsumer;
           console.log(url);
-
           var callbacks = {
             success: function (res) {
-              console.log(res);
               deferred.resolve({data: res.data, error: false});
             },
             error: function (err) {
@@ -205,7 +198,8 @@
             + currentSearchOptions.locationUrl
             + currentSearchOptions.distanceUrl
             + '&skip=' + checkIfUndefinedAndReturnValue(currentSearchOptions.skip)
-            + '&take=' + ConfigFactory.takeItems;
+            + '&take=' + ConfigFactory.takeItems
+            + ConfigFactory.mediHooApiConsumer;
 
           var callbacks = {
             success: function (res) {
@@ -255,7 +249,7 @@
             }
           };
 
-          console.log('search country: ');
+          console.log('search criteria: ');
           console.log(currentSearchOptions);
 
           console.log('url: ' + url);
@@ -280,101 +274,30 @@
         }
 
         function getClassifications() {
+          return classifications;
+        }
+
+        function changeClassifications(key) {
           var deferred = $q.defer();
+          var url = ConfigFactory.mediHooApi + '/taxonomy/promotedclassifications?language=' + key + ConfigFactory.mediHooApiConsumer;
+          console.log(url);
+          var callbacks = {
+            success: function (res) {
+              console.log('classifications:');
+              console.log(res.data);
+              classifications.splice(0, classifications.length);
+              classifications.push.apply(classifications, res.data);
+              //deferred.resolve({error: false, data: res.data});
+              deferred.resolve();
+            },
+            error: function (err) {
+              //deferred.resolve({error: true});
+              deferred.resolve();
+            }
+          };
 
-          var classifications = [{
-            "type": "Hospital",
-            "icon": "/content/images/searchicons/icon_hospitals.png",
-            "code": "HOSP",
-            "typeDescription": "Hospitals",
-            "isContainer": false
-          }, {
-            "type": "Dental Providers",
-            "icon": "/content/images/searchicons/icon_dental_providers.png",
-            "code": "DENP",
-            "typeDescription": "Dental Providers",
-            "isContainer": false
-          }, {
-            "type": "Pharmacy Service Providers",
-            "icon": "/content/images/searchicons/icon_pharmacies.png",
-            "code": "PHAS",
-            "typeDescription": "Pharmacy Service Providers",
-            "isContainer": false
-          }, {
-            "type": "Ambulances",
-            "icon": "/content/images/searchicons/icon_ambulances.png",
-            "code": "341600000X",
-            "typeDescription": "Medical transport: Air, ground \u0026 water",
-            "isContainer": false
-          }, {
-            "type": "Opticians",
-            "icon": "/content/images/searchicons/icon_opticians.png",
-            "code": "EYEV",
-            "typeDescription": "Opticians",
-            "isContainer": false
-          }, {
-            "type": "Physicians",
-            "icon": "/content/images/searchicons/icon_physicians.png",
-            "code": "PHYS",
-            "typeDescription": "Physicians",
-            "isContainer": false
-          }, {
-            "type": "Nurses",
-            "icon": "/content/images/searchicons/icon_nurses.png",
-            "code": "NSPR",
-            "typeDescription": "Nurses",
-            "isContainer": false
-          }, {
-            "type": "Psychologists",
-            "icon": "/content/images/searchicons/icon_psychologists.png",
-            "code": "BHSS",
-            "typeDescription": "Psychologists",
-            "isContainer": false
-          }, {
-            "type": "Dietitians",
-            "icon": "/content/images/searchicons/icon_dietitians.png",
-            "code": "DNSP",
-            "typeDescription": "Dietitians",
-            "isContainer": false
-          }, {
-            "type": "Chiropractors",
-            "icon": "/content/images/searchicons/icon_chiropractors.png",
-            "code": "CPRO",
-            "typeDescription": "Chiropractors",
-            "isContainer": false
-          }, {
-            "type": "Acupuncturists",
-            "icon": "/content/images/searchicons/icon_accupunctarists.png",
-            "code": "OSPR",
-            "typeDescription": null,
-            "isContainer": false
-          }, {
-            "type": "Physical Therapists",
-            "icon": "/content/images/searchicons/icon_physical_therapists.png",
-            "code": "RDRR",
-            "typeDescription": null,
-            "isContainer": false
-          }, {
-            "type": "Laboratories",
-            "icon": "/content/images/searchicons/icon_laboratories.png",
-            "code": "291U00000X",
-            "typeDescription": null,
-            "isContainer": false
-          }, {
-            "type": "Other Health Care Providers",
-            "icon": "/content/images/searchicons/icon_physicians.png",
-            "code": "OMP",
-            "typeDescription": "Other Health Care Providers (organisations i.e. clinics \u0026 individuals) - Physician Assistants, technologists, etc.",
-            "isContainer": false
-          }, {
-            "type": "Other Service Providers",
-            "icon": "/content/images/searchicons/icon_others.png",
-            "code": "OSP",
-            "typeDescription": "Other Service Providers - Blood Banks, Burn Centers, Dialysis Centers, Day Care Centers, Nursing/Custodial Care/Residential treatment facilities, Agencies, etc.",
-            "isContainer": false
-          }];
-
-          deferred.resolve(classifications);
+          $http.get(url)
+            .then(callbacks.success, callbacks.error);
 
           return deferred.promise;
         }
@@ -382,17 +305,17 @@
         function getClassification(code) {
           var deferred = $q.defer();
 
-          getClassifications().then(function (data) {
-            var resultList = $filter('filter')(data, {code: code});
-            deferred.resolve(resultList[0]);
-          });
+          var resultList = $filter('filter')(classifications, {code: code});
+          deferred.resolve(resultList[0]);
 
           return deferred.promise;
         }
 
+
         function searchSpecializationByClassification(classificationCode, searchValue) {
           var deferred = $q.defer();
-          var url = ConfigFactory.mediHooApi + '/taxonomy/specializations/' + classificationCode + '/' + searchValue;
+          var url = ConfigFactory.mediHooApi + '/taxonomy/specializations/' + classificationCode + '/' + searchValue
+          /*+ ConfigFactory.mediHooApiConsumer*/; //TODO: temporary
           console.log(url);
 
           var callbacks = {
@@ -417,16 +340,26 @@
 
         function changeApiLanguage(key) {
           var deferred = $q.defer();
-          var value = '';
+          var value = '', keyIsFound = false;
 
           ConfigFactory.languages.forEach(function (el) {
-            if (el.key === key) value = el.value;
+            if (el.key === key) {
+              value = el.value;
+              keyIsFound = true;
+            }
           });
-          var url = ConfigFactory.mediHooUrl + '/en-US/Accounts/changeLanguage/' + value;
+          var url = ConfigFactory.mediHooUrl + '/en-US/Accounts/changeLanguage/' + value /*+ ConfigFactory.mediHooApiConsumer*/; //TODO: temporary
 
-          $http.get(url).then(function (res) {
+          if (keyIsFound) {
+            $http.get(url).then(function (res) {
+              changeClassifications(key).then(function () {
+                deferred.resolve();
+              })
+            });
+          }
+          else {
             deferred.resolve();
-          });
+          }
 
           return deferred.promise;
         }
@@ -446,6 +379,7 @@
           getCurrentSearchOptions: getCurrentSearchOptions,
           hasMoreResults: hasMoreResults,
           getClassifications: getClassifications,
+          changeClassifications: changeClassifications,
           getClassification: getClassification,
           searchSpecializationByClassification: searchSpecializationByClassification,
           isSpecifiedInSearchCriteria: isSpecifiedInSearchCriteria,

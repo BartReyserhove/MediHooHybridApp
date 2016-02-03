@@ -23,10 +23,19 @@
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
     "ionic-plugin-keyboard",
-    "cordova-plugin-inappbrowser"
+    "cordova-plugin-inappbrowser",
+    "cordova-plugin-geolocation",
+    "cordova-plugin-device-orientation",
+    "cordova-plugin-network-information",
+    "uk.co.workingedge.phonegap.plugin.launchnavigator",
+    "cordova-plugin-screen-orientation"
   ],
   "cordovaPlatforms": [
-    "ios",
+    {
+      "platform": "ios",
+      "version": "3.8.0",
+      "locator": "ios@3.8.0"
+    },
     "android"
   ]
 }

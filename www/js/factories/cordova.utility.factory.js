@@ -35,22 +35,15 @@
         function getGeoLocation() {
           var deferred = $q.defer();
 
-          console.log('try to use geolocation');
-
           var callbacks = {
             success: function (position) {
-              console.log('geolocation success');
-              console.log(position);
-
               var lat = position.coords.latitude;
               var long = position.coords.longitude;
               currentLocation.lat = lat;
               currentLocation.long = long;
-              console.log(currentLocation);
               deferred.resolve(currentLocation);
             },
             error: function (err) {
-              console.log('can\'t get current geolocation');
               deferred.resolve(null);
             }
           };
@@ -70,10 +63,8 @@
 
           var callbacks = {
             success: function () {
-              console.log('Plugin success');
             },
             error: function (error) {
-              console.log('Plugin error: ' + error);
               window.open('https://maps.google.com?daddr=' + destination.replace(',', '+'), '_blank');
             }
           };
@@ -118,7 +109,6 @@
           $ionicPlatform.ready(function () {
             $cordovaEmailComposer.isAvailable().then(function () {
               // is available
-              console.log("available");
 
               var email = {
                 to: mailTo,
@@ -135,28 +125,23 @@
               });
             }, function () {
               // not available
-              console.log("not available");
             });
           });
         }
 
         function openInAppBrowser(url) {
           // Open in app browser
-          console.log('url: ' + url);
           if (url.indexOf('http://') != 0) {
             url = 'http://' + url;
           }
-          console.log('changed url: ' + url);
           window.open(url, '_blank');
         }
 
         function copyToClipBoard(value) {
           var callbacks = {
             success: function () {
-              console.log('Copy success');
             },
             error: function (error) {
-              console.log('Copy error');
             }
           };
 

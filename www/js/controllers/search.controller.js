@@ -5,9 +5,9 @@
   'use strict';
 
   angular.module('mediHooApp.controllers')
-    .controller('SearchCtrl', ['$scope', '$state', '$ionicLoading', '$ionicContentBanner',
+    .controller('SearchCtrl', ['$scope', '$state', '$translate', '$ionicLoading', '$ionicContentBanner',
       'HealthCareFactory', 'CordovaUtilityFactory', 'SearchHistoryFactory', '$cordovaKeyboard',
-      function ($scope, $state, $ionicLoading, $ionicContentBanner,
+      function ($scope, $state, $translate, $ionicLoading, $ionicContentBanner,
                 HealthCareFactory, CordovaUtilityFactory, SearchHistoryFactory, $cordovaKeyboard) {
 
         this._init = function () {
@@ -17,8 +17,12 @@
 
           $scope.cityIsSpecified = false;
 
-          HealthCareFactory.getClassifications().then(function (data) {
-            $scope.classifications = data;
+          $ionicLoading.show({
+            template: '<ion-spinner></ion-spinner>'
+          });
+          HealthCareFactory.changeClassifications($translate.use()).then(function () {
+            $scope.classifications = HealthCareFactory.getClassifications();
+            $ionicLoading.hide();
           });
         };
 
@@ -72,6 +76,9 @@
 
         $scope.geoLocationChanged = function () {
           if ($scope.useGeoLocation.checked) {
+            $scope.searchOptions.country = '';
+            $scope.searchOptions.city = '';
+
             $ionicLoading.show({
               template: '<ion-spinner></ion-spinner>'
             });
@@ -125,7 +132,7 @@
 
         //Check if city is a search input by user or an object, to display/hide slider
         $scope.$watch('searchOptions.city', function (newValue) {
-          if(newValue.Id == undefined) {
+          if (newValue.Id == undefined) {
             $scope.cityIsSpecified = false;
           }
           else {
@@ -148,7 +155,7 @@
         });
 
         $scope.$watch('searchOptions.specialization', function (newValue) {
-          if(newValue.ParentSpecializationName != undefined) {
+          if (newValue.ParentSpecializationName != undefined) {
             $cordovaKeyboard.close();
           }
         });
