@@ -5,10 +5,10 @@
   'use strict';
 
   angular.module('mediHooApp.controllers')
-    .controller('TabCtrl', ['$rootScope', '$scope', '$state', '$translate', 'CordovaUtilityFactory', 'ConfigFactory',
-      '$ionicPlatform', '$cordovaNetwork', '$ionicContentBanner', '$ionicTabsDelegate',
-      function ($rootScope, $scope, $state, $translate, CordovaUtilityFactory, ConfigFactory,
-                $ionicPlatform, $cordovaNetwork, $ionicContentBanner, $ionicTabsDelegate) {
+    .controller('TabCtrl', ['$rootScope', '$scope', '$state', '$translate', '$timeout', 'CordovaUtilityFactory', 'ConfigFactory',
+      '$ionicPlatform', '$cordovaNetwork', '$ionicLoading', '$ionicTabsDelegate',
+      function ($rootScope, $scope, $state, $translate, $timeout, CordovaUtilityFactory, ConfigFactory,
+                $ionicPlatform, $cordovaNetwork, $ionicLoading, $ionicTabsDelegate) {
 
         //TODO: find better place to put this?
         this._init = function () {
@@ -50,11 +50,18 @@
 
         $scope.showMessage = function (message, type) {
           //type: error or info
-          $ionicContentBanner.show({
+          /*$ionicContentBanner.show({
             text: [message],
             type: type,
             autoClose: 10000
+          });*/
+//TODO: use translate object instead and translate with: $translate.instant('PAGE.TITLE');
+          $ionicLoading.show({
+            template: message
           });
+          $timeout(function() {
+            $ionicLoading.hide();
+          }, 3000);
         };
 
         $scope.swipeTo = function (tabIndex) {

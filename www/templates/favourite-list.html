@@ -11,13 +11,6 @@
     <p><span ng-bind="favourite.street"></span> <span ng-bind="favourite.houseNumber"></span>, <span
       ng-bind="favourite.city"></span></p>
 
-    <!--<p ng-show="favourite.classifications.length > 0">
-      <span ng-repeat="classifcation in favourite.classifications" ng-bind="classifcation.Name"></span>
-    </p>
-    <p ng-show="favourite.specializations.length > 0">
-      <span ng-repeat="specialization in favourite.specializations" ng-bind="specialization.Name"></span>
-    </p>-->
-
     <p>
       <uib-rating class="result-rating" ng-model="favourite.rating" max="maxRating" readonly="isReadOnly"
                   state-on="'ion-ios-star'" state-off="'ion-ios-star-outline'"></uib-rating>

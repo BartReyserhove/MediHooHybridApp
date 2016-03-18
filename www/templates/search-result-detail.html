@@ -1,4 +1,3 @@
-<!--<ion-view view-title="{{'DETAILS_TITLE' | translate}}">-->
 <ion-view>
   <ion-nav-title translate="DETAILS_TITLE" class="item-color-assertive">
     Details
@@ -65,7 +64,6 @@
       </div>
 
       <div class="item item-icon-left text-continue-next-line" ng-if="provider.classifications.length > 0">
-        <!--<i class="icon ion-ios-medical-outline"></i>-->
         <img class="icon item-image" src="./img/office.svg"/>
 
         <div ng-repeat="classification in provider.classifications">
@@ -74,7 +72,6 @@
       </div>
 
       <div class="item item-icon-left text-continue-next-line" ng-show="provider.specializations.length > 0">
-        <!--<i class="icon ion-ios-albums-outline"></i>-->
         <img class="icon item-image" src="./img/books.svg"/> <!-- TODO: fix image size, uitgerokken nu -->
 
         <div ng-repeat="specialization in provider.specializations">

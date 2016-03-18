@@ -13,6 +13,8 @@
           $scope.isSpecifiedInSearchCriteria = HealthCareFactory.isSpecifiedInSearchCriteria();
           $scope.results = HealthCareFactory.getCurrentResultSet();
           $scope.resultsAreAlternatives = HealthCareFactory.isResultsAreAlternatives();
+          $scope.extraResults = HealthCareFactory.getExtraResultSet();
+          $scope.notManyResultsAvailable = HealthCareFactory.isNotManyResultsAvailable();
         };
 
         this._init();

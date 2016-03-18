@@ -5,12 +5,12 @@
   'use strict';
 
   angular.module('mediHooApp.controllers')
-    .controller('SearchCtrl', ['$scope', '$state', '$translate', '$ionicLoading', '$ionicContentBanner',
+    .controller('SearchCtrl', ['$scope', '$state', '$translate', '$timeout', '$ionicLoading',
       'HealthCareFactory', 'CordovaUtilityFactory', 'SearchHistoryFactory', '$cordovaKeyboard',
-      function ($scope, $state, $translate, $ionicLoading, $ionicContentBanner,
+      function ($scope, $state, $translate, $timeout, $ionicLoading,
                 HealthCareFactory, CordovaUtilityFactory, SearchHistoryFactory, $cordovaKeyboard) {
-
-        this._init = function () {
+        var _this = this;
+        _this._init = function () {
           $scope.useGeoLocation = {
             checked: false
           };
@@ -26,7 +26,7 @@
           });
         };
 
-        this._init();
+        _this._init();
 
         $scope.getCountries = function (val) {
           return HealthCareFactory.searchCountry(val)
@@ -86,16 +86,18 @@
               if (location == null) {
 
                 $scope.useGeoLocation.checked = false;
-                $ionicContentBanner.show({
-                  text: ['Please enable location on your smartphone first.'],
-                  autoClose: 10000
-                });
                 $scope.searchOptions.location = null;
+
+                $ionicLoading.hide();
+
+                $scope.showMessage('Please enable location on your smartphone first.');
               }
               else {
                 $scope.searchOptions.location = location;
+
+                $ionicLoading.hide();
               }
-              $ionicLoading.hide();
+
             })
           }
           else {
@@ -115,6 +117,19 @@
             template: '<ion-spinner></ion-spinner>'
           });
 
+          if($scope.searchOptions.city.Name != undefined) {
+            CordovaUtilityFactory.getGeoCode($scope.searchOptions.city.Name + ',' + $scope.searchOptions.country.Name)
+              .then(function (location) {
+                $scope.searchOptions.location = location;
+                _this.getProvidersForCriteria();
+              });
+          }
+          else {
+            _this.getProvidersForCriteria();
+          }
+        };
+
+        _this.getProvidersForCriteria = function() {
           HealthCareFactory.changeCurrentSearchOptions($scope.searchOptions).then(function () {
             HealthCareFactory.searchResultsWithGivenOptions().then(function (res) {
               if (res.error) {
@@ -159,6 +174,12 @@
             $cordovaKeyboard.close();
           }
         });
+
+        $scope.onTap = function(e) {
+          if(ionic.Platform.isIOS()) {
+            $scope.searchOptions.distance = Math.round((e.target.max / e.target.offsetWidth)*(e.gesture.touches[0].screenX - e.target.offsetLeft));
+          }
+        };
 
       }]);
 })();

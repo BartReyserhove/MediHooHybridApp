@@ -10,12 +10,12 @@
   </ion-nav-buttons>
   <ion-content on-swipe-right="goBack()" on-swipe-left="goForward()" class="fade">
     <div class="item item-avatar is-alternative" ng-show="resultsAreAlternatives">
-      <img class="icon" src="./img/smiley.png" />
+      <img class="icon" src="./img/smiley.png"/>
       <span translate="ARE_ALTERNATIVES">
         Results are alternatives
       </span>:
     </div>
-    <ion-list>
+    <!--<ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" collection-repeat="result in results"
                 type="item-text-wrap" ui-sref="tab.search-result-detail({resultId: result.Data.Id})">
         <img ng-src="{{result.Data.ProfilePictureUrl}}">
@@ -41,7 +41,95 @@
       <ion-item ng-if="results.length == 0">
         <h2>None</h2>
       </ion-item>
+
+      <div class="item item-avatar is-alternative" ng-show="notManyResultsAvailable">
+        <img class="icon" src="./img/smiley.png" />
+      <span translate="ARE_ALTERNATIVES">
+        Results are alternatives
+      </span>:
+      </div>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" collection-repeat="alternativeResult in extraResults"
+                type="item-text-wrap" ui-sref="tab.search-result-detail({resultId: alternativeResult.Data.Id})">
+        <img ng-src="{{alternativeResult.Data.ProfilePictureUrl}}">
+
+        <h2 ng-bind="alternativeResult.Data.DisplayName"></h2>
+
+        <p><span ng-bind="alternativeResult.Data.AddressLine1"></span>, <span ng-bind="alternativeResult.Data.City"></span></p>
+
+        <p ng-show="!isSpecifiedInSearchCriteria.classification && alternativeResult.Data.Classifications.length > 0">
+          <span ng-repeat="classifcation in alternativeResult.Data.Classifications" ng-bind="classifcation"></span>
+        </p>
+        <p ng-show="isSpecifiedInSearchCriteria.classification && !isSpecifiedInSearchCriteria.specialization
+        && alternativeResult.Data.Specializations.length > 0">
+          <span ng-repeat="specialization in alternativeResult.Data.Specializations" ng-bind="specialization"></span>
+        </p>
+
+        <p>
+          <uib-rating class="result-rating" ng-model="alternativeResult.Data.Rating" max="maxRating" readonly="isReadOnly"
+                      state-on="'ion-ios-star'" state-off="'ion-ios-star-outline'"></uib-rating>
+        </p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>-->
+
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="result in results"
+                type="item-text-wrap" ui-sref="tab.search-result-detail({resultId: result.Data.Id})">
+        <img ng-src="{{result.Data.ProfilePictureUrl}}">
+
+        <h2 ng-bind="result.Data.DisplayName"></h2>
+
+        <p><span ng-bind="result.Data.AddressLine1"></span>, <span ng-bind="result.Data.City"></span></p>
+
+        <p ng-show="!isSpecifiedInSearchCriteria.classification && result.Data.Classifications.length > 0">
+          <span ng-repeat="classifcation in result.Data.Classifications" ng-bind="classifcation"></span>
+        </p>
+        <p ng-show="isSpecifiedInSearchCriteria.classification && !isSpecifiedInSearchCriteria.specialization
+        && result.Data.Specializations.length > 0">
+          <span ng-repeat="specialization in result.Data.Specializations" ng-bind="specialization"></span>
+        </p>
+
+        <p>
+          <uib-rating class="result-rating" ng-model="result.Data.Rating" max="maxRating" readonly="isReadOnly"
+                      state-on="'ion-ios-star'" state-off="'ion-ios-star-outline'"></uib-rating>
+        </p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+      <ion-item ng-if="results.length == 0">
+        <h2>None</h2>
+      </ion-item>
+
+      <div class="item item-avatar is-alternative" ng-show="notManyResultsAvailable">
+        <img class="icon" src="./img/smiley.png"/>
+      <span translate="ARE_SUGGESTIONS">
+        Results are suggestions
+      </span>:
+      </div>
+
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="result in extraResults"
+                type="item-text-wrap" ui-sref="tab.search-result-detail({resultId: result.Data.Id})">
+        <img ng-src="{{result.Data.ProfilePictureUrl}}">
+
+        <h2 ng-bind="result.Data.DisplayName"></h2>
+
+        <p><span ng-bind="result.Data.AddressLine1"></span>, <span ng-bind="result.Data.City"></span></p>
+
+        <p ng-show="!isSpecifiedInSearchCriteria.classification && result.Data.Classifications.length > 0">
+          <span ng-repeat="classifcation in result.Data.Classifications" ng-bind="classifcation"></span>
+        </p>
+        <p ng-show="isSpecifiedInSearchCriteria.classification && !isSpecifiedInSearchCriteria.specialization
+        && result.Data.Specializations.length > 0">
+          <span ng-repeat="specialization in result.Data.Specializations" ng-bind="specialization"></span>
+        </p>
+
+        <p>
+          <uib-rating class="result-rating" ng-model="result.Data.Rating" max="maxRating" readonly="isReadOnly"
+                      state-on="'ion-ios-star'" state-off="'ion-ios-star-outline'"></uib-rating>
+        </p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
     </ion-list>
+
     <ion-infinite-scroll on-infinite="showMoreResults()" distance="5%"
                          ng-if="hasMoreResults()"></ion-infinite-scroll>
   </ion-content>

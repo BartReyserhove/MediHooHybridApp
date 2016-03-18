@@ -225,3 +225,20 @@ ul.dropdown-menu li:last-child {
   padding-top: 16px;
   padding-bottom: 16px;
 }
+
+@media screen and (max-device-width: 320px) {
+  .item {
+    font-size: 14px;
+  }
+
+  .input-label, .item-select, .item-select select, input[type=search], input[type=text], input[type=password],
+  input[type=datetime], input[type=datetime-local], input[type=date], input[type=month], input[type=time],
+  input[type=week], input[type=number], input[type=email], input[type=url], input[type=tel], input[type=color],
+  textarea {
+    font-size: 12px;
+  }
+
+  .item-select select {
+    padding: 0 40px 0 4px;
+  }
+}

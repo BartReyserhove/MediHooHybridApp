@@ -3,7 +3,7 @@ angular.module('mediHooApp',
     'ionic', 'ionic.service.core', 'ionic.service.analytics',
     'ui.bootstrap',
     'ngCordova',
-    'jett.ionic.content.banner',
+    //'jett.ionic.content.banner',
     'LocalStorageModule',
     'ngCookies',
     'pascalprecht.translate',
@@ -13,8 +13,8 @@ angular.module('mediHooApp',
     'mediHooApp.directives'
   ])
 
-  .run(['$ionicPlatform', '$ionicLoading', '$cordovaGlobalization', '$translate', 'HealthCareFactory', '$ionicAnalytics',
-    function ($ionicPlatform, $ionicLoading, $cordovaGlobalization, $translate, HealthCareFactory, $ionicAnalytics) {
+  .run(['$ionicPlatform', '$ionicLoading', '$cordovaGlobalization', '$cordovaStatusbar', '$translate', 'HealthCareFactory', '$ionicAnalytics',
+    function ($ionicPlatform, $ionicLoading, $cordovaGlobalization, $cordovaStatusbar, $translate, HealthCareFactory, $ionicAnalytics) {
       $ionicAnalytics.register();
 
       // kick off the platform web client
@@ -33,13 +33,12 @@ angular.module('mediHooApp',
       user.save();
 
       $ionicPlatform.ready(function () {
-
         screen.unlockOrientation();
 
         if (window.cordova && window.cordova.plugins.Keyboard) {
           // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
           // for form inputs)
-          cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
+          cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
           window.open = cordova.InAppBrowser.open;
           // Don't remove this line unless you know what you are doing. It stops the viewport
           // from snapping when text inputs are focused. Ionic handles this internally for
@@ -52,7 +51,6 @@ angular.module('mediHooApp',
             $translate.preferredLanguage('en');
             $translate.fallbackLanguage('en');
             $translate.use(langKey);
-            //HealthCareFactory.changeApiLanguage($translate.use());
             $ionicLoading.show({
               template: '<ion-spinner></ion-spinner>'
             });
@@ -63,6 +61,7 @@ angular.module('mediHooApp',
         }
         if (window.StatusBar) {
           StatusBar.styleDefault();
+          $cordovaStatusbar.styleDefault();
         }
       });
     }]);

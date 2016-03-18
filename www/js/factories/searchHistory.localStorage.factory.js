@@ -107,7 +107,19 @@
             where.distance = distance + ' km';
           }
 
-          if (criteria.locationUrl != '') {
+          if(criteria.countryUrl != '') {
+            if (criteria.cityUrl != '') where.address = criteria.cityUrl.split('+').join(' ') + ', ';
+            where.address += criteria.countryUrl.split('+').join(' ');
+            deferred.resolve(where);
+          }
+          else {
+            CordovaUtilityFactory.reverseGeoCode(criteria.location.lat, criteria.location.long).then(function (address) {
+              where.address = address;
+              deferred.resolve(where);
+            });
+          }
+
+          /*if (criteria.locationUrl != '') { //TODO: changed if else
             CordovaUtilityFactory.reverseGeoCode(criteria.location.lat, criteria.location.long).then(function (address) {
               where.address = address;
               deferred.resolve(where);
@@ -117,7 +129,7 @@
             if (criteria.cityUrl != '') where.address = criteria.cityUrl.split('+').join(' ') + ', ';
             where.address += criteria.countryUrl.split('+').join(' ');
             deferred.resolve(where);
-          }
+          }*/
 
           return deferred.promise;
         }

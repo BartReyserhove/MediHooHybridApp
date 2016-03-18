@@ -16,6 +16,9 @@
         };
         var classifications = [];
 
+        var notManyResultsAvailable = false;
+        var extraResultSet = [];
+
         function getCurrentSearchOptions() {
           return currentSearchOptions;
         }
@@ -25,6 +28,7 @@
 
           //reset resultsAreAlternatives
           resultsAreAlternatives = false;
+          notManyResultsAvailable = false;
 
           if (newOptions.country != null && newOptions.country != undefined && newOptions.country != ''
             && newOptions.country.Name != undefined) {
@@ -62,6 +66,7 @@
             else {
               newOptions.specializationUrl = newOptions.specialization.SpecializationName.split(' ').join('+');
             }
+            newOptions.specializationUrl = newOptions.specializationUrl.replace('&', '%26');
             isSpecifiedInSearch.specialization = true;
           }
           else {
@@ -86,6 +91,7 @@
 
           currentSearchOptions = newOptions;
           currentResultSet = [];
+          extraResultSet = [];
 
           deferred.resolve();
 
@@ -205,8 +211,24 @@
             success: function (res) {
               console.log('successfull search');
               console.log(res);
-              if (res.data.TotalCount == 0) {
-                console.log('totalcount is 0');
+              if (res.data.TotalCount < ConfigFactory.minimumAmountOfResults && currentSearchOptions.skip == 0) {
+
+                console.log('totalcount is ' + res.data.TotalCount);
+                if (res.data.TotalCount > 0) {
+                  if (notManyResultsAvailable) {
+                    //extraResultSet.push.apply(extraResultSet, res.data.Documents);
+                    addToExtraResultSet(res.data.Documents);
+                  }
+                  //first time
+                  else {
+                    notManyResultsAvailable = true;
+                    currentResultSet.push.apply(currentResultSet, res.data.Documents);
+                  }
+                }
+                else {
+                  resultsAreAlternatives = true;
+                }
+
                 if (currentSearchOptions.specializationUrl != '') {
                   currentSearchOptions.specializationUrl = '';
                 }
@@ -219,15 +241,19 @@
                 else if (currentSearchOptions.cityUrl != '') {
                   currentSearchOptions.cityUrl = '';
                 }
-
-                resultsAreAlternatives = true;
+                else {
+                  return {error: false};
+                }
 
                 return searchResultsWithGivenOptions();
               }
               else {
                 res.data.Documents.forEach(function (obj) {
                   if (obj.Data.ProfilePictureUrl == null) {
-                    if (obj.Data.Types[1] == 'Organisation') {
+                    if (obj.Data.Types.length == 1 && obj.Data.Types[0].indexOf('Organi') == 0) {
+                      obj.Data.ProfilePictureUrl = './img/organisation.png';
+                    }
+                    else if (obj.Data.Types.length > 1 && obj.Data.Types[1].indexOf('Organi') == 0) {
                       obj.Data.ProfilePictureUrl = './img/organisation.png';
                     }
                     else {
@@ -235,12 +261,24 @@
                     }
                   }
                 });
+                if (currentSearchOptions.skip == 0) {
+                  currentSearchOptions.totalCount = res.data.TotalCount;
+                }
+
+                if (notManyResultsAvailable) {
+                  addToExtraResultSet(res.data.Documents).then(function () {
+
+                  });
+                  //extraResultSet.push.apply(extraResultSet, res.data.Documents);
+                }
+                else {
+                  resultsAreAlternatives = res.data.AreAlternativeResults;
+                  currentResultSet.push.apply(currentResultSet, res.data.Documents);
+                }
+
+                return {error: false};
               }
 
-              currentResultSet.push.apply(currentResultSet, res.data.Documents);
-              currentSearchOptions.totalCount = res.data.TotalCount;
-
-              return {error: false};
             },
             error: function (err) {
               console.log('unsuccessfull search');
@@ -368,12 +406,45 @@
           return resultsAreAlternatives;
         }
 
+        function isNotManyResultsAvailable() {
+          return notManyResultsAvailable;
+        }
+
+        function getExtraResultSet() {
+          return extraResultSet;
+        }
+
+        function addToExtraResultSet(newValues) {
+          var deferred = $q.defer();
+
+          angular.forEach(newValues, function (el) {
+            if (!contains(currentResultSet, el) && !contains(extraResultSet, el)) {
+              extraResultSet.push(el);
+            }
+          });
+
+          deferred.resolve();
+
+          return deferred.promise;
+        }
+
+        function contains(a, obj) {
+          var i = a.length;
+          while (i--) {
+            if (a[i].Key === obj.Key) {
+              return true;
+            }
+          }
+          return false;
+        }
+
         return {
           searchCountry: searchCountry,
           searchCity: searchCity,
           searchResultsWithGivenOptions: searchResultsWithGivenOptions,
           searchNextResultsWithGivenOptions: searchNextResultsWithGivenOptions,
           getCurrentResultSet: getCurrentResultSet,
+          getExtraResultSet: getExtraResultSet,
           getResultWithId: getResultWithId,
           changeCurrentSearchOptions: changeCurrentSearchOptions,
           getCurrentSearchOptions: getCurrentSearchOptions,
@@ -384,7 +455,8 @@
           searchSpecializationByClassification: searchSpecializationByClassification,
           isSpecifiedInSearchCriteria: isSpecifiedInSearchCriteria,
           changeApiLanguage: changeApiLanguage,
-          isResultsAreAlternatives: isResultsAreAlternatives
+          isResultsAreAlternatives: isResultsAreAlternatives,
+          isNotManyResultsAvailable: isNotManyResultsAvailable
         }
       }]);
 })();

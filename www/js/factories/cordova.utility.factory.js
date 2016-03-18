@@ -10,6 +10,27 @@
         var currentLocation = {};
         var positionOptions = {timeout: 10000, enableHighAccuracy: true};
 
+        function getGeoCode(address) {
+          var deferred = $q.defer();
+
+          var geocoder = new google.maps.Geocoder();
+          geocoder.geocode({'address': address}, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+              console.log('geocode response:');
+              console.log(results);
+              var position = {
+                lat: results[0].geometry.location.lat(),
+                long: results[0].geometry.location.lng()
+              };
+              deferred.resolve(position);
+            } else {
+              deferred.resolve('Geocoder failed due to: ' + status);
+            }
+          });
+
+          return deferred.promise;
+        }
+
         function reverseGeoCode(latitude, longitude) {
           var deferred = $q.defer();
 
@@ -151,6 +172,7 @@
         }
 
         return {
+          getGeoCode: getGeoCode,
           reverseGeoCode: reverseGeoCode,
           getGeoLocation: getGeoLocation,
           sendEmail: sendEmail,

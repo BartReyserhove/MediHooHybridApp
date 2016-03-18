@@ -18,7 +18,8 @@
               {key:'de', value:'de-DE'},
               {key:'es', value:'es-ES'},
               {key:'fr', value:'fr-FR'}
-            ]
+            ],
+            minimumAmountOfResults: 10
           }
       });
 })();
